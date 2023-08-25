@@ -20,8 +20,6 @@ arcom --> moduleserial
 moduleserial --> module
 ```
 
-> **❗️ Important**: testing this callout style
-
 > [!NOTE] 
 > The module functions (e.g. `BpodWavePlayer`) utilise the `ArCOM` object to communicate with the hardware via serial interface.
 

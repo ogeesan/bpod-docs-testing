@@ -1,13 +1,53 @@
 Welcome to the Bpod Wiki.
 
-Bpod is an open source system for real-time behavior measurement in tasks consisting of multiple experimental trials. Experiment software is written in MATLAB, and device firmware is written in https://www.arduino.cc/[Arduino]. Hardware can be assembled with DIY desktop manufacturing methods - hand-soldering, 3-D printing, laser cutting and hand-tapping. The system architecture is low cost, and supremely hackable - precisely what is necessary to explore a space of behavioral metrics, or to train test subjects with high throughput. This wiki contains instructions for assembly and programming.
+Bpod is an open source system for real-time behavior measurement in tasks consisting of multiple experimental trials. Experiment software is written in MATLAB, and device firmware is written in [Arduino](https://www.arduino.cc/). Hardware can be assembled with DIY desktop manufacturing methods - hand-soldering, 3-D printing, laser cutting and hand-tapping. The system architecture is low cost, and supremely hackable - precisely what is necessary to explore a space of behavioral metrics, or to train test subjects with high throughput. This wiki contains instructions for assembly and programming.
 
-> [!NOTE] Test note text
-> What the heck
+```mermaid
+sequenceDiagram
+actor e as Experimenter
+participant matlab as Computer
+participant bpod as Bpod State Machine
 
-> **Note:** This is how you write a note.
->
-> It can have multiple lines.
+e->>matlab: Start protocol
+Note over matlab: Prepare session
+loop
+Note over matlab: Prepare state machine
+matlab ->> bpod: Run state machine
+activate bpod
+Note over bpod: Rodent behavior
+bpod ->> matlab: Send trial data
+deactivate bpod
+Note over matlab: Save data
+end
+
+```
+
+```
+readme.md
+content/
+    assembling-bpod.md
+    installing-bpod.md
+    firmware-update.md
+    software-update.md
+    bench-testing.md
+    user-guide/
+        hardware-overview.md
+        general-concepts.md
+        protocol-development.md
+        function-reference.md
+        using-bcontrol.md
+        serial-interfaces.md
+    module-guides/
+        rotary-encoder-module.md
+    stimulation.md
+    license-and-liability.md
+    download.md
+    contact.md
+
+```
+
+- [ ] Improve module documentation
+  - [ ] Move module function reference and serial interface into the same file
 
 
 Bpod was initially developed in http://kepecslab.cshl.edu/[Kepecs Lab] at Cold Spring Harbor Laboratory, as a project alongside the lead developer's thesis research. It is maintained by https://sanworks.io/[Sanworks LLC], a company dedicated to developing Bpod and other open neuroscience tools.

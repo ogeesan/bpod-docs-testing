@@ -2,11 +2,13 @@ Welcome to the Bpod Wiki.
 
 Bpod is an open source system for real-time behavior measurement in tasks consisting of multiple experimental trials. Experiment software is written in MATLAB, and device firmware is written in https://www.arduino.cc/[Arduino]. Hardware can be assembled with DIY desktop manufacturing methods - hand-soldering, 3-D printing, laser cutting and hand-tapping. The system architecture is low cost, and supremely hackable - precisely what is necessary to explore a space of behavioral metrics, or to train test subjects with high throughput. This wiki contains instructions for assembly and programming.
 
-> [!NOTE]
+> [!NOTE] Test note text
 > What the heck
 
-> 📘
-> Anotehr note
+> **Note:** This is how you write a note.
+>
+> It can have multiple lines.
+
 
 Bpod was initially developed in http://kepecslab.cshl.edu/[Kepecs Lab] at Cold Spring Harbor Laboratory, as a project alongside the lead developer's thesis research. It is maintained by https://sanworks.io/[Sanworks LLC], a company dedicated to developing Bpod and other open neuroscience tools.
 

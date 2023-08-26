@@ -1,5 +1,13 @@
 # Function reference
 
+## Table of Contents
+- Initialization
+- BpodSystem fields
+- BpodSystem functions
+- Creating a state machine
+- Running a state machine
+- Running a protocol
+- Data storage
 
 ## Initialization
 
@@ -109,6 +117,33 @@ end
 ## BpodSystem functions
 
 ### `assertModule()`
+#### Description
+
+Throws an error if a given Bpod module is not present.
+- An optional argument specifies whether the module must also be paired with its USB serial port via the USB pairing UI.
+- After connecting a new module, you must press the 'refresh' button on the [Bpod console GUI] to make it visible to `assertModule()`.
+
+#### Syntax
+
+`BpodSystem.assertModule(moduleNames, USBPaired)`
+
+#### Parameters
+
+- `moduleNames`: a character array containing the name of the module. A cell array of strings may also be provided to assert multiple modules. Note: The names of connected modules are given in BpodSystem.Modules
+- `USBPaired`: optional, an array of 1s and 0s with one value for each module in moduleNames. 
+  - 1 = the module must be paired with its USB serial port. 
+  - 0 = the module does not have to be paired.
+
+#### Returns
+- None
+
+#### Example
+
+This code will throw an error if the HiFi or ValveDriver modules are missing.
+It will also throw an error if the HiFi module is not paired with its USB serial port.
+```matlab
+BpodSystem.AssertModule({'HiFi', 'ValveDriver'}, [1 0]);
+```
 
 ### `setStatusLED()`
 

@@ -62,8 +62,9 @@ Please post on the [Forums](https://sanworks.io/forums/) with your questions and
 
 # Table of Contents
 - Assembly
+  - [Bench testing Bpod](docs/assembly/bench-testing-bpod.md)
   - Hardware
-  - Installing  Bpod
+  - [Installing  Bpod](docs/assembly/installing-bpod.md)
   - Firmware updates
   - Software updates
 - Module guides
@@ -73,11 +74,11 @@ Please post on the [Forums](https://sanworks.io/forums/) with your questions and
   - Ethernet Module
   - HiFi Module
   - I2C Messenger Module
-  - Rotary Encoder Module
+  - [Rotary Encoder Module](docs/module-guides/rotary-encoder-module.md)
   - Port Array Module
   - Valve Driver Module
 - User guide
-  - Function reference
-  - Modules
-  - Protocol development
-  - Serial interfaces
+  - [Function reference](docs/user-guide/function-reference.md)
+  - [Modules](docs/user-guide/modules.md)
+  - [Protocol development](docs/user-guide/protocol-development.md)
+  - [Serial interfaces](docs/user-guide/serial-interfaces.md)

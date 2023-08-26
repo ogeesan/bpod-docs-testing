@@ -27,7 +27,7 @@ The module makes use of a [Teensy](https://www.pjrc.com/teensy/) board, a microc
 
 ```mermaid
 ---
-title: Rotary Encoder Module Schematic
+title: Rotary Encoder Moduleh
 ---
 flowchart
 re(rotary encoder)

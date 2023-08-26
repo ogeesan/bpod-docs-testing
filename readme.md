@@ -30,6 +30,9 @@ Bpod is an open source system for real-time behavior measurement in tasks consis
   - Port Array Module
   - Valve Driver Module
 
+> [!NOTE]
+> ![Image of top-left button in Github's file preview opening an outline view](docs/images/github-doc-outline-guide.png)
+
 ## About Bpod
 
 Bpod was initially developed in [Kepecs Lab](http://kepecslab.cshl.edu/) at Cold Spring Harbor Laboratory, as a project alongside the lead developer's thesis research. It is maintained by [Sanworks LLC](https://sanworks.io/), a company dedicated to developing Bpod and other open neuroscience tools.

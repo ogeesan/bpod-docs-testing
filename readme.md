@@ -14,15 +14,18 @@ Bpod is an open source system for real-time behavior measurement in tasks consis
 
 - Assembly
   - [Bench testing Bpod](docs/assembly/bench-testing-bpod.md)
+  - Downloads and sources
   - Hardware
   - [Installing  Bpod](docs/assembly/installing-bpod.md)
   - Firmware updates
   - Software updates
 - User guide
   - [Function reference](docs/user-guide/function-reference.md)
+  - General Conceptsfnconcepts
   - [Modules](docs/user-guide/modules.md)
   - [Protocol development](docs/user-guide/protocol-development.md)
   - [Serial interfaces](docs/user-guide/serial-interfaces.md)
+  - Using BControl
 - Module guides
   - Analog Input Module
   - Analog Output Module

@@ -230,7 +230,7 @@ The SerialUSB command interface allows configuration of the rotary encoder modul
 ## Explanation of the module
 This is a guide explaining how the module works, which provides a template for understanding the functions of other modules.
 
-### Why the module is required
+### What the module does
 ![Alt text](./../images/rotary-encoder-yumo.png)
 
 Off the shelf rotary encoder's are relatively simple devices that report a direction of movement by a certain amount. The following diagram (from the [datasheet](https://www.mouser.com/datasheet/2/307/e6b2-c_ds_csm491-25665.pdf) for the Yumo E6B2-C rotary encoders) describes the purpose of the black, white, and orange wires; the Phase A, Phase B, and Phase Z, respectively.
@@ -248,7 +248,7 @@ That is the purpose of the rotary encoder modulefm: to provide an interface with
 
 A [printed circuit board](https://en.wikipedia.org/wiki/Printed_circuit_board), or PCB, is essentially conductive wires printed into an insulated sheet. Rather than have a bird's nest of wires, it's much easier to have the wires statically and reproducibly embedded in a piece of plastic.
 
-The module makes use of a [Teensy](https://www.pjrc.com/teensy/) board, a microcontroller that can be programmed with the Arduino language. Consider the rotary encoder module, which must process the incoming wire inputs. Rather than trying to insert/solder those inputs into the Teensy board directly, it's far better to connect a screw terminal into a PCB, which then "relays" the signals from the wires to the Teensy's solder pads which are soldered into the PCB.
+The module makes use of a [Teensy](https://www.pjrc.com/teensy/) board, a microcontroller that can be programmed with the Arduino language. The board must process the incoming wire inputs. Rather than trying to insert/solder those inputs into the Teensy directly, it's far better to connect a screw terminal into a PCB, which then "relays" the signals from the wires to the Teensy's solder pads which are soldered to the PCB.
 
 ```mermaid
 ---
@@ -268,7 +268,7 @@ pcb <-- bytes via CAT5e cable --> statemachine
 module <-- ArCOM USB communication --> usb
 ```
 
-### Serial interface and module class guide
+### Serial interface and module class example
 Let's take `RotaryEncoderModule.setPosition(newPosition)` as an example. `newPosition` is the value, in degrees, that the rotary encoder module will be set to (recall that the rotary encoder itself can only really report movement, so "position" as a value in degrees exists through calculations performed by the module's Teensy board). We can do this in MATLAB, and not have to worry about translating this request into some lower-level language that the Teensy board on the module is reading.
 
 The `setPosition()` class method will use (aka wraps) the `ArCOMObject_Bpod.write()` method to send the sequence of bytes that the firmware has been programmed to recognise as a command to set a new postion. In this case byte 'P' followed by two bytes (16 bits) for the new position. When the module receives 'P', it recognises that the next two bytes should be interpreted as the number value for the new position.

@@ -1,5 +1,5 @@
 # Rotary Encoder Module
-A rotary encoder is a device that sends information related to its angular rotation.
+A rotary encoder is a device that sends information related to its angular rotation. This module would be useful for tasks involving running wheels or choice wheels.
 
 > [!IMPORTANT]
 > There are two versions of the Rotary Encoder Module with non-overlapping feature sets. Both modules are controlled by the `RotaryEncoderModule` class. Functions specific to each version are indicated with:
@@ -106,7 +106,11 @@ The rotary encoder module is controlled in 2 ways:
   - The GUI is updated using a MATLAB timer, preserving access to the command line.
   - It appears as:
 
-![Alt text](../images/rotary-encoder-module-streamui.png)
+<p align="center">
+<img src="../images/rotary-encoder-module-streamui.png" alt="Example Module Stream UI Window" width="550"/>
+</p>
+
+
 ### Cleanup
 - Clear the `RotaryEncoderModule` object with clear:
 ```matlab

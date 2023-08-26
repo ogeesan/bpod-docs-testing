@@ -21,7 +21,7 @@ A protocol is effectively two parts:
 - Other files used exclusively by your protocol can also reside in this folder. For now, you just need the one you saved.
 
 > [!NOTE]
-> When a protocol is run, Bpod will move MATLAB's Current Directory into the folder where the protocol m-file is stored.
+> When a protocol is run, Bpod will add the protocol folder into [MATLAB's Path](https://mathworks.com/help/matlab/matlab_env/what-is-the-matlab-search-path.html) where the protocol m-file is stored.
 > 
 ### Protocol Setup (code that runs before the behavior session starts)
 

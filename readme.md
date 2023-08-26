@@ -6,6 +6,10 @@ Welcome to the Bpod Wiki.
 
 Bpod is an open source system for real-time behavior measurement in tasks consisting of multiple experimental trials. Experiment software is written in MATLAB, and device firmware is written in [Arduino](https://www.arduino.cc/). Hardware can be assembled with DIY desktop manufacturing methods - hand-soldering, 3-D printing, laser cutting and hand-tapping. The system architecture is low cost, and supremely hackable - precisely what is necessary to explore a space of behavioral metrics, or to train test subjects with high throughput. This wiki contains instructions for assembly and programming.
 
+<p align="center">
+<img src="docs/images/state-machine.jpg" alt="Alt text" width="300"/>
+</p>
+
 ## Table of Contents
 
 - Assembly
@@ -30,14 +34,13 @@ Bpod is an open source system for real-time behavior measurement in tasks consis
   - Port Array Module
   - Valve Driver Module
 
+To view an outline in long documents you can open a file outline:
 
-![Image of top-left button in Github's file preview opening an outline view](docs/images/github-doc-outline-guide.png)
+<img src="docs/images/github-doc-outline-guide.png" alt="Alt text" width="500"/>
 
 ## About Bpod
 
 Bpod was initially developed in [Kepecs Lab](http://kepecslab.cshl.edu/) at Cold Spring Harbor Laboratory, as a project alongside the lead developer's thesis research. It is maintained by [Sanworks LLC](https://sanworks.io/), a company dedicated to developing Bpod and other open neuroscience tools.
-
-![](docs/images/state-machine.jpg)
 
 Bpod builds on the central design concept of [B-control](http://brodywiki.princeton.edu/bcontrol/index.php/Main_Page), a system provided by [Brody Lab](http://brodylab.org/) at Princeton University for rodent behavior measurement. Experimental trials are constructed in MATLAB as [finite state machines](https://en.wikipedia.org/wiki/Finite-state_machine), and executed on a separate real-time Linux computer. Bpod combines this parallel processing model with the accessibility of embedded computing in the Arduino language. Bpod provides a rich suite of software tools in high level interpreted computing environments for protocol development and online analysis, while real-time processing is delegated to an Arduino microcontroller network governed by finite state machine firmware.
 

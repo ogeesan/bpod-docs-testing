@@ -1,13 +1,76 @@
 # Function reference
+> [!NOTE]
+> :construction: This file contains all function references, with each section likely to be moved into its own file into the future.
 
 ## Table of Contents
 - [Initialization](#initialization)
+  - [`Bpod()`](#bpod)
 - [BpodSystem fields](#bpodsystem-fields)
+  - [Data](#data)
+  - [ProtocolSettings](#protocolsettings)
+  - [SoftCodeHandlerFunction](#softcodehandlerfunction)
+  - [ProtocolFigures](#protocolfigures)
+  - [EmulatorMode](#emulatormode)
+  - [StateMachineInfo](#statemachineinfo)
+  - [Status](#status)
+  - [FlexIOConfig](#flexioconfig)
 - [BpodSystem functions](#bpodsystem-functions)
+  - [`assertModule()`](#assertmodule)
+  - [`setStatusLED()`](#setstatusled)
+  - [`startAnalogViewer()`](#startanalogviewer)
 - [Creating a state machine](#creating-a-state-machine)
+  - [`NewStateMachine()`](#newstatemachine)
+  - [`AddState()`](#addstate)
+  - [`EditState()`](#editstate)
+  - [`SetGlobalTimer()`](#setglobaltimer)
+  - [`SetGlobalCounter()`](#setglobalcounter)
+  - [`SetCondition()`](#setcondition)
 - [Running a state machine](#running-a-state-machine)
+  - [`SendStateMachine()`](#sendstatemachine)
+  - [`RunStateMachine()`](#runstatemachine)
+  - [`BpodTrialManager()`](#bpodtrialmanager)
+  - [`AddTrialEvents()`](#addtrialevents)
 - [Running a protocol](#running-a-protocol)
+  - [From the Bpod console GUI:](#from-the-bpod-console-gui)
+  - [From the command line:](#from-the-command-line)
+    - [`RunProtocol()`](#runprotocol)
 - [Data storage](#data-storage)
+  - [`SaveBpodSessionData()`](#savebpodsessiondata)
+  - [`SaveProtocolSettings()`](#saveprotocolsettings)
+  - [`AddFlexIOAnalogData()`](#addflexioanalogdata)
+- [General Plugins](#general-plugins)
+  - [`BpodParameterGUI()`](#bpodparametergui)
+  - [`PsychToolboxSoundServer()`](#psychtoolboxsoundserver)
+  - [`PsychToolboxVideoPlayer()`](#psychtoolboxvideoplayer)
+  - [`BpodNotebook`](#bpodnotebook)
+  - [`SideOutcomePlot()`](#sideoutcomeplot)
+  - [`TrialTypeOutcomePlot()`](#trialtypeoutcomeplot)
+  - [`StateTiming()`](#statetiming)
+- [Serial message seup](#serial-message-seup)
+  - [`LoadSerialMessages()`](#loadserialmessages)
+  - [`ResetSerialMessages()`](#resetserialmessages)
+  - [Implicit serial messages](#implicit-serial-messages)
+- [Module \<-\> MATLAB (via USB)](#module---matlab-via-usb)
+  - [`I2CMessenger()`](#i2cmessenger)
+  - [`BpodAnalogIn()`](#bpodanalogin)
+  - [`BpodWavePlayer()`](#bpodwaveplayer)
+  - [`BpodAudioPlayer()`](#bpodaudioplayer)
+  - [`PulsePalModule()`](#pulsepalmodule)
+  - [`DDSModule()`](#ddsmodule)
+  - [`RotaryEncoderModule()`](#rotaryencodermodule)
+  - [`BpodHiFi()`](#bpodhifi)
+  - [`BpodStepperModule()`](#bpodsteppermodule)
+- [Module \<-\> MATLAB (via FSM)](#module---matlab-via-fsm)
+  - [`ModuleWrite()`](#modulewrite)
+  - [`ModuleRead()`](#moduleread)
+- [USB Soft Codes, PC --\> FSM](#usb-soft-codes-pc----fsm)
+  - [`SendBpodSoftCode()`](#sendbpodsoftcode)
+- [Liquid calibration](#liquid-calibration)
+  - [`GetValveTimes()`](#getvalvetimes)
+- [Updating Bpod](#updating-bpod)
+  - [`LoadBpodFirmware()`](#loadbpodfirmware)
+  - [`UpdateBpodSoftware()`](#updatebpodsoftware)
+
 
 ## Initialization
 
@@ -296,3 +359,44 @@ Click 'Play' for launch manager.
 Saves information in `BpodSystem.Data` to disk.
 
 ### `SaveProtocolSettings()`
+
+### `AddFlexIOAnalogData()`
+
+## General Plugins
+### `BpodParameterGUI()`
+### `PsychToolboxSoundServer()`
+### `PsychToolboxVideoPlayer()`
+### `BpodNotebook`
+### `SideOutcomePlot()`
+### `TrialTypeOutcomePlot()`
+### `StateTiming()`
+
+## Serial message seup
+### `LoadSerialMessages()`
+### `ResetSerialMessages()`
+### Implicit serial messages
+
+## Module <-> MATLAB (via USB)
+### `I2CMessenger()`
+### `BpodAnalogIn()`
+### `BpodWavePlayer()`
+### `BpodAudioPlayer()`
+### `PulsePalModule()`
+### `DDSModule()`
+### `RotaryEncoderModule()`
+### `BpodHiFi()`
+### `BpodStepperModule()`
+
+## Module <-> MATLAB (via FSM)
+### `ModuleWrite()`
+### `ModuleRead()`
+
+## USB Soft Codes, PC --> FSM
+### `SendBpodSoftCode()`
+
+## Liquid calibration
+### `GetValveTimes()`
+
+## Updating Bpod
+### `LoadBpodFirmware()`
+### `UpdateBpodSoftware()`

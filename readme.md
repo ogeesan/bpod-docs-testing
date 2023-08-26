@@ -34,9 +34,10 @@ Bpod is an open source system for real-time behavior measurement in tasks consis
   - Port Array Module
   - Valve Driver Module
 
-To view an outline in long documents you can open a file outline:
-
+To assist navigating long documents you can open a file outline:
+<p align="center">
 <img src="docs/images/github-doc-outline-guide.png" alt="Alt text" width="500"/>
+</p>
 
 ## About Bpod
 

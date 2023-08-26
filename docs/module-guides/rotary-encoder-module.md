@@ -237,22 +237,22 @@ Off the shelf rotary encoder's are relatively simple devices that report a direc
 
 ![Alt text](./../images/rotary-encoder-yumo-outputs.png)
 
-Each wire  can either be Hig or Low, and the combination of them describes the movement/position of the rotary encoder.
+Each wire  can either be High or Low, and the combination of them describes the movement/position of the rotary encoder.
 The black and white wires pulse once at the same time when the encoder moves enough in one direction.
 However, one will pulse slightly ahead of the other depending on whether the encoder moved clockwise or anticlockwise.
-The amount required to move to trigger a pulse depends on the resolution of the rotary encoder, with a 1024 resolution encoder having 1024 ticks per 360 degrees of rotation.
+The amount of movement required to trigger a pulse depends on the resolution of the rotary encoder, with a 1024 resolution encoder having 1024 ticks per 360 degrees of rotation.
 The orange wire will pulse when the rotary encoder is moved through a full rotation (i.e. at the same place each time), allowing a system to monitor absolute position even if power momentarily fails.
 
 The fact that a rotary encoder moved clockwise or anti clockwise one tick is low level information, so the rotary encoder module will take that information, convert it into degrees, and timestamp it.
-That is the purpose of the rotary encoder module, to provide an interface with a rotary encoder to pre-processes the data into something more usable and support more complex functions, such as a threshold system.
+That is the purpose of the rotary encoder modulefm: to provide an interface with a rotary encoder to pre-processes the data into something more usable and support more complex functions, such as a threshold system.
 
-A [printed circuit board](https://en.wikipedia.org/wiki/Printed_circuit_board), or PCB, is essentially conductive wires printed into an insulated sheet. Rather than have actual complex wires, it's much easier to have the wires statically embedded in a reproducible piece of plastic.
+A [printed circuit board](https://en.wikipedia.org/wiki/Printed_circuit_board), or PCB, is essentially conductive wires printed into an insulated sheet. Rather than have a bird's nest of wires, it's much easier to have the wires statically and reproducibly embedded in a piece of plastic.
 
-The module makes use of a [Teensy](https://www.pjrc.com/teensy/) board, a microcontroller that can be programmed with the Arduino language. Consider the rotary encoder module, which must process the incoming wire inputs. Rather than trying to insert those inputs into the Teensy board directly, it's far better to connect a screw terminal into a PCB, which then "relays" the signals from the wire into the Teensy which is soldered into the PCB.
+The module makes use of a [Teensy](https://www.pjrc.com/teensy/) board, a microcontroller that can be programmed with the Arduino language. Consider the rotary encoder module, which must process the incoming wire inputs. Rather than trying to insert/solder those inputs into the Teensy board directly, it's far better to connect a screw terminal into a PCB, which then "relays" the signals from the wires to the Teensy's solder pads which are soldered into the PCB.
 
 ```mermaid
 ---
-title: Rotary Encoder Module
+title: Rotary Encoder Module Schematic
 ---
 flowchart
 re(rotary encoder)
@@ -269,8 +269,6 @@ module <-- ArCOM USB communication --> usb
 ```
 
 ### Serial interface and module class guide
-Communication between the module and the state machine or computer are explained in the [guide to serial interfaces](../user-guide/serial-interfaces.md)
-
 Let's take `RotaryEncoderModule.setPosition(newPosition)` as an example. `newPosition` is the value, in degrees, that the rotary encoder module will be set to (recall that the rotary encoder itself can only really report movement, so "position" as a value in degrees exists through calculations performed by the module's Teensy board). We can do this in MATLAB, and not have to worry about translating this request into some lower-level language that the Teensy board on the module is reading.
 
 The `setPosition()` class method will use (aka wraps) the `ArCOMObject_Bpod.write()` method to send the sequence of bytes that the firmware has been programmed to recognise as a command to set a new postion. In this case byte 'P' followed by two bytes (16 bits) for the new position. When the module receives 'P', it recognises that the next two bytes should be interpreted as the number value for the new position.
@@ -281,10 +279,10 @@ Understanding the serial interface is important and useful because we can use th
 sma = AddState('State', 'dothing',
 'Tup', 0,
 'StateChangeConditions', {'Tup', 'nextstate'},
-'OutputActions', {'RotaryEncoder1', ['V' 'x' '1']}
+'OutputActions', {'RotaryEncoder1', ['P' 'x' '1']}
 )
 ```
 
 In this case, the 'x' and '1' correspond to bytes 01111000 00110001 or 30769. Note that this example is only illustrative because a `newPosition` of 30769 would probably fail because it is beyond the `wrapPoint` for the module.
 
-We could also use the Bpod Console's Manual Override to send this byte sequence manually state machine, or indeed use `RotaryEncoderModule.Port.write()` to do so via SerialUSB. 
+We could also use the Bpod Console's Manual Override to send this byte sequence manually via state machine, or indeed use `RotaryEncoderModule.Port.write()` to do so via SerialUSB. 

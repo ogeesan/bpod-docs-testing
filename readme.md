@@ -22,44 +22,6 @@ end
 
 ```
 
-```
-readme.md
-content/
-    assembling-bpod.md
-    installing-bpod.md
-    firmware-update.md
-    software-update.md
-    bench-testing.md
-    user-guide/
-        hardware-overview.md
-        general-concepts.md
-        protocol-development.md
-        function-reference.md
-        using-bcontrol.md
-        serial-interfaces.md
-    module-guides/
-        rotary-encoder-module.md
-    stimulation.md
-    license-and-liability.md
-    download.md
-    contact.md
-
-```
-
-- [ ] Improve module documentation
-  - [ ] Move module function reference and serial interface into the same file
-
-
-Bpod was initially developed in [Kepecs Lab](http://kepecslab.cshl.edu/) at Cold Spring Harbor Laboratory, as a project alongside the lead developer's thesis research. It is maintained by [Sanworks LLC](https://sanworks.io/), a company dedicated to developing Bpod and other open neuroscience tools.
-
-![](docs/images/state-machine.jpg)
-
-Bpod builds on the central design concept of [B-control](http://brodywiki.princeton.edu/bcontrol/index.php/Main_Page), a system provided by [Brody Lab](http://brodylab.org/) at Princeton University for rodent behavior measurement. Experimental trials are constructed in MATLAB as [finite state machines](https://en.wikipedia.org/wiki/Finite-state_machine), and executed on a separate real-time Linux computer. Bpod combines this parallel processing model with the accessibility of embedded computing in the Arduino language. Bpod provides a rich suite of software tools in high level interpreted computing environments for protocol development and online analysis, while real-time processing is delegated to an Arduino microcontroller network governed by finite state machine firmware.
-
-We love hearing about the awesome [science] that is generated with Bpod! 
-
-Please post on the [Forums](https://sanworks.io/forums/) with your questions and feedback, or [email us](https://sanworks.io/about/contact.php) directly.
-
 # Table of Contents
 - Assembly
   - [Bench testing Bpod](docs/assembly/bench-testing-bpod.md)
@@ -82,3 +44,17 @@ Please post on the [Forums](https://sanworks.io/forums/) with your questions and
   - [Modules](docs/user-guide/modules.md)
   - [Protocol development](docs/user-guide/protocol-development.md)
   - [Serial interfaces](docs/user-guide/serial-interfaces.md)
+
+
+# About Bpod
+
+Bpod was initially developed in [Kepecs Lab](http://kepecslab.cshl.edu/) at Cold Spring Harbor Laboratory, as a project alongside the lead developer's thesis research. It is maintained by [Sanworks LLC](https://sanworks.io/), a company dedicated to developing Bpod and other open neuroscience tools.
+
+![](docs/images/state-machine.jpg)
+
+Bpod builds on the central design concept of [B-control](http://brodywiki.princeton.edu/bcontrol/index.php/Main_Page), a system provided by [Brody Lab](http://brodylab.org/) at Princeton University for rodent behavior measurement. Experimental trials are constructed in MATLAB as [finite state machines](https://en.wikipedia.org/wiki/Finite-state_machine), and executed on a separate real-time Linux computer. Bpod combines this parallel processing model with the accessibility of embedded computing in the Arduino language. Bpod provides a rich suite of software tools in high level interpreted computing environments for protocol development and online analysis, while real-time processing is delegated to an Arduino microcontroller network governed by finite state machine firmware.
+
+We love hearing about the awesome [science] that is generated with Bpod! 
+
+Please post on the [Forums](https://sanworks.io/forums/) with your questions and feedback, or [email us](https://sanworks.io/about/contact.php) directly.
+

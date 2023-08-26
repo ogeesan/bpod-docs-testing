@@ -12,7 +12,7 @@
 ## Initialization
 
 ### `Bpod()`
-#### Description
+**Description**
 Initializes Bpod and creates a global object representing the Bpod device (`BpodSystem`) in the base workspace.
 
 - The function automatically searches all available serial ports and finds Bpod if one is connected.
@@ -22,14 +22,14 @@ Initializes Bpod and creates a global object representing the Bpod device (`Bpod
 `BpodSystem` exists in the workspace as a [global object](https://mathworks.com/help/matlab/ref/global.html). It has the following fields:
 
 ### Data
-#### Description
+**Description**
 
 Stores session data as a `struct`.
 
 - Typically stores the output of `AddTrialEvents` and other data added as subfields.
 - Can be saved automatically with the `SaveBpodSessionData` function.
 
-#### Example
+**Example**
 This code sends "sma" (an existing state matrix) to Bpod, runs it 10 times, and packages the raw events for analysis. 
 It then saves them to disk on each trial. 
 
@@ -46,11 +46,11 @@ end
 ### ProtocolSettings
 
 ### SoftCodeHandlerFunction
-#### Description
+**Description**
 
 Equal to the full path of a soft code handler m-file to use with the current protocol.
 
-#### Example
+**Example**
 
 For another example of a soft code handler, see /Bpod/Examples/Protocols/PsychToolboxSound/SoftCodeHandler_PlaySound.m
 
@@ -74,14 +74,14 @@ disp(Byte);
 ```
 
 ### ProtocolFigures
-#### Description
+**Description**
 
 A struct for handles of figures that display online data.
 
 - Since `BpodSystem` is a global variable, the figure handles in this struct will be available in figure update functions and in the main protocol function.
 - All figures in `BpodSystem.ProtocolFigures` will automatically be closed when the protocol ends.
 
-#### Example
+**Example**
 This code initializes a new figure to show data, and adds its handle to `BpodSystem.ProtocolFigures`.
 At the conclusion of the session it will be closed.
 ```matlab
@@ -89,7 +89,7 @@ BpodSystem.ProtocolFigures.MyPlotFig = figure('Position', [200 200 1000 200],'na
 ```
 
 ### EmulatorMode
-#### Description
+**Description**
 
 When no Bpod device is found, the user can launch the Bpod software in emulator mode.
 
@@ -98,7 +98,7 @@ When no Bpod device is found, the user can launch the Bpod software in emulator 
 - Inputs are read and the hardware state is indicated on the Bpod console while running a state machine.
 - When designing a protocol that can be run in emulator mode, block off code that interfaces with unavailable hardware (see example).
 
-#### Example
+**Example**
 This code connects to a remote TCP server using the SerialEthernet plugin, only if NOT in emulator mode.
 ```matlab
 if BpodSystem.EmulatorMode == 0
@@ -120,27 +120,27 @@ end
 ## BpodSystem functions
 
 ### `assertModule()`
-#### Description
+**Description**
 
 Throws an error if a given Bpod module is not present.
 - An optional argument specifies whether the module must also be paired with its USB serial port via the USB pairing UI.
 - After connecting a new module, you must press the 'refresh' button on the [Bpod console GUI] to make it visible to `assertModule()`.
 
-#### Syntax
+**Syntax**
 
 `BpodSystem.assertModule(moduleNames, USBPaired)`
 
-#### Parameters
+**Parameters**
 
 - `moduleNames`: a character array containing the name of the module. A cell array of strings may also be provided to assert multiple modules. Note: The names of connected modules are given in BpodSystem.Modules
 - `USBPaired`: optional, an array of 1s and 0s with one value for each module in moduleNames. 
   - 1 = the module must be paired with its USB serial port. 
   - 0 = the module does not have to be paired.
 
-#### Returns
+**Return**
 - None
 
-#### Example
+**Example**
 
 This code will throw an error if the HiFi or ValveDriver modules are missing.
 It will also throw an error if the HiFi module is not paired with its USB serial port.
@@ -157,7 +157,65 @@ BpodSystem.AssertModule({'HiFi', 'ValveDriver'}, [1 0]);
 ### `NewStateMachine()`
 
 ### `AddState()`
+**Description**
 
+Adds a state to an existing state machine. 
+
+**Syntax**
+```matlab
+NewStateMachine = AddState(StateMachineStruct, 'Name', StateName, 'Timer', TimerDuration, 'StateChangeConditions', Conditions, 'OutputActions', Actions)
+```
+**Parameters**
+
+- StateMachineStruct: The state machine you are adding to. If this is the first state, StateMachineStruct is the output of NewStateMachine().
+- StateName: A character string containing the unique name of the state.
+  - The state will automatically be assigned a number for internal use and state synchronization via the sync port.
+- Timer: The state timer value, given in seconds
+  - This value must be zero or positive, and can range between 0-3600s.
+  - If set to 0s and linked to a state transition (see next bullet), the state will still take ~100us to execute the state's output actions before the transition completes.
+- StateChangeConditions: A cell array of strings listing pairs of input events and the state changes they trigger.
+  - Each odd cell should contain the name of a valid input event.
+  - Each even cell should contain the name of the new state to enter if the previously listed event occurs, or 'exit' to exit the matrix and return all captured data..
+- OutputActions: A cell array listing the output actions and corresponding values for the current state.
+  - Each odd cell should contain the name of a valid output action.
+  - Each even cell should contain the value of the previously listed output action (see output actions for valid values).
+
+**Returns**
+
+- A state machine struct, updated with the new state.
+
+**Examples**
+
+This code generates a simple state matrix that drives BNC output channel 1 to 5V (high) for 1 second before exiting. 
+```matlab
+sma = NewStateMachine();
+
+sma = AddState(sma, 'Name', 'MyState', ...
+    'Timer', 1,...
+    'StateChangeConditions', {'Tup', 'exit'},... 
+    'OutputActions', {'BNCState', 1}); 
+% Tup occurs when the state's internal timer elapses
+```
+
+This code generates a simple state matrix that flashes the port LEDs of ports 1-3 for 0.1 second each (assuming an LED is connected to the port's PWM line). 
+```matlab
+sma = NewStateMachine();
+
+sma = AddState(sma, 'Name', 'LightPort1', ...
+    'Timer', 0.1,...
+    'StateChangeConditions', {'Tup', 'LightPort2'},...
+    'OutputActions', {'PWM1', 255}); 
+
+sma = AddState(sma, 'Name', 'LightPort2', ...
+    'Timer', 0.1,...
+    'StateChangeConditions', {'Tup', 'LightPort3'},...
+    'OutputActions', {'PWM2', 255}); 
+
+sma = AddState(sma, 'Name', 'LightPort3', ...
+    'Timer', 0.1,...
+    'StateChangeConditions', {'Tup', 'exit'},...
+    'OutputActions', {'PWM3', 255}); 
+```
 ### `EditState()`
 
 ### `SetGlobalTimer()`
@@ -177,23 +235,23 @@ BpodSystem.AssertModule({'HiFi', 'ValveDriver'}, [1 0]);
 ### `BpodTrialManager()`
 
 ### `AddTrialEvents()`
-#### Description
+**Description**
 
 Packages raw events returned from RunStateMatrix() into a session data struct. 
 
 State codes and event codes are decoded so the session data is human-readable
 
-#### Syntax
+**Syntax**
 ```matlab
 UpdatedSessionData = AddTrialEvents(PreviousSessionData, RawEvents)
 ```
 
-#### Parameters
+**Parameters**
 
 - PreviousSessionData: The session data struct (or an empty struct for the first trial).
 - RawEvents: The struct of raw events returned from RunStateMatrix().
 
-#### Returns
+**Return**
 
 * UpdatedSessionData: A struct contatining data from all trials. It has the following fields:
 ** nTrials: The number of trials that have been added
@@ -211,7 +269,7 @@ UpdatedSessionData = AddTrialEvents(PreviousSessionData, RawEvents)
 ** TrialStartTimestamp: The time when each trial started (measured from the last time Bpod was initialized)
 ** Settings: A cell array of strings containing the settings struct as it existed when each trial's state matrix was sent.
 
-#### Example
+**Example**
 This code sends "sma" (an existing state matrix) to Bpod, runs it 10 times, and packages the raw events for analysis. 
 ```matlab
 SendStateMatrix(sma);

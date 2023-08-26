@@ -10,25 +10,25 @@ A rotary encoder is a device that sends information related to its angular rotat
 ### Description
 `RotaryEncoderModule()` provides an object to interface with the Bpod rotary encoder module. The rotary encoder module is optimized to integrate a 1024-position quadrature rotary encoder (e.g. Yumo E6B2-CWZ3E) with Bpod.
 
-A RotaryEncoderModule object is initialized with the following syntax:
+A `RotaryEncoderModule` object is initialized with the following syntax:
 ```matlab
 R = RotaryEncoderModule('COM3');
 ```
 Where COM3 is the rotary encoder module's serial port.
 
 The rotary encoder module is controlled in 2 ways: 
-- Setting the RotaryEncoderModule object's fields
-- Calling the RotaryEncoderModule object's functions (methods)
+- Setting the `RotaryEncoderModule` object's fields
+- Calling the `RotaryEncoderModule` object's functions (its methods)
 ### Object Fields
-- Port
+- **Port**
   - ArCOM Serial port object
-- thresholds
+- **thresholds**
   - An array of position thresholds (in degrees) for generating events.
     - Each trial begins at 0 degrees
     - Crossing position threshold N generates a single behavior event (byte N).
     - A crossed threshold is disabled. Disabled thresholds can be reactivated using the enableThresholds() function below.
   - By default, there are two thresholds - Threshold1 (a negative value in degrees) and Threshold2 (a positive value).
-- wrapPoint
+- **wrapPoint**
   - In degrees, the number of degrees moved in either direction, before the position value "wraps" to complete a circle.
   - By default, wrapPoint = 180:
     - Starting at position 0, Moving clockwise will increase the position towards 180. At 181, position wraps to -180.
@@ -36,18 +36,18 @@ The rotary encoder module is controlled in 2 ways:
       - Setting wrapPoint = 360 will require a complete rotation in each direction before the value wraps.
     - If wrapPoint is set to 0, the position will be tracked continuously in either direction, up to 32 complete rotations.
     - Thresholds cannot exceed the wrapPoint value - i.e. if wrapPoint = 180, a threshold cannot be 190 because it would never be visited.
-- sendThresholdEvents
+- **sendThresholdEvents**
   - 'On' to send threshold crossing events to the Bpod state machine
   - 'Off' (default) to disable event transmission.
-- moduleOutputStream :red_circle:-Module v1 only-
+- **moduleOutputStream** :red_circle:-Module v1 only-
   - 'On' to stream the current position directly to a synthesis module's InputStream port (DDS, AnalogOutput).
   - 'Off' (default) to disable the module stream 
-- moduleStreamPrefix :red_circle:-Module v1 only-
+- **moduleStreamPrefix** :red_circle:-Module v1 only-
   - When streaming position to a synthesis module (analog output, DDS), a character precedes each 16-bit position value.
   - By default, moduleStreamPrefix is set to 'M' - the op code for the DDS module's "mapping" function.
-- userCallbackFcn
+- **userCallbackFcn**
   - A character array containing the name of a user-created MATLAB function to call when new position data arrives via USB. The latest encoder position (in degrees) is the user function's only input argument.
-- useAdvancedThresholds :large_blue_circle:-Module v2 only-
+- **useAdvancedThresholds** :large_blue_circle:-Module v2 only-
   - Specifies the type of threshold used to generate behavioral events
   - 'off' to use standard position thresholds, specified by 'thresholds' property (documented above)
   - 'on' to use thresholds programmed with the setAdvancedThresholds() method (ignores 'thresholds' property above)
@@ -55,51 +55,51 @@ The rotary encoder module is controlled in 2 ways:
 
 
 ### Object functions
-- currentPosition()
+- **currentPosition()**
   - Returns the current position of the encoder (in degrees)
-- zeroPosition()
+- **zeroPosition()**
   - Sets the current encoder position to 0 degrees
-- setPosition(newPosition)
+- **setPosition(newPosition)**
   - newPosition (in degrees) sets the value of the encoder's current position
   - newPosition's absolute value cannot exceed the wrapPoint parameter (above)
-- enableThresholds(thresholdArray)
+- **enableThresholds(thresholdArray)**
   - thresholdArray = a binary array for each threshold in Thresholds (above), indicating whether it is enabled (1) or disabled (0).
-- startLogging() :red_circle:-Module v1 only-
+- **startLogging()** :red_circle:-Module v1 only-
   - Starts logging the current position to the module's microSD card.
   - startLogging erases all previous data logged to the microSD card. Make sure to retrieve previously logged data with getLoggedData() before calling startLogging().
-- stopLogging() :red_circle:-Module v1 only-
+- **stopLogging()** :red_circle:-Module v1 only-
   - Stops logging the current position to the module's microSD card.
-- data = getLoggedData() :red_circle:-Module v1 only-
+- data = **getLoggedData()** :red_circle:-Module v1 only-
   - If data was logged to the microSD card, a struct is returned containing:
     - nPositions (number of positions logged)
     - positionData (a 1 x nPositions vector of positions, in degrees)
     - timeData (a 1 x nPositions vector of times for each position measurement, in seconds)
   - If no data was logged, the function throws an error to indicate that no data was available.
-- startUSBStream()
+- **startUSBStream()**
   - Starts streaming each new position (and corresponding time measurements) to the USB port. 
   - Positions and times are stored in a buffer. The latest streaming data can be retrieved by calling readUSBStream().
   - Optionally, add argument 'UseTimer' to avoid buffer overruns if your code will not call readUSBSTream() every 100ms or so. This will start a MATLAB timer in the background to read incoming data from the buffer.
-- data = readUSBStream()
+- data = **readUSBStream()**
   - If new position and time data are available in the streaming buffer, the function returns a struct containing:
     - nPositions (number of positions logged)
     - positionData (a 1 x nPositions vector of positions, in degrees)
     - timeData (a 1 x nPositions vector of times for each position measurement, in seconds)
   - If no data is available in the buffer, the function returns a struct with nPositions = 0, and empty position and time fields.
   - If startUSBStream was not called prior to calling readUSBStream, the function returns an error.
-- stopUSBStream()
+- **stopUSBStream()**
   - Stops the USB data stream previously initialized with startUSBStream().
   - The function pauses for 100ms, then clears any data that arrived in the buffer, ensuring that subsequent data transactions will work.
-- setAdvancedThresholds(thresholds, [thresholdTypes], [thresholdTimes]) :large_blue_circle:-Module v2 only-
+- **setAdvancedThresholds(**thresholds, [thresholdTypes], [thresholdTimes]**)** :large_blue_circle:-Module v2 only-
   - optional input arguments are indicated with []
   - thresholds = an array of position thresholds in degrees. Up to 8 thresholds can be specified.
   - thresholdTypes = an array indicating the threshold type, with one value per threshold:
     - 0: Position threshold
     - 1: Threshold reached if position thresholds are NOT crossed for at least a given interval of time
   - thresholdTimes = an array indicating the timeout for each threshold if threshold type == 1
-- push() :large_blue_circle:-Module v2 only-
+- **push()** :large_blue_circle:-Module v2 only-
   - When advanced thresholds are loaded with setAdvancedThresholds(), they are not immediately used by the device. The next call to push() will replace the current threshold set with the most recently loaded thresholds.
   - The state machine can also push thresholds as an output action of a state (e.g. at the beginning of each trial) with the '*' command
-- streamUI()
+- **streamUI()**
   - Launches a GUI to aid with setting event thresholds. Note: This GUI should be closed before running a session.
   - The GUI starts a USB stream (startUSBStream above) and plots the encoder's position (deg) v. time (s).
   - It allows you to configure and re-enable event thresholds and enable/disable the module stream.
@@ -108,7 +108,7 @@ The rotary encoder module is controlled in 2 ways:
 
 ![Alt text](../images/rotary-encoder-module-streamui.png)
 ### Cleanup
-- Clear the RotaryEncoderModule object with clear:
+- Clear the `RotaryEncoderModule` object with clear:
 ```matlab
 R = RotaryEncoderModule('COM3');
 % ... Use the rotary encoder module

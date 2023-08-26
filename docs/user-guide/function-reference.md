@@ -1,13 +1,13 @@
 # Function reference
 
 ## Table of Contents
-- Initialization
-- BpodSystem fields
-- BpodSystem functions
-- Creating a state machine
-- Running a state machine
-- Running a protocol
-- Data storage
+- [Initialization](#initialization)
+- [BpodSystem fields](#bpodsystem-fields)
+- [BpodSystem functions](#bpodsystem-functions)
+- [Creating a state machine](#creating-a-state-machine)
+- [Running a state machine](#running-a-state-machine)
+- [Running a protocol](#running-a-protocol)
+- [Data storage](#data-storage)
 
 ## Initialization
 
@@ -55,17 +55,20 @@ Equal to the full path of a soft code handler m-file to use with the current pro
 For another example of a soft code handler, see /Bpod/Examples/Protocols/PsychToolboxSound/SoftCodeHandler_PlaySound.m
 
 ```matlab
-% Part 1 (in main protocol file): This single-state matrix sends a byte (3) back to the governing computer on state entry by setting a 'SoftCode' in Output Actions.
+% Part 1 (in main protocol file): This single-state matrix sends a byte (3) back to the 
+% governing computer on state entry by setting a 'SoftCode' in Output Actions.
 sma = NewStateMachine();
 sma = AddState(sma, 'Name', 'State1', ...
     'Timer', 1,...
     'StateChangeConditions', {'Tup', 'exit'},...
     'OutputActions', {'SoftCode', 3});
 
-% Part 2 (in main protocol file): This code specifies which file will handle the byte when it comes back.
+% Part 2 (in main protocol file): This code specifies which file will handle the byte when it 
+% comes back.
 BpodSystem.SoftCodeHandlerFunction = 'SoftCodeHandler_Printout';
 
-% Part 3 (separate file in protocol folder): This code handles the byte by printing it to the MATLAB command window.
+% Part 3 (separate file in protocol folder): This code handles the byte by printing it to the
+% MATLAB command window.
 function SoftCodeHandler_Printout(Byte)
 disp(Byte);
 ```

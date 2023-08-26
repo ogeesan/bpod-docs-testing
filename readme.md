@@ -30,8 +30,8 @@ Bpod is an open source system for real-time behavior measurement in tasks consis
   - Port Array Module
   - Valve Driver Module
 
-> [!NOTE]
-> ![Image of top-left button in Github's file preview opening an outline view](docs/images/github-doc-outline-guide.png)
+
+![Image of top-left button in Github's file preview opening an outline view](docs/images/github-doc-outline-guide.png)
 
 ## About Bpod
 

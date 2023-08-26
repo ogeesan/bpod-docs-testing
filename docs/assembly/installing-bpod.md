@@ -2,7 +2,7 @@
 This section details installing the Bpod software on the governing computer, and the Bpod firmware on the Bpod device.
 
 ## PC (Windows 10)
-### The governing computer must have:
+### Requirements
 1. Windows 10
 2. 8GB+ RAM
 3. Preferably a 2.5GHz+ multi-core CPU (i.e. intel corei5/i7 series).
@@ -11,7 +11,7 @@ This section details installing the Bpod software on the governing computer, and
 > [!NOTE]
 > If you are using Windows 7 and State Machine r2, you need to install the Teensy [serial port driver](https://www.google.com/url?q=https%3A%2F%2Fwww.pjrc.com%2Fteensy%2Fserial_install.exe&sa=D&sntz=1&usg=AOvVaw25jfvYD6VWoNzSSCTbUj4Y).
 
-### Clone the MATLAB software repositry
+### Clone the MATLAB software repository
 Bpod's MATLAB software is frequently updated with new features and improvements. 
 To keep Bpod current for everyone, we use a [revision control](http://www.google.com/url?q=http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FRevision_control&sa=D&sntz=1&usg=AOvVaw1B_ySYzuOh-Dql7I0rO0fo) system called Git.
 

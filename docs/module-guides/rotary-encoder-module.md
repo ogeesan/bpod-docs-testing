@@ -1,7 +1,7 @@
 # Rotary Encoder Module
 A rotary encoder is a device that sends information related to its angular rotation.
 
-> [!NOTE]
+> [!IMPORTANT]
 > There are two versions of the Rotary Encoder Module with non-overlapping feature sets. Both modules are controlled by the `RotaryEncoderModule` class. Functions specific to each version are indicated with:
 > - Module v1 only: :red_circle:
 > - Module v2 only: :large_blue_circle:
@@ -227,9 +227,10 @@ The SerialUSB command interface allows configuration of the rotary encoder modul
   - 1 byte whose bits indicate whether each threshold up to nThresholds is enabled (1) or disabled (0) (for nThresholds, see 'T' command)
 
 
-## Explanation of  the module
+## Explanation of the module
 This is a guide explaining how the module works, which provides a template for understanding the functions of other modules.
 
+### Why the module is required
 ![Alt text](./../images/rotary-encoder-yumo.png)
 
 Off the shelf rotary encoder's are relatively simple devices that report a direction of movement by a certain amount. The following diagram (from the [datasheet](https://www.mouser.com/datasheet/2/307/e6b2-c_ds_csm491-25665.pdf) for the Yumo E6B2-C rotary encoders) describes the purpose of the black, white, and orange wires; the Phase A, Phase B, and Phase Z, respectively.
@@ -251,7 +252,7 @@ The module makes use of a [Teensy](https://www.pjrc.com/teensy/) board, a microc
 
 ```mermaid
 ---
-title: Rotary Encoder Moduleh
+title: Rotary Encoder Module
 ---
 flowchart
 re(rotary encoder)
@@ -267,4 +268,23 @@ pcb <-- bytes via CAT5e cable --> statemachine
 module <-- ArCOM USB communication --> usb
 ```
 
+### Serial interface and module class guide
 Communication between the module and the state machine or computer are explained in the [guide to serial interfaces](../user-guide/serial-interfaces.md)
+
+Let's take `RotaryEncoderModule.setPosition(newPosition)` as an example. `newPosition` is the value, in degrees, that the rotary encoder module will be set to (recall that the rotary encoder itself can only really report movement, so "position" as a value in degrees exists through calculations performed by the module's Teensy board). We can do this in MATLAB, and not have to worry about translating this request into some lower-level language that the Teensy board on the module is reading.
+
+The `setPosition()` class method will use (aka wraps) the `ArCOMObject_Bpod.write()` method to send the sequence of bytes that the firmware has been programmed to recognise as a command to set a new postion. In this case byte 'P' followed by two bytes (16 bits) for the new position. When the module receives 'P', it recognises that the next two bytes should be interpreted as the number value for the new position.
+
+Understanding the serial interface is important and useful because we can use the state machine to do the exact same thing.
+
+```matlab
+sma = AddState('State', 'dothing',
+'Tup', 0,
+'StateChangeConditions', {'Tup', 'nextstate'},
+'OutputActions', {'RotaryEncoder1', ['V' 'x' '1']}
+)
+```
+
+In this case, the 'x' and '1' correspond to bytes 01111000 00110001 or 30769. Note that this example is only illustrative because a `newPosition` of 30769 would probably fail because it is beyond the `wrapPoint` for the module.
+
+We could also use the Bpod Console's Manual Override to send this byte sequence manually state machine, or indeed use `RotaryEncoderModule.Port.write()` to do so via SerialUSB. 

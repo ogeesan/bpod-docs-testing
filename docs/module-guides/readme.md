@@ -1,1 +1,0 @@
-This folder contains a series of files dedicated to Bpod modules. Find the relevant documentation in [nice](../user-guide/serial-interfaces.md).

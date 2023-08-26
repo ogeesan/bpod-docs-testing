@@ -73,8 +73,8 @@ BpodNotebook('init'); % Launches an interface to write notes about behavior and 
 ```
 
 > [!NOTE]
-> It is recommended to initialise figures at the end of the startup because if an error is encountered after setup then you will be left with windows to close.
-
+> It is recommended to initialise figures at the end of the startup because if an error is encountered (e.g. failure to configure a module) after figures are created then you will be left with windows to close manually.
+<!-- This is some that could change in the future if a protocol error handling feature is introduced -->
 ### Main Loop (runs once each trial until some conditions are met, or the experimenter stops the session from the console)
 
 Create a loop with some condition for ending the session
@@ -169,6 +169,47 @@ if BpodSystem.BeingUsed == 0
     break
 end
 ```
+
+## State matrix assembly concepts
+This is the state matrix from Bpod_Gen2/Examples/Protocols/Light/Light2AFC in diagram form.
+
+```mermaid
+stateDiagram-v2
+WaitForPoke: WaitForPoke
+	[*] --> WaitForPoke
+	WaitForPoke --> CueDelay: Port2In
+CueDelay: CueDelay
+	CueDelay --> WaitForPortOut: Tup (0.200) 
+	CueDelay --> WaitForPoke: Port2Out
+WaitForPortOut: WaitForPortOut\nPWM1 255
+	WaitForPortOut --> WaitForResponse: Port2Out
+WaitForResponse: WaitForResponse\nPWM1 255
+	WaitForResponse --> [*]: Tup (5.000) 
+	WaitForResponse --> LeftRewardDelay: Port1In
+	WaitForResponse --> Punish: Port3In
+LeftRewardDelay: LeftRewardDelay
+	LeftRewardDelay --> LeftReward: Tup (0.000) 
+	LeftRewardDelay --> CorrectEarlyWithdrawal: Port1Out
+Punish: Punish
+	Punish --> [*]: Tup (3.000) 
+LeftReward: LeftReward\nValve1 1
+	LeftReward --> Drinking: Tup (0.030) 
+CorrectEarlyWithdrawal: CorrectEarlyWithdrawal
+	CorrectEarlyWithdrawal --> [*]: Tup (0.000) 
+RightRewardDelay: RightRewardDelay
+	RightRewardDelay --> RightReward: Tup (0.000) 
+	RightRewardDelay --> CorrectEarlyWithdrawal: Port3Out
+RightReward: RightReward\nValve3 1
+	RightReward --> Drinking: Tup (0.031) 
+Drinking: Drinking
+	Drinking --> DrinkingGrace: Port1Out
+	Drinking --> DrinkingGrace: Port3Out
+DrinkingGrace: DrinkingGrace
+	DrinkingGrace --> [*]: Tup (0.500) 
+	DrinkingGrace --> Drinking: Port1In
+	DrinkingGrace --> Drinking: Port3In
+```
+
 ## Going Further
 
 - See /Bpod_Gen2/Protocols for other simple example protocols.

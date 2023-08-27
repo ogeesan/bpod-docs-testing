@@ -2,7 +2,11 @@
 Welcome to the Bpod Wiki.
 
 > [!WARNING]
-> :stop_sign: This is a test version of the Bpod wiki to examine the feasability of moving it to Github. The official wiki maintained by Sanworks is hosted [here](https://sites.google.com/site/bpoddocumentation/home?authuser=0). :construction: This test wiki does not contain all items, and some of the items included have been modified.
+> :stop_sign: This is a test version of the Bpod wiki to examine the feasability of moving it to Github. The official wiki maintained by Sanworks is hosted [here](https://sites.google.com/site/bpoddocumentation/home?authuser=0).
+> 
+> :construction: This test wiki does not contain all items, and some of the items included have been modified.
+>
+> :bulb: Some new additions exist.
 
 Bpod is an open source system for real-time behavior measurement in tasks consisting of multiple experimental trials. Experiment software is written in MATLAB, and device firmware is written in [Arduino](https://www.arduino.cc/). Hardware can be assembled with DIY desktop manufacturing methods - hand-soldering, 3-D printing, laser cutting and hand-tapping. The system architecture is low cost, and supremely hackable - precisely what is necessary to explore a space of behavioral metrics, or to train test subjects with high throughput. This wiki contains instructions for assembly and programming.
 
@@ -21,7 +25,7 @@ Bpod is an open source system for real-time behavior measurement in tasks consis
   - Software updates
 - User guide
   - [Function reference](docs/user-guide/function-reference.md)
-  - General Conceptsfnconcepts
+  - General concepts
   - [Modules](docs/user-guide/modules.md)
   - [Protocol development](docs/user-guide/protocol-development.md)
   - [Serial interfaces](docs/user-guide/serial-interfaces.md)

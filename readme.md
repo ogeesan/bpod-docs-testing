@@ -26,6 +26,7 @@ Bpod is an open source system for real-time behavior measurement in tasks consis
   - [Protocol development](docs/user-guide/protocol-development.md)
   - [Serial interfaces](docs/user-guide/serial-interfaces.md)
   - Using BControl
+  - :bulb:[Advanced user guide](docs/user-guide/advanced-user-guide.md)
 - Module guides
   - Analog Input Module
   - Analog Output Module

@@ -316,21 +316,20 @@ UpdatedSessionData = AddTrialEvents(PreviousSessionData, RawEvents)
 
 **Return**
 
-* UpdatedSessionData: A struct contatining data from all trials. It has the following fields:
-** nTrials: The number of trials that have been added
-** RawEvents: A struct containing re-organized state and event timestamps for each trial, labeled so they are human-readable.
-*** RawEvents.Trial{n} has two sub-fields
+- UpdatedSessionData: A struct containing data from all trials. It has the following fields:
+  - nTrials: The number of trials that have been added
+  - RawEvents: A struct containing re-organized state and event timestamps for each trial, labeled so they are human-readable.
+    - RawEvents.Trial{n} has two sub-fields, populated depending on what occurred during the trial:
+      - States: the times when each state was entered and exited (in seconds). States that were not visited show NaN.
+      - Events: the times when each event was detected (in seconds).
+  - RawData: A struct containing three fields:
+    - OriginalStateNamesByNumber: A cell array of strings listing the names of each state (for matching states up with state numbers sent via the sync port)
+      - Note that state numbers are assigned automatically depending on the order of states added with AddState - so if you programmed your protocol to add states (or refer to not-yet-added states) in a different order on each trial, state numbers on each trial may be different.
+    - OriginalStateData: A cell array containing the original state codes returned from RunStateMatrix on each trial
+    - OriginalEventData: A cell array containing the original event codes returned from RunStateMatrix on each trial
+  - TrialStartTimestamp: The time when each trial started (measured from the last time Bpod was initialized)
+  - Settings: A cell array of strings containing the settings struct as it existed when each trial's state matrix was sent.
 
-, populated depending on what occurred during the trial:
-**** States: the times when each state was entered and exited (in seconds). States that were not visited show NaN.
-**** Events: the times when each event was detected (in seconds).
-** RawData: A struct containing three fields:
-*** OriginalStateNamesByNumber: A cell array of strings listing the names of each state (for matching states up with state numbers sent via the sync port)
-**** Note that state numbers are assigned automatically depending on the order of states added with AddState - so if you programmed your protocol to add states (or refer to not-yet-added states) in a different order on each trial, state numbers on each trial may be different.
-*** OriginalStateData: A cell array containing the original state codes returned from RunStateMatrix on each trial
-*** OriginalEventData: A cell array containing the original event codes returned from RunStateMatrix on each trial
-** TrialStartTimestamp: The time when each trial started (measured from the last time Bpod was initialized)
-** Settings: A cell array of strings containing the settings struct as it existed when each trial's state matrix was sent.
 
 **Example**
 This code sends "sma" (an existing state matrix) to Bpod, runs it 10 times, and packages the raw events for analysis. 

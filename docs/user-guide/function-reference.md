@@ -364,6 +364,109 @@ Saves information in `BpodSystem.Data` to disk.
 
 ## General Plugins
 ### `BpodParameterGUI()`
+**Description**
+
+Displays the settings from the "GUI" subfield of a settings struct. Supports advanced GUI parameters and pushbutton call of user functions.
+
+- The GUI subfield names (i.e. X in Settings.GUI.X) are displayed as labels on the left. Edit boxes populated with parameter values for each X are shown on the right.
+- In the current version, only numerical parameters are valid.
+- By default, text edit boxes are used to show parameters. Other UI types can be specified.
+- By default, all parameters are clustered on one UI panel. Parameter groups can be specified.
+- When synced, the GUI will display any programmed updates to the parameter values since the last sync. 
+- If the user manually edited a parameter, this becomes the new value irrespective of automated changes.
+
+**Syntax**
+
+On the first call (before Main Loop):
+```matlab
+BpodParameterGUI('init', SettingsStructure)
+```
+
+On subsequent calls (once per trial):
+```matlab
+SettingsStructure = BpodParameterGUI('sync', SettingsStructure)
+```
+
+**Parameters**
+
+- Settings: A `struct` of settings and parameters with at least some numeric parameters in the subfield "GUI"
+- Optionally, a GUIMeta field can be included in Settings
+  - GUIMeta subfields are formatted as `GUIMeta.(parameterName).(attribute) = value`
+  - GUIMeta attributes are:
+    - Style: 'popupmenu', 'checkbox', 'pushbutton', 'text', 'edit'
+      - (See Examples for usage)
+    - String: a cell array of strings for popumenu
+- Optionally, a GUIPanels fiels can be included in Settings
+  - GUIPanels subfields are formatted as `GUIPanels.(panelName) = {parameterNames}`
+
+**Return**
+
+- A settings structure, updated with any parameter changes manually entered by the user in the GUI
+
+**Examples**
+
+Intializes a UI for a Bpod setting struct on protocol launch, and syncs it on each of 10 trials
+
+```matlab
+% Import settings or populate if empty
+S = BpodSystem.ProtocolSettings; % Load settings chosen in launch manager into current workspace as a struct called S
+if isempty(fieldnames(S))  % If an empty struct, populate struct with default settings
+    S.GUI.SineWaveFrequency = 500; % Frequency of stimulus
+    S.GUI.SpeakerType = 1; % Type of speaker
+end
+
+% Initialize parameter GUI plugin
+BpodParameterGUI('init', S);
+
+% Run 10 trials:
+for currentTrial = 1:10
+    S = BpodParameterGUI('sync', S); % Sync parameters with BpodParameterGUI plugin
+    %...Create, send and run state matrix, 
+    %...add and save events
+    %...update S with new parameters based on performance
+end
+```
+
+Initialize parameters with a more complex settings GUI. :construction: 'text' and 'edit' Styles are undocumented.
+
+```matlab
+S = struct;
+
+S.nonUIsetting = 23; % A setting not in S.GUI, so not included on the UI
+
+% Numeric parameters with default style
+S.GUI.InitialDelay = 0.2;
+S.GUI.TimeoutDelay = 5;
+
+% Checkbox/togglebox between value of 1 and 0
+S.GUI.UseAntiBias = 1;
+S.GUIMeta.UseAntiBias.Style = 'checkbox';
+
+% Create a button that callbacks a function when pressed
+S.GUI.ManualStimulate = 'ManualStimulation(1)'; % Callback function for pushbutton
+S.GUIMeta.ManualStimulate.Style = 'pushbutton';
+
+% Create dropdown/popupmenu with specific options
+S.GUI.DifficultyLevel = 1; % Index of the options in .String to start with
+S.GUIMeta.DifficultyLevel.Style = 'popupmenu';
+S.GUIMeta.DifficultyLevel.String = {'Easy', 'Difficult', 'Impossible'}; % Define options in box
+
+% Group parameters into panels
+S.GUIPanels.Timing = {'InitialDelay', 'TimeoutDelay'};
+S.GUIPanels.Shaping = {'UseAntiBias', 'ManualStimulate', 'DifficultyLevel'};
+
+BpodParameterGUI('init', S);
+```
+
+<p align="center">
+<img src="docs/images/../../../images/bpodparametergui-complex-example.png" 
+alt="Image of Paramter GUI window with panels, checkboxes, buttons, and dropdown" 
+width="400"/>
+</p>
+
+In this example the `S.GUI.ManualStimulate = 'ManualStimulate(1)` together with `S.GUIMeta.ManualStimuate.Style = 'pushbutton'` yields a button that will activate (callback) a function when pressed. 
+
+
 ### `PsychToolboxSoundServer()`
 ### `PsychToolboxVideoPlayer()`
 ### `BpodNotebook`

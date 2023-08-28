@@ -1,0 +1,45 @@
+site_name: Bpod Wiki
+repo_url: https://github.com/sanworks/Bpod_Gen2
+repo_name: Sanworks/Bpod_Gen2
+
+nav:
+  - Home: readme.md
+  - "Forums": "https://sanworks.io/forums"
+  - User Guide:
+    - user-guide/general-concepts.md
+    - user-guide/function-reference.md 
+    - user-guide/serial-interfaces.md
+    - user-guide/modules.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - footnotes
+  - fenced_code
+  - codehilite
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+            - name: mermaid
+              class: mermaid
+              format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+plugins: 
+  - search
+theme:
+  name: material
+  palette:
+    scheme: slate
+  logo: https://avatars.githubusercontent.com/u/17090284?v=4
+  # 
+  #favicon: https://avatars.githubusercontent.com/u/17090284?v=4
+  # favicon should be different color scheme to sanworks.io favicon
+  icon:
+    repo: fontawesome/brands/github

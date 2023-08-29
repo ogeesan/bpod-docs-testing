@@ -1,21 +1,26 @@
 site_name: Bpod Wiki
 repo_url: https://github.com/sanworks/Bpod_Gen2
 repo_name: Sanworks/Bpod_Gen2
+copyright: Copyright &copy; 2016 - 2023 Sanworks LLC
 
 nav:
-  - Home: readme.md
-  - "Forums": "https://sanworks.io/forums"
+  - Home: index.md
   - User Guide:
     - user-guide/general-concepts.md
     - user-guide/function-reference.md 
     - user-guide/serial-interfaces.md
     - user-guide/modules.md
+  - Modules:
+    - module-documentation/rotary-encoder-module.md
+  - External links:
+    - "Sanworks": "https://sanworks.io"
+    - "Forums": "https://sanworks.io/forums"
+    - "GitHub": "https://github.com/sanworks/Bpod_Gen2"
 
 markdown_extensions:
-  - admonition
+  - admonition  # callouts/alerts
   - attr_list
   - footnotes
-  - fenced_code
   - codehilite
   - pymdownx.highlight:
       anchor_linenums: true
@@ -35,8 +40,12 @@ plugins:
   - search
 theme:
   name: material
+  features:
+    - navigation.sections # use titles rather than expanding items
+    # - navigation.expand # expand all items
+    - navigation.indexes
   palette:
-    scheme: slate
+    scheme: slate # darkmode
   logo: https://avatars.githubusercontent.com/u/17090284?v=4
   # 
   #favicon: https://avatars.githubusercontent.com/u/17090284?v=4

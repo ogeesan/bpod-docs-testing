@@ -1,5 +1,6 @@
 # Bpod Github Markdown Wiki Test
 Welcome to the Bpod Wiki.
+A build is hosted on https://ogeesan.github.io/bpod-docs-testing
 
 > [!WARNING]
 > :stop_sign: This is a test version of the Bpod wiki to examine the feasability of moving it to Github. The official wiki maintained by Sanworks is hosted [here](https://sites.google.com/site/bpoddocumentation/home?authuser=0).

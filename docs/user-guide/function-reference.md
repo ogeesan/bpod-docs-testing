@@ -4,62 +4,62 @@
 
 ## Table of Contents
 - [Initialization](#initialization)
-  - [`Bpod()`](#bpod)
+    - [`Bpod()`](#bpod)
 - [BpodSystem fields](#bpodsystem-fields)
-  - [Data](#data)
-  - [ProtocolSettings](#protocolsettings)
-  - [SoftCodeHandlerFunction](#softcodehandlerfunction)
-  - [ProtocolFigures](#protocolfigures)
-  - [EmulatorMode](#emulatormode)
-  - [StateMachineInfo](#statemachineinfo)
-  - [Status](#status)
-  - [FlexIOConfig](#flexioconfig)
+    - [Data](#data)
+    - [ProtocolSettings](#protocolsettings)
+    - [SoftCodeHandlerFunction](#softcodehandlerfunction)
+    - [ProtocolFigures](#protocolfigures)
+    - [EmulatorMode](#emulatormode)
+    - [StateMachineInfo](#statemachineinfo)
+    - [Status](#status)
+    - [FlexIOConfig](#flexioconfig)
 - [BpodSystem functions](#bpodsystem-functions)
-  - [`assertModule()`](#assertmodule)
-  - [`setStatusLED()`](#setstatusled)
-  - [`startAnalogViewer()`](#startanalogviewer)
+    - [`assertModule()`](#assertmodule)
+    - [`setStatusLED()`](#setstatusled)
+    - [`startAnalogViewer()`](#startanalogviewer)
 - [Creating a state machine](#creating-a-state-machine)
-  - [`NewStateMachine()`](#newstatemachine)
-  - [`AddState()`](#addstate)
-  - [`EditState()`](#editstate)
-  - [`SetGlobalTimer()`](#setglobaltimer)
-  - [`SetGlobalCounter()`](#setglobalcounter)
-  - [`SetCondition()`](#setcondition)
+    - [`NewStateMachine()`](#newstatemachine)
+    - [`AddState()`](#addstate)
+    - [`EditState()`](#editstate)
+    - [`SetGlobalTimer()`](#setglobaltimer)
+    - [`SetGlobalCounter()`](#setglobalcounter)
+    - [`SetCondition()`](#setcondition)
 - [Running a state machine](#running-a-state-machine)
-  - [`SendStateMachine()`](#sendstatemachine)
-  - [`RunStateMachine()`](#runstatemachine)
-  - [`BpodTrialManager()`](#bpodtrialmanager)
-  - [`AddTrialEvents()`](#addtrialevents)
+    - [`SendStateMachine()`](#sendstatemachine)
+    - [`RunStateMachine()`](#runstatemachine)
+    - [`BpodTrialManager()`](#bpodtrialmanager)
+    - [`AddTrialEvents()`](#addtrialevents)
 - [Running a protocol](#running-a-protocol)
-  - [`RunProtocol()`](#runprotocol)
+    - [`RunProtocol()`](#runprotocol)
 - [Data storage](#data-storage)
-  - [`SaveBpodSessionData()`](#savebpodsessiondata)
-  - [`SaveProtocolSettings()`](#saveprotocolsettings)
-  - [`AddFlexIOAnalogData()`](#addflexioanalogdata)
+    - [`SaveBpodSessionData()`](#savebpodsessiondata)
+    - [`SaveProtocolSettings()`](#saveprotocolsettings)
+    - [`AddFlexIOAnalogData()`](#addflexioanalogdata)
 - [General Plugins](#general-plugins)
-  - [`BpodParameterGUI()`](#bpodparametergui)
-  - [`PsychToolboxSoundServer()`](#psychtoolboxsoundserver)
-  - [`PsychToolboxAudio()`](#psychtoolboxaudio)
-  - [`PsychToolboxVideoPlayer()`](#psychtoolboxvideoplayer)
-  - [`BpodNotebook`](#bpodnotebook)
-  - [`SideOutcomePlot()`](#sideoutcomeplot)
-  - [`TrialTypeOutcomePlot()`](#trialtypeoutcomeplot)
-  - [`StateTiming()`](#statetiming)
+    - [`BpodParameterGUI()`](#bpodparametergui)
+    - [`PsychToolboxSoundServer()`](#psychtoolboxsoundserver)
+    - [`PsychToolboxAudio()`](#psychtoolboxaudio)
+    - [`PsychToolboxVideoPlayer()`](#psychtoolboxvideoplayer)
+    - [`BpodNotebook`](#bpodnotebook)
+    - [`SideOutcomePlot()`](#sideoutcomeplot)
+    - [`TrialTypeOutcomePlot()`](#trialtypeoutcomeplot)
+    - [`StateTiming()`](#statetiming)
 - [Serial message setup](#serial-message-setup)
-  - [`LoadSerialMessages()`](#loadserialmessages)
-  - [`ResetSerialMessages()`](#resetserialmessages)
-  - [Implicit serial messages](#implicit-serial-messages)
+    - [`LoadSerialMessages()`](#loadserialmessages)
+    - [`ResetSerialMessages()`](#resetserialmessages)
+    - [Implicit serial messages](#implicit-serial-messages)
 - [Module \<-\> MATLAB (via USB)](#module---matlab-via-usb)
 - [Module \<-\> MATLAB (via FSM)](#module---matlab-via-fsm)
-  - [`ModuleWrite()`](#modulewrite)
-  - [`ModuleRead()`](#moduleread)
+    - [`ModuleWrite()`](#modulewrite)
+    - [`ModuleRead()`](#moduleread)
 - [USB Soft Codes, PC --\> FSM](#usb-soft-codes-pc----fsm)
-  - [`SendBpodSoftCode()`](#sendbpodsoftcode)
+    - [`SendBpodSoftCode()`](#sendbpodsoftcode)
 - [Liquid calibration](#liquid-calibration)
-  - [`GetValveTimes()`](#getvalvetimes)
+    - [`GetValveTimes()`](#getvalvetimes)
 - [Updating Bpod](#updating-bpod)
-  - [`LoadBpodFirmware()`](#loadbpodfirmware)
-  - [`UpdateBpodSoftware()`](#updatebpodsoftware)
+    - [`LoadBpodFirmware()`](#loadbpodfirmware)
+    - [`UpdateBpodSoftware()`](#updatebpodsoftware)
 
 
 ## Initialization
@@ -93,7 +93,7 @@ SendStateMatrix(sma);
 for i = 1:10
     RawEvents = RunStateMatrix;
     BpodSystem.Data = AddTrialEvents(BpodSystem.Data, RawEvents);
-    BpodSystem.Data.arbitrarydata = rand(1,10);  % you can add anything into the data
+    BpodSystem.Data.arbitrarydata = rand(1,10); % Anything can be added
     SaveBpodSessionData;
 end
 ```
@@ -211,11 +211,11 @@ It has the following fields:
 
 - nEvents: the total number of unique events monitored from input channels
 - EventNames: A character string naming each event 
-  - Each event is a state of an input channel
-  - Use these with the `AddState()` function when writing state machines.
+    - Each event is a state of an input channel
+    - Use these with the `AddState()` function when writing state machines.
 - InputChannelNames: A character string naming each input channel
-  - Each channel is capable of generating multiple states
-  - Use these with the `SetCondition()` function
+    - Each channel is capable of generating multiple states
+    - Use these with the `SetCondition()` function
 - nOutputChannels: the total number of unique output channels
 - OutputChannelNames: A character string naming each output channel
 - Use these with the `AddState()` and `SetGlobalTimer()` functions
@@ -247,11 +247,11 @@ ans =
 `BpodSystem.Status.BeingUsed` indicates whether a behavior session is running.
 
 - BeingUsed is set to 1 when:
-  - A state machine is run using `RunStateMachine()` or `BpodTrialManager`
-  - A session is started with `RunProtocol()` or the Launch Manager
+    - A state machine is run using `RunStateMachine()` or `BpodTrialManager`
+    - A session is started with `RunProtocol()` or the Launch Manager
 - BeingUsed is set to 0 when:
-  - The 'Stop' or 'Pause' buttons are pressed on the Bpod Console GUI
-  - The session is stopped with `RunProtocol('Stop')`
+    - The 'Stop' or 'Pause' buttons are pressed on the Bpod Console GUI
+    - The session is stopped with `RunProtocol('Stop')`
 
 **Example**
 
@@ -285,27 +285,27 @@ FlexIOconfig is attached to a callback function. Any changes to the struct are a
 **Properties**
 
 - **channelTypes**: An array containing the Flex I/O configuration. The array must specify a configuration for each Flex I/O channel.
-  - Configuration values
-    - 0: Digital Input
-    - 1: Digital Output
-    - 2: Analog Input
-    - 3: Analog Output
-    - 4: Disabled (High Impedance)
-  - On calling FlexIOConfig.channelTypes(), the composition of valid state machine events and output actions will be updated to match the requested channel types.
-  - Note: a GUI is provided to set the Flex I/O configuration manually, from the settings menu on the Bpod Console. If set from the GUI, the configuration will be loaded automatically to the device each time Bpod is started. FlexIOconfig.channelTypes is useful for reconfiguring the Flex I/O channels when launching an experimental protocol.
+    - Configuration values
+          - 0: Digital Input
+          - 1: Digital Output
+          - 2: Analog Input
+          - 3: Analog Output
+          - 4: Disabled (High Impedance)
+    - On calling FlexIOConfig.channelTypes(), the composition of valid state machine events and output actions will be updated to match the requested channel types.
+    - Note: a GUI is provided to set the Flex I/O configuration manually, from the settings menu on the Bpod Console. If set from the GUI, the configuration will be loaded automatically to the device each time Bpod is started. FlexIOconfig.channelTypes is useful for reconfiguring the Flex I/O channels when launching an experimental protocol.
 - **analogSamplingRate**: The rate of sample acquisition for all Flex I/O channels configured as analog input
-  - Units: Hz
-  - Range: [1, 1000]
+    - Units: Hz
+    - Range: [1, 1000]
 - **nReadsPerSample**: The number of ADC reads to average for each sample acquired. ADC reads are measured consecutively, and each read takes ~2 microseconds. Increasing reads per sample reduces the effect of high-frequency noise.
-  - Range: [1, 4]
+    - Range: [1, 4]
 - **threshold1, threshold2**: A 1x4 array specifying an event threshold for each channel. Each Flex I/O channel has two configurable thresholds, contained in threshold1 and threshold2 respectively.
 - Unit  s: Volts
 - **polarity1, polarity2**: A 1x4 array specifying the polarity of each channel's threshold. 
-  - 0: An event is generated when voltage is above the threshold
-  - 1: An event is generated when voltage is below the threshold
+    - 0: An event is generated when voltage is above the threshold
+    - 1: An event is generated when voltage is below the threshold
 - **thresholdMode**: A 1x4 array specifying the mode of each threshold. All thresholds are disabled when reached.
-  - 0: Thresholds must be manually re-enabled using the 'AnalogThreshEnable' output action.
-  - 1: For a single Flex I/O channel, crossing threshold 1 enables threshold 2. Crossing threshold 2 enables threshold 1.
+    - 0: Thresholds must be manually re-enabled using the 'AnalogThreshEnable' output action.
+    - 1: For a single Flex I/O channel, crossing threshold 1 enables threshold 2. Crossing threshold 2 enables threshold 1.
 
 **Examples**
 
@@ -356,8 +356,8 @@ Throws an error if a given Bpod module is not present.
 
 - `moduleNames`: a character array containing the name of the module. A cell array of strings may also be provided to assert multiple modules. Note: The names of connected modules are given in BpodSystem.Modules
 - `USBPaired`: optional, an array of 1s and 0s with one value for each module in moduleNames. 
-  - 1 = the module must be paired with its USB serial port. 
-  - 0 = the module does not have to be paired.
+    - 1 = the module must be paired with its USB serial port. 
+    - 0 = the module does not have to be paired.
 
 **Return**
 
@@ -387,8 +387,8 @@ BpodSystem.setStatusLED(status)
 **Parameters**
 
 - status
-  - 0 = LED off
-  - 1 = LED on
+    - 0 = LED off
+    - 1 = LED on
 
 **Returns**
 
@@ -411,8 +411,8 @@ Launches a viewer for Flex I/O channels configured as analog input.
 - The viewer can also be launched from the Bpod console
 - The viewer can run during the behavior session for online monitoring (note: the UI may add jitter to soft-code processing if using TrialManager).
 - Pushbuttons are:
-  - REC: Press to record to the current analog data file. Recording starts with the next behavior session.
-  - Note: The analog data file is created automatically when starting a session. It has the same path and naming convention as the primary data file. It can be merged into the primary data file at the end of the session by calling AddFlexIOAnalogData().
+    - REC: Press to record to the current analog data file. Recording starts with the next behavior session.
+    - Note: The analog data file is created automatically when starting a session. It has the same path and naming convention as the primary data file. It can be merged into the primary data file at the end of the session by calling AddFlexIOAnalogData().
 - DC: Press to subtract the DC offset from all signals (in the viewer only; logged data is unaffected)
 - s/Div: Adjust seconds per division on the viewer grid. The 'Time' label on the bottom info bar shows the current time per division.
 - V/Div: Adjust volts per division on the viewer grid. 
@@ -509,16 +509,16 @@ NewStateMachine = AddState(StateMachineStruct, 'Name', StateName, 'Timer', Timer
 
 - StateMachineStruct: The state machine you are adding to. If this is the first state, StateMachineStruct is the output of NewStateMachine().
 - StateName: A character string containing the unique name of the state.
-  - The state will automatically be assigned a number for internal use and state synchronization via the sync port.
+    - The state will automatically be assigned a number for internal use and state synchronization via the sync port.
 - Timer: The state timer value, given in seconds
-  - This value must be zero or positive, and can range between 0-3600s.
-  - If set to 0s and linked to a state transition (see next bullet), the state will still take ~100us to execute the state's output actions before the transition completes.
+    - This value must be zero or positive, and can range between 0-3600s.
+    - If set to 0s and linked to a state transition (see next bullet), the state will still take ~100us to execute the state's output actions before the transition completes.
 - StateChangeConditions: A cell array of strings listing pairs of input events and the state changes they trigger.
-  - Each odd cell should contain the name of a valid input event.
-  - Each even cell should contain the name of the new state to enter if the previously listed event occurs, or 'exit' to exit the matrix and return all captured data..
+    - Each odd cell should contain the name of a valid input event.
+    - Each even cell should contain the name of the new state to enter if the previously listed event occurs, or 'exit' to exit the matrix and return all captured data..
 - OutputActions: A cell array listing the output actions and corresponding values for the current state.
-  - Each odd cell should contain the name of a valid output action.
-  - Each even cell should contain the value of the previously listed output action (see output actions for valid values).
+    - Each odd cell should contain the name of a valid output action.
+    - Each even cell should contain the value of the previously listed output action (see output actions for valid values).
 
 **Returns**
 
@@ -573,13 +573,13 @@ NewMatrix = EditState(StateMachineStruct, StateName, ParameterName, ParameterVal
 - StateMachineStruct: The state machine you are editing.
 - StateName: A character string specifying the name of the state you are editing.
 - ParameterName: A character string specifying the parameter you are editing. Valid values are:
-  - 'Timer'
-  - 'StateChangeConditions'
-  - 'OutputActions'
+    - 'Timer'
+    - 'StateChangeConditions'
+    - 'OutputActions'
 - ParameterValue: The new value of the parameter.
-  - For timer, this is the new timer duration in seconds. 
-  - For StateChangeConditions, this is a cell array of strings formatted with pair-wise arguments as in `AddState()`.
-  - For OutputActions, this is a cell array of strings formatted with pair-wise arguments as in `AddState()`.
+    - For timer, this is the new timer duration in seconds. 
+    - For StateChangeConditions, this is a cell array of strings formatted with pair-wise arguments as in `AddState()`.
+    - For OutputActions, this is a cell array of strings formatted with pair-wise arguments as in `AddState()`.
 
 **Returns**
 
@@ -611,11 +611,11 @@ Sets the parameters of a global timer.
 - Following the onset latency, a "start" event is generated, and can trigger a state change.
 - Then, following the timer duration, an "end" event is generated, which can also trigger a state change.
 - A digital or PWM (LED) output channel can be linked to the timer. 
-  - The linked channel is set "high" when the timer starts, and "low" when it ends. PWM values may be specified for onset/offset. 
+    - The linked channel is set "high" when the timer starts, and "low" when it ends. PWM values may be specified for onset/offset. 
 - Separate serial output messages can be linked to the timer start and end events to control modules. 
 - Global timers can be set to 'Loop'; repeat until they are explicitly canceled, or until a fixed number of iterations.
-  - Each loop iteration generates a start and stop event (this can be disabled for high-frequency loops)
-  - A configurable interval separates loop iterations (default = 0 seconds)
+    - Each loop iteration generates a start and stop event (this can be disabled for high-frequency loops)
+    - A configurable interval separates loop iterations (default = 0 seconds)
 - Global timers can be linked to trigger other global timers. Following the timer's onset delay, any linked timers will be triggered.
 - The number of available global timers is a configurable parameter specified in the state machine firmware.
 
@@ -640,19 +640,19 @@ where [ ] = optional argument
 - TimerNumber: The number of the timer you are setting (an integer, 1-5).
 - TimerDuration: The duration of the timer, following timer start (0-3600 seconds)
 - OnsetDelay: A fixed interval following timer trigger, before the timer start event (default = 0 seconds) 
-  - If set to 0, the timer starts immediately on trigger and no separate start event is generated.
+    - If set to 0, the timer starts immediately on trigger and no separate start event is generated.
 - OutputChannel: A string specifying an output channel to link to the timer (default = none)
-  - Valid output channels can be viewed from the "inspect" icon on the Bpod Console.
+    - Valid output channels can be viewed from the "inspect" icon on the Bpod Console.
 - OnsetValue: The value to write to the output channel on timer start (default = none)
-  - If the linked output channel is a digital output (BNC, Wire), set to 1 = High; 5V or 0 = Low, 0V
-  - If the linked output channel is a pulse width modulated line (port LED), set between 0-255.
-  - If the linked output channel is a serial module, OnsetValue specifies a byte message to send on timer start.
+    - If the linked output channel is a digital output (BNC, Wire), set to 1 = High; 5V or 0 = Low, 0V
+    - If the linked output channel is a pulse width modulated line (port LED), set between 0-255.
+    - If the linked output channel is a serial module, OnsetValue specifies a byte message to send on timer start.
 - OffsetValue: The value to write to the output channel on timer end (default = none)
 - LoopMode: 0 = off (default). If set to 1, global timer loops until canceled or until trial end. If >1, indicates a fixed number of loop iterations to execute (up to 255).
 - EventsEnabled: 1 = on (default). If set to 0, timer onset and offset events are not generated. Disabling events is useful for cases where the global timer is rapidly cycling to control a stimulus, and would otherwise generate a huge number of ignored behavior events.
 - LoopInterval: A configurable delay between the end of a timer loop and the beginning of the next one (default = 0 seconds)
 - OnsetTrigger: A byte whose bits indicate other global timers to trigger when the timer starts (following its onset delay).
-  - Instead of an integer, the assembler will recognize a character string of 1s and 0s (i.e. '101001' to trigger timers 1,4 and 6)
+    - Instead of an integer, the assembler will recognize a character string of 1s and 0s (i.e. '101001' to trigger timers 1,4 and 6)
 
 **Returns**
 
@@ -782,10 +782,10 @@ NewStateMachine = SetCondition(StateMachineStruct, ConditionNumber, ConditionCha
 - StateMachineStruct: The state machine description whose global timer you are setting.
 - ConditionNumber: The number of the condition you are setting (an integer).
 - ConditionChannel: The name of the input channel attached to the condition.
-  - Input channel names are listed in BpodSystem.StateMachineInfo.InputChannelNames
-  - The channel can also be a global timer, indicated as 'GlobalTimerN' where N is the index of the global timer.
+    - Input channel names are listed in BpodSystem.StateMachineInfo.InputChannelNames
+    - The channel can also be a global timer, indicated as 'GlobalTimerN' where N is the index of the global timer.
 - ConditionValue: The value of the condition channel if the condition is met (1 = high, 0 = low)
-  - If using a global timer, the timer is "high" (1) between its "start" and "end" events, and 0 otherwise.
+    - If using a global timer, the timer is "high" (1) between its "start" and "end" events, and 0 otherwise.
 
 **Returns**
 
@@ -829,7 +829,7 @@ Sends a state machine description to a Bpod state machine device.
 
 - The state machine description is checked first for sanity, and an error is thrown if parameters are invalid, states were referred to but not subsequently defined, etc.
 - The function returns an acknowledgement that the data was properly formatted and cued for transmission. 
-  - SuccessfulTransmission is verified internally on the next call to RunStateMachine().
+    - SuccessfulTransmission is verified internally on the next call to RunStateMachine().
 
 **Syntax**
 
@@ -840,7 +840,7 @@ Acknowledged = SendStateMachine(StateMachineStruct)
 **Parameters**
 
 - StateMachineStruct: The state machine struct to be sent.
-  - Note: state machine structs are created with NewStateMachine() and states are added with AddState().
+    - Note: state machine structs are created with NewStateMachine() and states are added with AddState().
 
 **Returns**
 
@@ -882,9 +882,9 @@ RawEvents = RunStateMachine()
 
 A struct with the following fields:
 - States: a vector listing the integer codes of states visited, in sequential order.
-  - The list of codes can be found in BpodSystem.StateMatrix.StateNames
+    - The list of codes can be found in BpodSystem.StateMatrix.StateNames
 - Events: a vector listing the byte codes of events captured.
-  - The list of events can be found in BpodSystem.StateMachineInfo.EventNames
+    - The list of events can be found in BpodSystem.StateMachineInfo.EventNames
 - StateTimestamps: a vector listing the entry times of each state listed in the "States" field (in seconds from matrix start).
 - EventTimestamps: a vector listing the times of each event listed in the "Events" field (in seconds from matrix start).
 - TrialStartTimestamp: The time the matrix started (in seconds from session start).
@@ -927,27 +927,27 @@ TrialManager = BpodTrialManager()
 **Object Fields**
 
 - Timer
-  - A MATLAB [timer object](https://www.google.com/url?q=https%3A%2F%2Fwww.mathworks.com%2Fhelp%2Fmatlab%2Fref%2Ftimer-class.html&sa=D&sntz=1&usg=AOvVaw06imv4yvjQCxbZkAectj-k), used to scan for incoming bytes from the state machine.
-  - By default, the timer runs at 1kHz.
+    - A MATLAB [timer object](https://www.google.com/url?q=https%3A%2F%2Fwww.mathworks.com%2Fhelp%2Fmatlab%2Fref%2Ftimer-class.html&sa=D&sntz=1&usg=AOvVaw06imv4yvjQCxbZkAectj-k), used to scan for incoming bytes from the state machine.
+    - By default, the timer runs at 1kHz.
 
 **Object Functions**
 
 - **startTrial**(StateMatrix)
-  - Sends the next trial's state matrix to the Bpod state machine device, and immediately begins running the trial. 
-  - StateMatrix = a valid state machine definition, created with `AddState()`.
-  - This function is non-blocking; after state matrix transmission is complete, MATLAB executes the next line of code in your protocol, while the trial proceeds in parallel.
-  - In the background, a call to startTrial starts TrialManager's MATLAB timer, which checks constantly for new incoming bytes from the state machine.
+    - Sends the next trial's state matrix to the Bpod state machine device, and immediately begins running the trial. 
+    - StateMatrix = a valid state machine definition, created with `AddState()`.
+    - This function is non-blocking; after state matrix transmission is complete, MATLAB executes the next line of code in your protocol, while the trial proceeds in parallel.
+    - In the background, a call to startTrial starts TrialManager's MATLAB timer, which checks constantly for new incoming bytes from the state machine.
 - currentTrialEvents = **getCurrentEvents**(TriggerStates)
-  - This is an optional function that stalls MATLAB until a specified trigger state is reached, and then returns all states visited and events captured up to that point in the trial. This can be useful for computing the next trial's state machine while the current trial is still running in an adaptive task (e.g. a task with an anti-bias algorithm).
-  - TriggerStates = a cell array of strings specifying the names of trigger states, any of which will trigger the current states and events to be returned.
-  - currentTrialEvents is a struct with 3 fields:
-    - StatesVisited = cell array of strings listing names of states visited, in order of their occurrence
-    - EventsCaptured = cell array of strings listing names of events captured, in order of their occurrence
-    - RawData = a struct with numerical codes for the states visited and events captured
+    - This is an optional function that stalls MATLAB until a specified trigger state is reached, and then returns all states visited and events captured up to that point in the trial. This can be useful for computing the next trial's state machine while the current trial is still running in an adaptive task (e.g. a task with an anti-bias algorithm).
+    - TriggerStates = a cell array of strings specifying the names of trigger states, any of which will trigger the current states and events to be returned.
+    - currentTrialEvents is a struct with 3 fields:
+          - StatesVisited = cell array of strings listing names of states visited, in order of their occurrence
+          - EventsCaptured = cell array of strings listing names of events captured, in order of their occurrence
+          - RawData = a struct with numerical codes for the states visited and events captured
 - RawEvents = **getTrialData**()
-  - This function stalls until the trial is complete, then retrieves the trial data.
-  - It should  be called after the next trial's state machine is computed and sent, plots are updated, and data is saved.
-  - RawEvents is a struct with raw trial data, formatted exactly like the output of `RunStateMachine()`
+    - This function stalls until the trial is complete, then retrieves the trial data.
+    - It should  be called after the next trial's state machine is computed and sent, plots are updated, and data is saved.
+    - RawEvents is a struct with raw trial data, formatted exactly like the output of `RunStateMachine()`
 
 **Cleanup**
 
@@ -1012,18 +1012,18 @@ UpdatedSessionData = AddTrialEvents(PreviousSessionData, RawEvents)
 **Return**
 
 - UpdatedSessionData: A struct containing data from all trials. It has the following fields:
-  - nTrials: The number of trials that have been added
-  - RawEvents: A struct containing re-organized state and event timestamps for each trial, labeled so they are human-readable.
-    - RawEvents.Trial{n} has two sub-fields, populated depending on what occurred during the trial:
-      - States: the times when each state was entered and exited (in seconds). States that were not visited show NaN.
-      - Events: the times when each event was detected (in seconds).
-  - RawData: A struct containing three fields:
-    - OriginalStateNamesByNumber: A cell array of strings listing the names of each state (for matching states up with state numbers sent via the sync port)
-      - Note that state numbers are assigned automatically depending on the order of states added with AddState - so if you programmed your protocol to add states (or refer to not-yet-added states) in a different order on each trial, state numbers on each trial may be different.
-    - OriginalStateData: A cell array containing the original state codes returned from RunStateMatrix on each trial
-    - OriginalEventData: A cell array containing the original event codes returned from RunStateMatrix on each trial
-  - TrialStartTimestamp: The time when each trial started (measured from the last time Bpod was initialized)
-  - Settings: A cell array of strings containing the settings struct as it existed when each trial's state matrix was sent.
+    - nTrials: The number of trials that have been added
+    - RawEvents: A struct containing re-organized state and event timestamps for each trial, labeled so they are human-readable.
+          - RawEvents.Trial{n} has two sub-fields, populated depending on what occurred during the trial:
+                  - States: the times when each state was entered and exited (in seconds). States that were not visited show NaN.
+                  - Events: the times when each event was detected (in seconds).
+    - RawData: A struct containing three fields:
+          - OriginalStateNamesByNumber: A cell array of strings listing the names of each state (for matching states up with state numbers sent via the sync port)
+                  - Note that state numbers are assigned automatically depending on the order of states added with AddState - so if you programmed your protocol to add states (or refer to not-yet-added states) in a different order on each trial, state numbers on each trial may be different.
+          - OriginalStateData: A cell array containing the original state codes returned from RunStateMatrix on each trial
+          - OriginalEventData: A cell array containing the original event codes returned from RunStateMatrix on each trial
+    - TrialStartTimestamp: The time when each trial started (measured from the last time Bpod was initialized)
+    - Settings: A cell array of strings containing the settings struct as it existed when each trial's state matrix was sent.
 
 
 **Example**
@@ -1070,15 +1070,15 @@ RunProtocol('Stop')
 **Parameters**
 
 - ProtocolName: A string specifying the name of the protocol, as it would appear in the launch manager.
-  - Do not include a path or file extension; for instance, to run the Operant protocol use 'Operant'.
-  - New protocols can be created from the launch manager.
+    - Do not include a path or file extension; for instance, to run the Operant protocol use 'Operant'.
+    - New protocols can be created from the launch manager.
 - SubjectName: A string specifying the test subject name, as it would appear in the launch manager
-  - Do not include a path or file extension; for instance, to run Rat232, use 'Rat232'.
-  - New subjects can be created from the launch manager.
+    - Do not include a path or file extension; for instance, to run Rat232, use 'Rat232'.
+    - New subjects can be created from the launch manager.
 - SettingsName: An optional string argument to specify a settings file.
-  - If omitted, the protocol's default settings file is used (by default, this is an empty struct). 
-  - Do not include a path or file extension; for instance, to load Rat232's 'Easy.mat' settings file for Operant, use 'Easy'.
-  - New settings files can be created from the launch manager.
+    - If omitted, the protocol's default settings file is used (by default, this is an empty struct). 
+    - Do not include a path or file extension; for instance, to load Rat232's 'Easy.mat' settings file for Operant, use 'Easy'.
+    - New settings files can be created from the launch manager.
 
 **Returns**
 
@@ -1192,16 +1192,16 @@ BehaviorDataOut = AddFlexIOAnalogData(BehaviorDataIn, [sampleFormat], [addSample
 **Parameters**
 
 - **BehaviorDataIn**: a Bpod behavior data structure. 
-  - During a session, use BpodSystem.Data. 
-  - To add analog data post-hoc (e.g. for a crashed session) BehaviorDataIn is the data structure loaded to the workspace
+    - During a session, use BpodSystem.Data. 
+    - To add analog data post-hoc (e.g. for a crashed session) BehaviorDataIn is the data structure loaded to the workspace
 - **sampleFormat**: a string indicating the format to import
-  - 'Volts' (default): Samples are imported as double type (8 bytes per sample). Units = volts.
-  - 'Bits': Samples are imported as uint16 type in range 0-4095 (2 bytes per sample). Bits represent volts in range 0-5.
-  - Note: Store samples as bits for smaller data files, and convert to volts at analysis time: 
-    - Volts = (double(Bits)/4095)*5
+    - 'Volts' (default): Samples are imported as double type (8 bytes per sample). Units = volts.
+    - 'Bits': Samples are imported as uint16 type in range 0-4095 (2 bytes per sample). Bits represent volts in range 0-5.
+    - Note: Store samples as bits for smaller data files, and convert to volts at analysis time: 
+          - Volts = (double(Bits)/4095)*5
 - **addSamplesByTrial**:
-  - 1 = add a cell array with a cell for each experimental trial, where each cell contains all samples acquired during that trial. This can also be done by user code at analysis time to save disk space.
-  - 0 = Do not add trial-aligned duplicate data
+    - 1 = add a cell array with a cell for each experimental trial, where each cell contains all samples acquired during that trial. This can also be done by user code at analysis time to save disk space.
+    - 0 = Do not add trial-aligned duplicate data
 
 **Returns**
 
@@ -1256,13 +1256,13 @@ SettingsStructure = BpodParameterGUI('sync', SettingsStructure)
 
 - Settings: A `struct` of settings and parameters with at least some numeric parameters in the subfield "GUI"
 - Optionally, a GUIMeta field can be included in Settings
-  - GUIMeta subfields are formatted as `GUIMeta.(parameterName).(attribute) = value`
-  - GUIMeta attributes are:
-    - Style: 'popupmenu', 'checkbox', 'pushbutton', 'text', 'edit'
-      - (See Examples for usage)
-    - String: a cell array of strings for popumenu
+    - GUIMeta subfields are formatted as `GUIMeta.(parameterName).(attribute) = value`
+    - GUIMeta attributes are:
+          - Style: 'popupmenu', 'checkbox', 'pushbutton', 'text', 'edit'
+                  - (See Examples for usage)
+          - String: a cell array of strings for popumenu
 - Optionally, a GUIPanels fiels can be included in Settings
-  - GUIPanels subfields are formatted as `GUIPanels.(panelName) = {parameterNames}`
+    - GUIPanels subfields are formatted as `GUIPanels.(panelName) = {parameterNames}`
 
 **Return**
 
@@ -1343,7 +1343,7 @@ Plays sounds from the governing computer using an [Asus Xonar DX](http://www.goo
 - Low latency and jitter (7-8ms) are achievable when running Bpod on Ubuntu 14.04 with the [low-latency kernel](https://www.google.com/url?q=https%3A%2F%2Flaunchpad.net%2Fubuntu%2F%2Bsource%2Flinux-lowlatency&sa=D&sntz=1&usg=AOvVaw1KGE2Zw-FkOA9ZhLtWr1T8) and [PsychToolbox](http://www.google.com/url?q=http%3A%2F%2Fpsychtoolbox.org%2F&sa=D&sntz=1&usg=AOvVaw1gi7uQVIKvJzFvDqvuDUkQ) installed. Comparable performance is possible on a Windows 7-10 computer (Core i7, >=8GB Ram) with only MATLAB running, no processing-intensive background processes, and the [latest ASUS ASIO driver](https://www.google.com/url?q=https%3A%2F%2Fwww.asus.com%2Fus%2FSound-Cards%2FXonar_DX%2FHelpDesk_Download%2F&sa=D&sntz=1&usg=AOvVaw1nBQk_hITkTtzvJ0mxm8Lc) installed.
 - Sounds are sampled at 192kHz, 7 channel, with left and right speakers on channels 1 and 2 ("front/left" and "front/right").
 - By default, channels 3-5 output a 1ms TTL pulse at the onset of each sound.  Connecting any of these channels to a BNC or wire input channel will provide a precise record of sound onset. On Linux, to ensure that the pulse can be read by Bpod, verify that you have [configured ALSAmixer correctly](https://sites.google.com/site/bpoddocumentation/installing-bpod/ubuntu-14?authuser=0) during installation.
-  - Up to 32 sounds can be loaded before each trial, and are known to the sound server as sounds 1-32. The number of sounds is currently limited in software to 32, but theoretically depends on available RAM. Sounds can be quickly re-loaded between trials to change their waveform.
+    - Up to 32 sounds can be loaded before each trial, and are known to the sound server as sounds 1-32. The number of sounds is currently limited in software to 32, but theoretically depends on available RAM. Sounds can be quickly re-loaded between trials to change their waveform.
 - Sounds are triggered by sending a soft code back to the governing computer from a trial's state matrix, and calling PsychToolboxSoundServer from a predetermined soft code handler function.
 
 **Syntax**
@@ -1372,8 +1372,8 @@ PsychToolboxSoundServer('close')
 
 - SoundID: A byte specifying which sound to load, play or clear (1-32).
 - Waveform: A vector containing the waveform of the sound to load. Samples must be between -1 and 1, and the sampling rate is 192kHz.
-  - For mono, use a 1Xn vector. Both speakers will play the sound.
-  - For stereo, use  a 2Xn vector. Row 1 is the left channel, and row 2 is right.
+    - For mono, use a 1Xn vector. Both speakers will play the sound.
+    - For stereo, use  a 2Xn vector. Row 1 is the left channel, and row 2 is right.
 
 **Returns**
 
@@ -1430,17 +1430,17 @@ Plays video stimuli on a second video monitor attached to the Bpod computer usin
 A "Sync Patch" is automatically generated for each video frame. The patch is set to a high pixel intensity on the first frame, and alternates between "off" and high intensity for subsequent frames. This allows an optical sensor mounted on the corner of the screen (i.e. [Frame2TTL](https://www.google.com/url?q=https%3A%2F%2Fsites.google.com%2Fsite%2Fframe2ttl%2F&sa=D&sntz=1&usg=AOvVaw1AtIpfRHvM0GME2w1oACEC)) to indicate the actual onset time of each video frame to an acquisition system, providing high precision reaction time and visual evidence update measurements.
 
 - Videos are matrices defined in MATLAB. 
-  - Each video frame is a matrix of 8-bit pixel values (0-255). 
-  - Single frames may be a grayscale intensity matrix of dimensions (Y, X) or a color matrix of dimensions (Y, X, 3)
-  - The three color layers are intensity matrices for red, green and blue layers respectively.
+    - Each video frame is a matrix of 8-bit pixel values (0-255). 
+    - Single frames may be a grayscale intensity matrix of dimensions (Y, X) or a color matrix of dimensions (Y, X, 3)
+    - The three color layers are intensity matrices for red, green and blue layers respectively.
 - Multiple frames are stacked in an additional dimension to create a video.
-  - e.g. a color video is a 4-D matrix: Y x X x 3 x Nframes 
+    - e.g. a color video is a 4-D matrix: Y x X x 3 x Nframes 
 - Videos are loaded to the player and assigned an index (1 - 100).
 - Videos can be played by index, allowing a byte to specify which video to start.
 - Text strings can be loaded by index in place of videos, to display prompts to human subjects
 - By default, playing a video blocks the MATLAB command line. 
-  - In default mode, a loop loads frames into the video buffer. Frames are presented at regular intervals.
-  - In timer mode, a MATLAB timer callback loads each frame into the video buffer. This makes the command line available during playback. 
+    - In default mode, a loop loads frames into the video buffer. Frames are presented at regular intervals.
+    - In timer mode, a MATLAB timer callback loads each frame into the video buffer. This makes the command line available during playback. 
 
 **Object**
 
@@ -1462,51 +1462,51 @@ The PsychToolboxVideoPlayer is controlled in 2 ways:
 **Object Fields**
 
 - **Window**
-  - PsychToolbox Window object (for advanced usage, see documentation)
+    - PsychToolbox Window object (for advanced usage, see documentation)
 - **DetectedFrameRate**
-  - Detected frame rate of the target display in Hz
+    - Detected frame rate of the target display in Hz
 - **Videos**
-  - Cell array containing videos loaded with obj.loadVideo()
+    - Cell array containing videos loaded with obj.loadVideo()
 - **TextStrings**
-  - Cell array containing text strings loaded with obj.loadText()
+    - Cell array containing text strings loaded with obj.loadText()
 - **TimerMode**
-  - TimerMode can be one of the following:
-    - 0 (video buffer fed by loop, blocking the MATLAB command line)
-    - 1 (video buffer fed by MATLAB timer object, non-blocking playback)
+    - TimerMode can be one of the following:
+          - 0 (video buffer fed by loop, blocking the MATLAB command line)
+          - 1 (video buffer fed by MATLAB timer object, non-blocking playback)
 - **ShowViewportBorder**
-  - ShowViewportBorder can be one of:
-    - 0 (no border)
-    - 1 - a thin gray border is drawn around the viewport (video portion of the window).
-      - This is useful for initial layout, and should be disabled during stimulus presentation
+    - ShowViewportBorder can be one of:
+          - 0 (no border)
+          - 1 - a thin gray border is drawn around the viewport (video portion of the window).
+                  - This is useful for initial layout, and should be disabled during stimulus presentation
 - **ViewPortDimensions**
-  - X,Y Dimensions of videos that can be loaded (specified on startup)
+    - X,Y Dimensions of videos that can be loaded (specified on startup)
 - **SyncPatchIntensity**
-  - Intensity of the sync patch pixels. Range = [0, 255]. Default = 128.
+    - Intensity of the sync patch pixels. Range = [0, 255]. Default = 128.
 - **SyncPatchActiveArea**
-  - Fraction of the sync patch dimensions set to white when drawing a white patch. Range = [0, 1].
-  - Permanently dark pixels surrounding the optical sensor can help to hide the sync patch from the test subject and improve tolerance for sensor misalignment
+    - Fraction of the sync patch dimensions set to white when drawing a white patch. Range = [0, 1].
+    - Permanently dark pixels surrounding the optical sensor can help to hide the sync patch from the test subject and improve tolerance for sensor misalignment
 
 **Object Functions**
 
 - **loadVideo**(videoIndex, video)
-  - Loads a video to the PsychToolboxVideoPlayer, formatted for playback with correct offset and sync patch
-  - videoIndex= index of the video (1-100)
-  - video = a Y x X x N MATLAB array of pixel intensities (0-255)
-    - Y is the height of the video. It must match height of viewport. The height is given in ViewPortDimensions(2)
-    - X is the width of the video. It must match width of viewport. The width is given in ViewPortDimensions(1)
-    - N is the number of frames in the video
-  - Color videos may be loaded as Y x X x 3 x N, where the third dimension are red, green and blue color layers respectively
+    - Loads a video to the PsychToolboxVideoPlayer, formatted for playback with correct offset and sync patch
+    - videoIndex= index of the video (1-100)
+    - video = a Y x X x N MATLAB array of pixel intensities (0-255)
+          - Y is the height of the video. It must match height of viewport. The height is given in ViewPortDimensions(2)
+          - X is the width of the video. It must match width of viewport. The width is given in ViewPortDimensions(1)
+          - N is the number of frames in the video
+    - Color videos may be loaded as Y x X x 3 x N, where the third dimension are red, green and blue color layers respectively
 - **loadText**(textIndex, textString, [textStringLine2], [fontSize], [leftOffset])
-  - Loads 1 or 2 lines of text to display on a single video frame (for online human subject instructions)
-  - textIndex = index of the text string (1-100). A video on the player cannot have the same index.
-  - textString = a character array of text to display
-  - textStringLine2 (optional) - a character array to display on line 2
-  - fontSize = font size of text to display
+    - Loads 1 or 2 lines of text to display on a single video frame (for online human subject instructions)
+    - textIndex = index of the text string (1-100). A video on the player cannot have the same index.
+    - textString = a character array of text to display
+    - textStringLine2 (optional) - a character array to display on line 2
+    - fontSize = font size of text to display
 - **play**(stimulusIndex)
-  - Plays video or text frame at the specified index, loaded previously with loadVideo() or loadText().
-  - If obj.TimerMode is set to 0, this function will block the MATLAB command line until video playback is complete.
+    - Plays video or text frame at the specified index, loaded previously with loadVideo() or loadText().
+    - If obj.TimerMode is set to 0, this function will block the MATLAB command line until video playback is complete.
 - **stop**()
-  - Stops ongoing video playback if obj.TimerMode is set to 1 (non-blocking playback)
+    - Stops ongoing video playback if obj.TimerMode is set to 1 (non-blocking playback)
 
 **Cleanup**
 
@@ -1616,11 +1616,11 @@ SideOutcomePlot(AxisHandle,'update',CurrentTrial,TrialSides,Outcomes)
 - TrialSides: A vector listing the correct response side for all trials in the session. For each trial in the vector, right = 0, left = 1.
 - CurrentTrial: The current trial number (will be marked with a cross)
 - Outcomes: A vector for each completed trial, listing outcomes: 
-  - -1 = error, unpunished (unfilled red circle)
-  - 0 = error, punished (filled red circle)
-  - 1 = correct, rewarded (filled green circle)
-  - 2 = correct, unrewarded (unfilled green circle)
-  - 3 = no response (unfilled black circle)
+    - -1 = error, unpunished (unfilled red circle)
+    - 0 = error, punished (filled red circle)
+    - 1 = correct, rewarded (filled green circle)
+    - 2 = correct, unrewarded (unfilled green circle)
+    - 3 = no response (unfilled black circle)
 
 **Returns**
 
@@ -1692,11 +1692,11 @@ TrialTypeOutcomePlot(AxisHandle,'update',CurrentTrial,TrialTypes,Outcomes)
 - TrialTypes: A vector listing the trial types for all trials in the session. Each trial type must be a positive integer.
 - CurrentTrial: The current trial number (will be marked with a cross)
 - Outcomes: A vector for each completed trial, listing outcomes: 
-  - -1 = error, unpunished (unfilled red circle)
-  - 0 = error, punished (filled red circle)
-  - 1 = correct, rewarded (filled green circle)
-  - 2 = correct, unrewarded (unfilled green circle)
-  - 3 = no response (unfilled black circle)
+    - -1 = error, unpunished (unfilled red circle)
+    - 0 = error, punished (filled red circle)
+    - 1 = correct, rewarded (filled green circle)
+    - 2 = correct, unrewarded (unfilled green circle)
+    - 3 = no response (unfilled black circle)
 
 **Returns**
 
@@ -1790,10 +1790,10 @@ Acknowledged = LoadSerialMessages(SerialPort, Messages, [MessageIndexes])
 
 **Parameters**
 - SerialPort: The UART serial port number (1-2 on Bpod 0.5, 1-3 on Bpod 0.7, 1-5 on Bpod Pocket State Machine)
-  - If a recognized Bpod module is on the port, you can also use its name as a string (e.g. 'ValveModule1')
+    - If a recognized Bpod module is on the port, you can also use its name as a string (e.g. 'ValveModule1')
 - Messages: A cell array of messages
 - (optional) MessageIndexes: A list of indexes for the byte strings in the Messages argument.
-  - By default, the indexes of Messages are consecutive.
+    - By default, the indexes of Messages are consecutive.
 
 **Returns**
 
@@ -1882,12 +1882,12 @@ ModuleWrite(ModuleName, Values, [Datatype])
 - ModuleName: The module's name (a character array). See BpodSystem.Modules for the names of connected modules.
 - Values: Value(s) to send to the module. By default, values are 'uint8'.
 - (optional) DataType: An integer data type. Supported types are:
-  - uint8
-  - uint16
-  - uin32
-  - int8
-  - int16
-  - int32
+    - uint8
+    - uint16
+    - uin32
+    - int8
+    - int16
+    - int32
 
 **Returns**
 
@@ -1922,12 +1922,12 @@ Values = ModuleRead(ModuleName, nValues, [Datatype])
 - ModuleName: The module's name (a character array). See BpodSystem.Modules for the names of connected modules.
 - Values: Value(s) to send to the module. By default, values are 'uint8'.
 - (optional) DataType: An integer data type. Supported types are:
-  - uint8
-  - uint16
-  - uin32
-  - int8
-  - int16
-  - int32
+    - uint8
+    - uint16
+    - uin32
+    - int8
+    - int16
+    - int32
 
 **Returns**
 
@@ -1971,7 +1971,7 @@ SendBpodSoftCode(SoftCodeByte)
 **Parameters**
 
 - SoftCodeByte: A byte to send to the state machine
-  - Note: The byte must be in the range of supported soft code bytes. By default the range is 1-15.
+    - Note: The byte must be in the range of supported soft code bytes. By default the range is 1-15.
 
 **Returns**
 

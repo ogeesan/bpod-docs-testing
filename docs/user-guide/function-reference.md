@@ -1,66 +1,6 @@
 # Function reference
-> [!NOTE]
-> :construction: This file contains all function references, with each section likely to be moved into its own file into the future.
-
-## Table of Contents
-- [Initialization](#initialization)
-    - [`Bpod()`](#bpod)
-- [BpodSystem fields](#bpodsystem-fields)
-    - [Data](#data)
-    - [ProtocolSettings](#protocolsettings)
-    - [SoftCodeHandlerFunction](#softcodehandlerfunction)
-    - [ProtocolFigures](#protocolfigures)
-    - [EmulatorMode](#emulatormode)
-    - [StateMachineInfo](#statemachineinfo)
-    - [Status](#status)
-    - [FlexIOConfig](#flexioconfig)
-- [BpodSystem functions](#bpodsystem-functions)
-    - [`assertModule()`](#assertmodule)
-    - [`setStatusLED()`](#setstatusled)
-    - [`startAnalogViewer()`](#startanalogviewer)
-- [Creating a state machine](#creating-a-state-machine)
-    - [`NewStateMachine()`](#newstatemachine)
-    - [`AddState()`](#addstate)
-    - [`EditState()`](#editstate)
-    - [`SetGlobalTimer()`](#setglobaltimer)
-    - [`SetGlobalCounter()`](#setglobalcounter)
-    - [`SetCondition()`](#setcondition)
-- [Running a state machine](#running-a-state-machine)
-    - [`SendStateMachine()`](#sendstatemachine)
-    - [`RunStateMachine()`](#runstatemachine)
-    - [`BpodTrialManager()`](#bpodtrialmanager)
-    - [`AddTrialEvents()`](#addtrialevents)
-- [Running a protocol](#running-a-protocol)
-    - [`RunProtocol()`](#runprotocol)
-- [Data storage](#data-storage)
-    - [`SaveBpodSessionData()`](#savebpodsessiondata)
-    - [`SaveProtocolSettings()`](#saveprotocolsettings)
-    - [`AddFlexIOAnalogData()`](#addflexioanalogdata)
-- [General Plugins](#general-plugins)
-    - [`BpodParameterGUI()`](#bpodparametergui)
-    - [`PsychToolboxSoundServer()`](#psychtoolboxsoundserver)
-    - [`PsychToolboxAudio()`](#psychtoolboxaudio)
-    - [`PsychToolboxVideoPlayer()`](#psychtoolboxvideoplayer)
-    - [`BpodNotebook`](#bpodnotebook)
-    - [`SideOutcomePlot()`](#sideoutcomeplot)
-    - [`TrialTypeOutcomePlot()`](#trialtypeoutcomeplot)
-    - [`StateTiming()`](#statetiming)
-- [Serial message setup](#serial-message-setup)
-    - [`LoadSerialMessages()`](#loadserialmessages)
-    - [`ResetSerialMessages()`](#resetserialmessages)
-    - [Implicit serial messages](#implicit-serial-messages)
-- [Module \<-\> MATLAB (via USB)](#module---matlab-via-usb)
-- [Module \<-\> MATLAB (via FSM)](#module---matlab-via-fsm)
-    - [`ModuleWrite()`](#modulewrite)
-    - [`ModuleRead()`](#moduleread)
-- [USB Soft Codes, PC --\> FSM](#usb-soft-codes-pc----fsm)
-    - [`SendBpodSoftCode()`](#sendbpodsoftcode)
-- [Liquid calibration](#liquid-calibration)
-    - [`GetValveTimes()`](#getvalvetimes)
-- [Updating Bpod](#updating-bpod)
-    - [`LoadBpodFirmware()`](#loadbpodfirmware)
-    - [`UpdateBpodSoftware()`](#updatebpodsoftware)
-
+!!! note
+    :construction: This file contains all function references, with each section likely to be moved into its own file into the future.
 
 ## Initialization
 
@@ -123,9 +63,10 @@ This code checks the selected settings file to see if it has been populated - an
 ```matlab
 S = BpodSystem.ProtocolSettings; % Load settings chosen in launch manager into current workspace as a struct called S
 
-if isempty(fieldnames(S))  % If settings file was an empty struct,  populate struct with default settings
-    S.SoundDuration = 0.5; % Duration of sound (s)
-    S.RiotDuration = 7.5; % Duration of riot(s)
+if isempty(fieldnames(S))   % If settings file was an empty struct,
+                            % populate struct with default settings
+    S.SoundDuration = 0.5;  % Duration of sound (s)
+    S.RiotDuration = 7.5;   % Duration of riot(s)
 end
 
 BpodSystem.ProtocolSettings = S;
@@ -142,7 +83,7 @@ Equal to the full path of a soft code handler m-file to use with the current pro
 For another example of a soft code handler, see [Examples/Protocols/](https://github.com/sanworks/Bpod_Gen2/tree/master/Examples/Protocols). PsychToolboxSound/ contains complete examples of a protocol state matrix construction using SoftCodeHandler_PlaySound.m
 
 ```matlab
-% Part 1 (in main protocol file): This single-state matrix sends a byte (3) back to the 
+% 1. (main protocol file): This single-state matrix sends a byte (3) back to the
 % governing computer on state entry by setting a 'SoftCode' in Output Actions.
 sma = NewStateMachine();
 sma = AddState(sma, 'Name', 'State1', ...
@@ -150,12 +91,12 @@ sma = AddState(sma, 'Name', 'State1', ...
     'StateChangeConditions', {'Tup', 'exit'},...
     'OutputActions', {'SoftCode', 3});
 
-% Part 2 (in main protocol file): This code specifies which file will handle the byte when it 
-% comes back.
+% Part 2 (in main protocol file): This code specifies which file will handle the
+% byte when it comes back.
 BpodSystem.SoftCodeHandlerFunction = 'SoftCodeHandler_Printout';
 
-% Part 3 (separate file in protocol folder): This code handles the byte by printing it to the
-% MATLAB command window.
+% Part 3 (separate file in protocol folder): This code handles the byte by 
+% printing it to the MATLAB command window.
 function SoftCodeHandler_Printout(Byte)
 disp(Byte);
 ```
@@ -173,7 +114,8 @@ A struct for handles of figures that display online data.
 This code initializes a new figure to show data, and adds its handle to `BpodSystem.ProtocolFigures`.
 At the conclusion of the session it will be closed.
 ```matlab
-BpodSystem.ProtocolFigures.MyPlotFig = figure('Position', [200 200 1000 200],'name','My Plots');
+BpodSystem.ProtocolFigures.MyPlotFig = figure('Position', [200 200 1000 200],...
+                                              'name', 'My Plots');
 ```
 
 ### EmulatorMode
@@ -191,7 +133,7 @@ When no Bpod device is found, the user can launch the Bpod software in emulator 
 This code connects to a remote TCP server using the SerialEthernet plugin, only if NOT in emulator mode.
 ```matlab
 if BpodSystem.EmulatorMode == 0
-    SerialEthernet('Init', 'COM65'); % Set this to the correct COM port for Arduino Leonardo
+    SerialEthernet('Init', 'COM65'); % Set COM port for Arduino Leonardo
     pause(1);
     RemoteIP = [192 168 0 104]; RemotePort = 3336;
     SerialEthernet('Connect', RemoteIP , RemotePort);
@@ -503,11 +445,14 @@ Adds a state to an existing state machine.
 **Syntax**
 
 ```matlab
-NewStateMachine = AddState(StateMachineStruct, 'Name', StateName, 'Timer', TimerDuration, 'StateChangeConditions', Conditions, 'OutputActions', Actions)
+NewStateMachine = AddState(StateMachineStruct, 'Name', StateName,...
+    'Timer', TimerDuration,...
+    'StateChangeConditions', Conditions,...
+    'OutputActions', Actions)
 ```
 **Parameters**
 
-- StateMachineStruct: The state machine you are adding to. If this is the first state, StateMachineStruct is the output of NewStateMachine().
+- StateMachineStruct: The state machine you are adding to. If this is the first state, StateMachineStruct is the output of `NewStateMachine()`.
 - StateName: A character string containing the unique name of the state.
     - The state will automatically be assigned a number for internal use and state synchronization via the sync port.
 - Timer: The state timer value, given in seconds
@@ -598,7 +543,8 @@ sma = AddState(sma, 'Name', 'MyState', ...
 
 sma = EditState(sma, 'MyState', 'Timer', 10);
 
-sma = EditState(sma, 'MyState', 'StateChangeConditions', {'Tup', 'exit', 'BNC1High', 'exit');
+sma = EditState(sma, 'MyState', 'StateChangeConditions',...
+                     {'Tup', 'exit', 'BNC1High', 'exit');
 ```
 
 ### `SetGlobalTimer()`
@@ -625,11 +571,11 @@ The function uses argument-value pairs. These must be listed in order (for effic
 
 ```matlab
 NewStateMachine = SetGlobalTimer(StateMachineStruct, 'TimerID', TimerNumber,... 
-            'Duration', TimerDuration, ['OnsetDelay', OnsetDelay],...
-            ['Channel', OutputChannel], ['OnsetValue', OnsetValue],... 
-            ['OffsetValue', OffsetValue], ['Loop', LoopMode],...
-            ['GlobalTimerEvents', EventsEnabled], ['LoopInterval', LoopInterval],...
-            ['OnsetTrigger', OnsetTriggerByte])
+        'Duration', TimerDuration, ['OnsetDelay', OnsetDelay],...
+        ['Channel', OutputChannel], ['OnsetValue', OnsetValue],... 
+        ['OffsetValue', OffsetValue], ['Loop', LoopMode],...
+        ['GlobalTimerEvents', EventsEnabled], ['LoopInterval', LoopInterval],...
+        ['OnsetTrigger', OnsetTriggerByte])
 ```
 where [ ] = optional argument
 <!-- Check syntax docs to see if there's a better way of indicating optional argument -->
@@ -690,7 +636,8 @@ This code generates a state machine that sets global timer#2 for 2 seconds with 
 ```matlab
 sma = NewStateMachine;
 
-sma = SetGlobalTimer(sma, 'TimerID', 2, 'Duration', 2, 'OnsetDelay', 1.5, 'Channel', 'BNC2'); 
+sma = SetGlobalTimer(sma, 'TimerID', 2, 'Duration', 2,...
+                          'OnsetDelay', 1.5, 'Channel', 'BNC2'); 
 
 sma = AddState(sma, 'Name', 'TimerTrig', ...
     'Timer', 0,...

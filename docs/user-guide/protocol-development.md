@@ -4,7 +4,7 @@ This guide will walk you through creating a simple protocol.
 
 Other example protocols are available in /Bpod_Gen2/Examples/Protocols.
 
-## Conceptual
+## Concepts
 A protocol is effectively two parts: 
 1. Defining session parameters and initializing session hardware.
 2. A loop to make the state machine activate and process the data.
@@ -48,7 +48,9 @@ end
 If you want to view and edit some parameters during behavior
 Add those parameters to the field "GUI":
 
+```matlab
 S.GUI.TimeoutDuration = 5;
+```
 
 Initialize the Parameter GUI plugin:
 ```matlab
@@ -170,7 +172,7 @@ if BpodSystem.BeingUsed == 0
 end
 ```
 
-## State matrix assembly concepts
+## State matrix visual example
 This is the state matrix from Bpod_Gen2/Examples/Protocols/Light/Light2AFC in diagram form.
 
 ```mermaid

@@ -5,6 +5,7 @@ This allows computer software (e.g. MATLAB, Python) to communicate with the hard
 
 Bpod uses the [ArCOM](https://github.com/sanworks/Bpod_Gen2/blob/master/Functions/Internal%20Functions/ArCOM/ArCOMObject_Bpod.m) object to interact with hardware over USB. In effect, modules are communicated with using the serial byte code approach, with Bpod/Functions/ providing a wrapper (a user friendly interface) for this communication method.
 
+UART vs USB
 
 ## State machine serial interface
 

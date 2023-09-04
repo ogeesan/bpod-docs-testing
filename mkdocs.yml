@@ -1,7 +1,7 @@
-site_name: Bpod Wiki
+site_name: Bpod Wiki testing
 repo_url: https://github.com/sanworks/Bpod_Gen2
 repo_name: Sanworks/Bpod_Gen2
-copyright: Copyright &copy; 2016 - 2023 Sanworks LLC
+copyright: Copyright &copy; 2016 - 2023 Sanworks LLC  # is this accurate?
 
 nav:
   - Home: index.md
@@ -11,7 +11,43 @@ nav:
     - user-guide/serial-interfaces.md
     - user-guide/modules.md
   - Modules:
-    - module-documentation/rotary-encoder-module.md
+    - Plugins:
+      - module-documentation/analog-input-module.md
+      - module-documentation/I2C-messenger-module.md
+      - module-documentation/rotary-encoder-module.md
+    - Serial Interfaces:
+      - module-serial-interfaces/analogue-input-module-serial-interface.md
+      - module-serial-interfaces/audioplayer-serial-interface.md
+      - module-serial-interfaces/blink-module-serial-interface.md
+      - module-serial-interfaces/hifi-module-serial-interface.md
+      - module-serial-interfaces/port-array-module-serial-interface.md
+      - module-serial-interfaces/rotary-encoder-module-serial-interface.md
+      - module-serial-interfaces/valve-module-serial-interface.md
+      - module-serial-interfaces/waveplayer-serial-interface.md
+  - Assembly:
+    - General Guides:
+      - assembly/bench-testing-bpod.md
+      - assembly/installing-bpod.md
+    - Materials and Assembly:
+      - assembly/analog-input-module-assembly.md
+      - assembly/analog-output-module-assembly.md
+      - assembly/arduino-shield-0-5-assembly.md
+      - assembly/arduino-shield-gen2-assembly.md
+      - assembly/dds-module-assembly.md
+      - assembly/ethernet-module-assembly.md
+      - assembly/hifi-module-assembly.md
+      - assembly/lickometer-assembly.md
+      - assembly/mouse-behavior-port-assembly.md
+      - assembly/mouse-box-assembly.md
+      - assembly/neuralynx-sync-board-assembly.md
+      - assembly/open-ephys-module-assembly.md
+      - assembly/port-array-module-assembly.md
+      - assembly/port-breakout-board-assembly.md
+      - assembly/raspberry-pi-shim-assembly.md
+      - assembly/rotary-encoder-module-assembly.md
+      - assembly/snes-module-assembly.md
+      - assembly/teensy-shield-assembly.md
+      - assembly/valve-driver-module-assembly.md
   - External links:
     - "Sanworks": "https://sanworks.io"
     - "Forums": "https://sanworks.io/forums"
@@ -36,8 +72,10 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+
 plugins: 
   - search
+
 theme:
   name: material
   features:
@@ -52,3 +90,6 @@ theme:
   # favicon should be different color scheme to sanworks.io favicon
   icon:
     repo: fontawesome/brands/github
+
+extra_css:
+  - https://fonts.googleapis.com/css2?family=Aldrich

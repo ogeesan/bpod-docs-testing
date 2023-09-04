@@ -1,4 +1,4 @@
-# Rotary Encoder Module
+# RotaryEncoderModule()
 A rotary encoder is a device that sends information related to its angular rotation. This module would be useful for tasks involving running wheels or choice wheels.
 
 !!! important

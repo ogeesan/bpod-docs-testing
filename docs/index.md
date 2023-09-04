@@ -1,30 +1,37 @@
-# Bpod Github Markdown Wiki Test
-Welcome to the Bpod Wiki.
+# Bpod
+
+<div style="font-family: 'Aldrich', monospace; font-size: 112px;">
+    <p align="center">
+        Bpod
+    </p>
+</div>
+<p align="center">
+    <em>Rodent behavior with Bpod: low-cost, extensible, open-source.</em>
+</p>
+
+---
+
+**Bpod_Gen2 source code**: [https://github.com/sanworks/Bpod_Gen2](https://github.com/sanworks/Bpod_Gen2)
+
+**Documentation**: [https://sites.google.com/site/bpoddocumentation/](https://sites.google.com/site/bpoddocumentation/)
+
+**Computer Aided Design (CAD) files**: [https://github.com/sanworks/Bpod-CAD](https://github.com/sanworks/Bpod-CAD)
+
+Legacy release (state machine 0.5 only): [https://github.com/sanworks/Bpod/tree/master](https://github.com/sanworks/Bpod/tree/master)
+
+---
 
 !!! warning
 
-    :stop_sign: This is a test version of the Bpod wiki to examine the feasability of moving it to Github. The official wiki maintained by Sanworks is hosted [here](https://sites.google.com/site/bpoddocumentation/home?authuser=0).
+    :stop_sign: This is a test version of the Bpod wiki to examine the feasibility of moving it to Github. The official wiki maintained by Sanworks is hosted [here](https://sites.google.com/site/bpoddocumentation/home?authuser=0).
     
     :construction: This test wiki does not contain all items, and some of the items included have been modified.
 
     :bulb: Some new additions exist.
 
-Bpod is an open source system for real-time behavior measurement in tasks consisting of multiple experimental trials. Experiment software is written in MATLAB, and device firmware is written in [Arduino](https://www.arduino.cc/). Hardware can be assembled with DIY desktop manufacturing methods - hand-soldering, 3-D printing, laser cutting and hand-tapping. The system architecture is low cost, and supremely hackable - precisely what is necessary to explore a space of behavioral metrics, or to train test subjects with high throughput. This wiki contains instructions for assembly and programming.
-
-<p align="center">
-<img src="./images/state-machine.jpg" alt="Alt text" width="300"/>
-</p>
-
-### Download
-The Bpod repository is available here:
-
-- Current release (Mandatory for state machine r0.7+, compatible with r0.5)
-  - MATLAB software: https://github.com/sanworks/Bpod_Gen2 
-  - CAD: https://github.com/sanworks/Bpod-CAD
-- Legacy release (Bpod state machine 0.5 only)
-  - https://github.com/sanworks/Bpod/tree/master
 
 ## About Bpod
+Bpod is an open source system for real-time behavior measurement in tasks consisting of multiple experimental trials. Experiment software is written in MATLAB, and device firmware is written in [Arduino](https://www.arduino.cc/). Hardware can be assembled with DIY desktop manufacturing methods - hand-soldering, 3-D printing, laser cutting and hand-tapping. The system architecture is low cost, and supremely hackable - precisely what is necessary to explore a space of behavioral metrics, or to train test subjects with high throughput. This wiki contains instructions for assembly and programming.
 
 Bpod was initially developed in [Kepecs Lab](http://kepecslab.cshl.edu/) at Cold Spring Harbor Laboratory, as a project alongside the lead developer's thesis research. It is maintained by [Sanworks LLC](https://sanworks.io/), a company dedicated to developing Bpod and other open neuroscience tools.
 

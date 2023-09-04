@@ -1,44 +1,51 @@
 # Bpod Github Markdown Wiki Test
-Welcome to the Bpod Wiki.
+The contents of this repository can be used to build a website. The docs/ folder contains the Markdown files.
 
-> [!WARNING]
-> :stop_sign: This is a test version of the Bpod wiki to examine the feasability of moving it to Github. The official wiki maintained by Sanworks is hosted [here](https://sites.google.com/site/bpoddocumentation/home?authuser=0).
-> 
-> :construction: This test wiki does not contain all items, and some of the items included have been modified.
->
-> :bulb: Some new additions exist.
+[MkDocs](https://www.mkdocs.org/) and the [Material theme](https://squidfunk.github.io/mkdocs-material/) are used to build the site.
 
-Bpod is an open source system for real-time behavior measurement in tasks consisting of multiple experimental trials. Experiment software is written in MATLAB, and device firmware is written in [Arduino](https://www.arduino.cc/). Hardware can be assembled with DIY desktop manufacturing methods - hand-soldering, 3-D printing, laser cutting and hand-tapping. The system architecture is low cost, and supremely hackable - precisely what is necessary to explore a space of behavioral metrics, or to train test subjects with high throughput. This wiki contains instructions for assembly and programming.
+- .vscode/settings.json : some workspace specific settings that will help in consistency (e.g. spell check settings, column ruler)
+- docs/ : the items of documentation
+- mkdocs.yml : defines the site structure
 
-<p align="center">
-<img src="docs/images/state-machine.jpg" alt="Alt text" width="300"/>
-</p>
+In the terminal, `mkdocs gh-build` is used which **commits all existing changes and pushes to gh-pages**, building the site. This means any changes on the current branch will be included in the site, even if they weren't committed to the current branch.
 
-## Table of Contents
+https://codebeautify.org/html-to-markdown is being used to convert the Wiki pages to Markdown, after which some manual formatting is applied (including `\n\s+\n` to `\n` regex replace).
+
+On `mkdocs serve` various warnings about absolute links will be raised -> these must be converted once all pages exist.
+
+## Wiki Items
+
+> - :white_check_mark: : import from original wiki complete
+> - :memo: : additional information/improvements is planned/added
+> - :bulb: : new item
+> - :construction: : under construction
 
 - Assembly
-  - [Bench testing Bpod](docs/assembly/bench-testing-bpod.md)
+  - Items and assembly
+  - [Bench testing Bpod](docs/assembly/bench-testing-bpod.md) :white_check_mark:
   - Downloads and sources
   - Hardware
-  - [Installing  Bpod](docs/assembly/installing-bpod.md)
+  - [Installing  Bpod](docs/assembly/installing-bpod.md) :white_check_mark:
   - Firmware updates
   - Software updates
 - User guide
-  - [Function reference](docs/user-guide/function-reference.md)
-  - General concepts
-  - [Modules](docs/user-guide/modules.md)
-  - [Protocol development](docs/user-guide/protocol-development.md)
-  - [Serial interfaces](docs/user-guide/serial-interfaces.md)
+  - General concepts :memo:
+  - Hardware Overview :memo:
+  - [Function reference](docs/user-guide/function-reference.md) :construction:
+  - [Modules](docs/user-guide/modules.md) :construction: :memo:
+  - [Protocol development](docs/user-guide/protocol-development.md) :white_check_mark: :memo: :construction:
+  - [Serial interfaces](docs/user-guide/serial-interfaces.md) :white_check_mark: :memo:
   - Using BControl
-  - :bulb:[Advanced user guide](docs/user-guide/advanced-user-guide.md)
+  - :bulb:[Advanced user guide](docs/user-guide/advanced-user-guide.md) :construction:
 - Module guides
+  <!-- - Ambient Module -->
   - Analog Input Module
   - Analog Output Module
   - DDS Module
   - Ethernet Module
   - HiFi Module
   - I2C Messenger Module
-  - [Rotary Encoder Module](docs/module-documentation/rotary-encoder-module.md)
+  - [Rotary Encoder Module](docs/module-documentation/rotary-encoder-module.md) :white_check_mark: :memo:
   - Port Array Module
   - Valve Driver Module
 
@@ -46,40 +53,3 @@ To assist navigating long documents you can open a file outline:
 <p align="center">
 <img src="docs/images/github-doc-outline-guide.png" alt="Alt text" width="500"/>
 </p>
-
-## About Bpod
-
-Bpod was initially developed in [Kepecs Lab](http://kepecslab.cshl.edu/) at Cold Spring Harbor Laboratory, as a project alongside the lead developer's thesis research. It is maintained by [Sanworks LLC](https://sanworks.io/), a company dedicated to developing Bpod and other open neuroscience tools.
-
-Bpod builds on the central design concept of [B-control](http://brodywiki.princeton.edu/bcontrol/index.php/Main_Page), a system provided by [Brody Lab](http://brodylab.org/) at Princeton University for rodent behavior measurement. Experimental trials are constructed in MATLAB as [finite state machines](https://en.wikipedia.org/wiki/Finite-state_machine), and executed on a separate real-time Linux computer. Bpod combines this parallel processing model with the accessibility of embedded computing in the Arduino language. Bpod provides a rich suite of software tools in high level interpreted computing environments for protocol development and online analysis, while real-time processing is delegated to an Arduino microcontroller network governed by finite state machine firmware.
-
-```mermaid
----
-title: Bpod's design concept
----
-sequenceDiagram
-actor e as Experimenter
-participant matlab as Computer
-participant bpod as Bpod State Machine
-participant external as External devices
-
-e->>matlab: Start protocol
-Note over matlab: Prepare session
-matlab ->> external: Configure with user-friendly functions
-loop
-Note over matlab: Prepare state machine
-matlab ->> bpod: Run state machine
-activate bpod
-Note over bpod: Rodent behavior
-bpod -->external: High speed interaction
-bpod ->> matlab: Send trial data
-deactivate bpod
-Note over matlab: Save data
-end
-```
-
-
-We love hearing about the awesome [science](https://sanworks.io/science/science.php) that is generated with Bpod! 
-
-Please post on the [Forums](https://sanworks.io/forums/) with your questions and feedback, or [email us](https://sanworks.io/about/contact.php) directly.
-

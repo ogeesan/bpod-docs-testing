@@ -22,15 +22,17 @@ On `mkdocs serve` various warnings about absolute links will be raised -> these 
 
 - Assembly
   - Items and assembly
+    - State machines
+    - Modules and items :white_check_mark:
   - [Bench testing Bpod](docs/assembly/bench-testing-bpod.md) :white_check_mark:
   - Downloads and sources
-  - Hardware
   - [Installing  Bpod](docs/assembly/installing-bpod.md) :white_check_mark:
   - Firmware updates
   - Software updates
 - User guide
-  - General concepts :memo:
+  - General concepts :white_check_mark: :memo:
   - Hardware Overview :memo:
+    - Refers to older state machine, belongs in general concepts?
   - [Function reference](docs/user-guide/function-reference.md) :construction:
   - [Modules](docs/user-guide/modules.md) :construction: :memo:
   - [Protocol development](docs/user-guide/protocol-development.md) :white_check_mark: :memo: :construction:

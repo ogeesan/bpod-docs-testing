@@ -15,8 +15,8 @@ Bpod Local/ # Contains user-specific files like protcols, calibrations, saved da
 Bpod_Gen2/    # Contains files required for Bpod to run
 ```
 
-> [!NOTE]
-> The expected location for the 'Bpod Local' folder is in same folder as 'Bpod_Gen2' is located.
+!!! note
+    The expected location for the 'Bpod Local' folder is in same folder as 'Bpod_Gen2' is located.
 
 ## Bpod Console
 The Bpod Console will appear when `Bpod` is launched and the device successfully connects:
@@ -117,10 +117,55 @@ The Launch Manager appears when a protocol is run from the Bpod Console.
     - This will run your protocol's main .m file
     - The settings struct you selected will be available in your protocol workspace as: `BpodSystem.ProtocolSettings`
 
-> [!NOTE]
-> The path to the folder may be different on your system. You can select where settings, protocols and data are stored from the Bpod console's settings menu.
+!!! note
+    The path to the folder may be different on your system. You can select where settings, protocols and data are stored from the Bpod console's settings menu.
 
 ## State matrix
+### What's that?
+
+Each Bpod trial is programmed as a [virtual finite state machine](http://www.google.com/url?q=http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FVirtual_finite-state_machine&sa=D&sntz=1&usg=AOvVaw1DcMhaObbuC0WOA7hhGMCg). This ensures precise timing of events - for any state machine you program, state transitions will be completed in less than 100 microseconds - so inefficient coding won't reduce the precision of events in your data.
+
+### Introduction to the Bpod state machine
+
+- Each state describes Bpod's outputs (Valves, LEDs, BNC channels, wire terminals, serial ports, etc.).
+- Events detected by Bpod's inputs can be set to trigger transitions between specific states.
+
+Here is a simple finite state machine, describing a binary switch that controls a bulb with variable brightness:
+
+```mermaid
+stateDiagram
+direction LR
+onstate: On state\nBrightness 100
+offstate: On state\nBrightness 0
+onstate --> offstate: Switched on
+offstate --> onstate: Switched off
+```
+
+- Each state contains a name ("On state" or "Off state"), a hardware description ("Brightness: X"), and transition events ("Switched on/off")
+
+Here is the same diagram presented as a state matrix, written in proper syntax for Bpod:
+
+```matlab
+sma = NewStateMatrix();         % Initializes a new, empty state 
+                                % matrix, and assigns it to the variable "sma".
+
+sma = AddState(sma, 'Name', 'OnState', ...  % Adds a new state called "OnState" 
+                                            % to the matrix. 
+    'Timer', 0,...                          % Sets the internal timer of 
+                                            % "On state" to 0 seconds. 
+    'StateChangeConditions', {'Port1In', 'OffState'},...  % Causes a transition 
+                % to "Off state" (not yet defined) if a "Port1In" event occurs. 
+    'OutputActions', {'PWM1', 255});           % Outputs for "On state". PWM1 is
+                % Port 1's PWM channel, value set to max LED brightness 
+                % (range = 0-255). 
+
+sma = AddState(sma, 'Name', 'OffState', ... % Adds a state called "Off state". 
+                                            % PWM1 = 0, "Port1Out" returns to
+                                            % first state. 
+    'Timer', 0,...
+    'StateChangeConditions', {'Port1Out', 'OnState'},...
+    'OutputActions', {'PWM1', 0});
+```
 
 ## Emulator mode
 If the Bpod software can not connect to a Bpod device, it can be run in Emulator mode.
@@ -135,8 +180,113 @@ If the Bpod software can not connect to a Bpod device, it can be run in Emulator
 - To exit emulator mode, ensure that the Bpod device is plugged in and restart Bpod.
 - Currently, only the state machine's onboard channels are supported. If your protocol depends on Bpod modules or other external hardware, you will have to run your protocol with the hardware present.
 
-## Liquid calibrator
+## Liquid calibration
+Solenoid valves connected to each behavior port (we recommend [these](http://www.google.com/url?q=http%3A%2F%2Fwww.theleeco.com%2Felectro-fluidic-systems%2Fsolenoid-valves%2Flhd%2Fsoft-tube-ported-style.cfm&sa=D&sntz=1&usg=AOvVaw1w0EV-e7R4MRGhzhhuY39h) for their fast action) can gate the gravity flow of liquid reward from an elevated reservoir to the test subject below. When writing your protocol, you might want to deliver a 5µl of liquid reward to a mouse - but how long should you open the valve to achieve this? The `GetValveTimes()` function will solve this for you, by reading from a calibration curve you create. Here's how to create and manage calibration curves:
+
+<!-- ### Step 1. Launch the calibration manager -->
+<!-- Original wiki has no step 2 heading -->
+
+- Frommthe [Bpod console](), click "Settings" (wrench icon). You will see a settings menu: 
+
+![Alt text](../images/console-settings-menu.png)
+
+- Next, click "Liquid reward calibration" (the faucet icon on the far left)
+- You should now see the calibration manager:
+
+![Alt text](../images/liquid-calibration-menu.png)
+
+- In the left list box, you can select one of the 8 valves to view its measurements and calibration curve in the right panels.
+- The "Plus" button will manually add a new amount to be measured. This will appear in red as a "Pending measurement".
+- The "Minus" button will permanently delete the selected measurement. 
+    - The "Suggest Points" button prompts you for a liquid amount range of interest, and automatically adds the best pending measurements: 
+
+![Alt text](../images/liquid-measurements.png)
+
+- The "#Pulses / measurement" button allows you to specify how many pulses will be delivered for each measurement. Larger numbers of pulses reduce measurement error, especially when calibrating for small liquid quantities.
+- The "Measure Pending" button delivers pulses from each valve that has a pending measurement. You should capture the water dispensed from each valve in a separate [weigh boat](https://www.google.com/search?q=weigh+boat&source=lnms&tbm=isch). When dispensing is complete, the software prompts you to measure each boat on a laboratory balance, and enter the resulting liquid weights. It then updates the calibration curve.
+- The "Test curve" button delivers 100 test pulses of a size you select from a valve you select, prompts for the resulting weight, and indicates whether the measurement is within a selected tolerance:
+
+![Alt text](../images/liquid-curve-test.png)
+
+<!-- this function could be improved if goal is just to see if one liquid port is doing its job -->
 
 ## Modules
+Beyond solenoid valves, LEDs and TTL pulses, it's hard to anticipate what kinds of outputs Bpod will need to control hardware in future experiments.
+
+As a general expansion framework, we have exposed 3 (or more) of the [UART serial ports](https://www.google.com/url?q=https%3A%2F%2Flearn.sparkfun.com%2Ftutorials%2Fserial-communication%2Fuarts&sa=D&sntz=1&usg=AOvVaw2e5bid8ez_clYR9sdmyEtv) of the state machine's microcontroller.
+
+- The serial ports are indicated on the enclosure as RJ45 ethernet jacks labeled "Modules" 1-N.
+- The ports are configured to communicate with other microcontrollers at 1.3125Mb/s
+- The state machine sends UART serial transmissions to modules using an RS485 IC at each end of the ethernet cable. This employs differential signaling over the Ethernet cable's twisted wire pairs, to make the digital messages more robust against noise.
+
+We designed a special circuit board to interface between these ports and the UART on Arduino Leonardo: the [Bpod Arduino Shield](/site/bpoddocumentation/assembling-bpod/arduino-shield-0-5?authuser=0).
+
+To develop your own serial device with Arduino M0 or Arduino Due and the Bpod Arduino shield, use the BlinkModule sketch as a starting point.
+- /Bpod_Gen2/Examples/Firmware/Gen2/BlinkModule/BlinkModule.ino
+
+It will help to become familiar with the [Arduino language](http://www.google.com/url?q=http%3A%2F%2Farduino.cc%2Fen%2FReference%2FHomePage&sa=D&sntz=1&usg=AOvVaw1v-cPDNL0l0ua0s9yO_xvD).
+
+An excellent intro to Arduino is located [here](https://www.google.com/url?q=https%3A%2F%2Flearn.sparkfun.com%2Ftutorials%2Fwhat-is-an-arduino&sa=D&sntz=1&usg=AOvVaw1od5YgunQFQgRDuuzRaBOE).
 
 ## Bonsai integration
+
+[Bonsai](https://bonsai-rx.org/) is an open source software tool for processing data streams, developed by [Goncalo Lopes](https://neurogears.org/about-us/).
+
+Among many applications in behavior measurement, it can be used for live video tracking, e.g. to trigger a Bpod state change based on the test subject's position in an arena.
+
+Two methods exist to integrate Bpod with Bonsai, depending on your state machine model and firmware:
+
+### State Machine r2.0 and newer with firmware v23
+
+With Firmware v23 on Bpod State Machine 2.0 or newer, the machine creates two USB serial ports on the PC. The primary port (e.g. COM3) is used to communicate with MATLAB. The secondary "App" port (e.g. COM4) can be used by a third-party application to exchange events with the state machine. Bonsai can send bytes to the App serial port using the [SerialWrite](https://bonsai-rx.org/docs/api/Bonsai.IO.Ports.SerialWrite.html) sink, found under 'IO.Ports' in the sink menu. Bonsai can receive bytes from the App serial port using the [SerialRead](https://bonsai-rx.org/docs/api/Bonsai.IO.Ports.SerialRead.html) source, under 'IO.Ports' in the source menu. 
+
+Note: From the Bpod console, click the Info (spyglass) icon to view the identity of the App serial port.
+
+#### Bonsai --> Bpod State Machine
+
+When bytes in range [0x1, 0x15] are sent from Bonsai's SerialWrite sink to the state machine's App serial port, the bytes are interpreted by the state machine as events App_SoftCode0 to App_SoftCode14. To handle these events, add them to the 'StateChangeConditions' section of a state. The following example state proceeds to the next state when byte 0x2 arrives from Bonsai:
+
+```matlab
+sma = AddState(sma, 'Name', 'WaitForBonsai', ...
+    'Timer', 0,...
+    'StateChangeConditions', {'APP\_SoftCode2', 'MyNextState'},...
+    'OutputActions', {});
+```
+
+#### Bpod State Machine --> Bonsai
+
+Bytes in range 1-255 can be sent to Bonsai's SerialRead source from any state using:
+
+```matlab
+ByteToSend = 3; % Send byte 0x3 to Bonsai
+
+sma = AddState(sma, 'Name', 'SendToBonsai', ...
+    'Timer', 0,...
+    'StateChangeConditions', {'Tup', 'MyNextSTate'},...
+    'OutputActions', {'AppSoftCode', ByteToSend});
+```
+
+An example Bonsai program [here](https://github.com/sanworks/Bpod_Gen2/tree/develop/Functions/Plugins/Bonsai/APP_SoftCode%20Example) uses the SerialRead and SerialWrite nodes to read incoming bytes from the state machine, and echo the same bytes back to the state machine generating Bpod events. Usage instructions are in the Readme file in the program folder.
+
+### State Machine r0.5 - r1.0 (any firmware), and r2.0 with firmware v22
+
+Since Bonsai is a separate program and MATLAB requires ownership of the Bpod state machine's only serial port, the soft codes must be passed via a local TCP socket. The Bonsai Socket Configurator manages this socket connection by creating a TCP server within MATLAB, and confirming when Bonsai is successfully attached as a client.
+
+Notice: The current release should be regarded as an alpha. It works with example code as detailed below, but it is preliminary, and will be updated in a future revision with a more general solution for built-in TCP communication. Please report any bugs you encounter.
+
+Step 1: Launch the settings and calibration manager.
+
+- From the Bpod console, click "Settings" (the wrench icon)f
+
+![Alt Text](../images/console-settings-menu.png)
+
+- Next, click "Setup Bonsai Socket Connection" (the tree icon)
+- You should now see the Bonsai socket configurator:
+
+![Alt text](../images/bonsai-socket-configurator.png)
+
+- Since you are creating the TCP server, you can use custom IP and Port. The defaults work fine.
+- Click "Connect".
+- In Bonsai, run an application that connects to your IP and Port. An example app is available in /Bpod/Bpod System Files/Plugins/Bonsai/App_SoftCode Example/. To demonstrate use of the app, after connecting to Bonsai, run the soft code example in /Bpod/Bpod System Files/ExampleMatrices: SoftCodeTriggeredStateChange.m. Shifting a bright light across your webcam's field of view from right to left should trigger a state change, visible as a change in port LEDs.
+- If the connection was initiated successfully, the Bonsai Status should show "Connected" in green.
+- Check "Auto-connect on Bpod start" to automatically connect to Bonsai when you run Bpod. Note: this will halt the Bpod launch routine until a Bonsai app connects.

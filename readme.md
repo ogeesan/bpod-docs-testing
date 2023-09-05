@@ -1,6 +1,8 @@
 # Bpod Github Markdown Wiki Test
 The contents of this repository can be used to build a website. The docs/ folder contains the Markdown files.
 
+Test site hosted here: https://ogeesan.github.io/bpod-docs-testing/
+
 [MkDocs](https://www.mkdocs.org/) and the [Material theme](https://squidfunk.github.io/mkdocs-material/) are used to build the site.
 
 - .vscode/settings.json : some workspace specific settings that will help in consistency (e.g. spell check settings, column ruler)
@@ -25,10 +27,10 @@ On `mkdocs serve` various warnings about absolute links will be raised -> these 
     - State machines
     - Modules and items :white_check_mark:
   - [Bench testing Bpod](docs/assembly/bench-testing-bpod.md) :white_check_mark:
-  - Downloads and sources
+  - Downloads and sources :x: (exists on front page)
   - [Installing  Bpod](docs/assembly/installing-bpod.md) :white_check_mark:
   - Firmware updates
-  - Software updates
+  - Software updates :white_check_mark:
 - User guide
   - General concepts :white_check_mark: :memo:
   - Hardware Overview :memo:

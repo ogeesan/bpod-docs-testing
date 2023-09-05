@@ -16,7 +16,7 @@ Bpod's MATLAB software is frequently updated with new features and improvements.
 To keep Bpod current for everyone, we use a [revision control](http://www.google.com/url?q=http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FRevision_control&sa=D&sntz=1&usg=AOvVaw1B_ySYzuOh-Dql7I0rO0fo) system called Git.
 
 Git's command line usage can be tricky, so instead, we recommend a simple and powerful user interface to Git called SourceTree.
-<!-- Is this really the best suggestion for Git? Github Desktop works just fine -->
+<!-- todo: Is this really the best suggestion for Git? Github Desktop works just fine -->
 
 1. Download and install [SourceTree](http://www.google.com/url?q=http%3A%2F%2Fwww.sourcetreeapp.com%2F&sa=D&sntz=1&usg=AOvVaw0Z-GdVxu4303g9vODKJ6_K). The default options during install are correct - and you can use the embedded git client when prompted, if you don't already have it.
 2. From SourceTree, clone the remote repository. 
@@ -74,7 +74,7 @@ This tutorial assumes you have loaded Bpod's firmware if you self-assembled the 
 5. Copy Bpod files from [here](https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2Fsanworks%2FBpod_Gen2&sa=D&sntz=1&usg=AOvVaw0hZOqBP6mI4rPtPR76Nb5k) and add /Bpod_Gen2/Bpod System Files to MATLAB path
 6. Close MATLAB
 7. Open a terminal window and add yourself to the “dialout” group:
-8. sudo usermod -a -G dialout kepecslab (if kepecslab is your username)
+8. `sudo usermod -a -G dialout kepecslab` (if kepecslab is your username)
 9. Restart matlab as root (same as step 3)
 10. Run Bpod from the command prompt.
 

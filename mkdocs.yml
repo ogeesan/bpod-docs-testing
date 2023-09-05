@@ -26,8 +26,9 @@ nav:
       - module-serial-interfaces/waveplayer-serial-interface.md
   - Assembly:
     - General Guides:
-      - assembly/bench-testing-bpod.md
-      - assembly/installing-bpod.md
+      - user-guide/installing-bpod.md
+      - user-guide/general-build-guide.md
+      - user-guide/bench-testing-bpod.md
     - Materials and Assembly:
       - assembly/analog-input-module-assembly.md
       - assembly/analog-output-module-assembly.md

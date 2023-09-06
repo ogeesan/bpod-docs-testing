@@ -1,3 +1,6 @@
+---
+icon: material/function-variant
+---
 # Function reference
 !!! note
     :construction: This file contains all function references, with each section likely to be moved into its own file into the future.

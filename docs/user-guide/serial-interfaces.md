@@ -1,3 +1,7 @@
+---
+icon: material/arrow-left-right
+---
+
 # Serial interfaces
 A "serial interface" is a communication protocol that involves sending and receiving data one byte at a time, serially. 
 

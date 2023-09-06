@@ -1,4 +1,4 @@
-# Arduino shield 0.5
+# Arduino Shield 0.5
 
 The Bpod/Arduino shield allows Bpod to control Arduino devices. It's very simple to build. Here's how.
 

@@ -25,17 +25,20 @@ nav:
       - module-serial-interfaces/valve-module-serial-interface.md
       - module-serial-interfaces/waveplayer-serial-interface.md
   - Assembly:
-    - General Guides:
-      - user-guide/installing-bpod.md
+    - General Guides and Installation:
+      - install-and-update/installing-bpod.md
       - user-guide/general-build-guide.md
       - user-guide/bench-testing-bpod.md
-    - Materials and Assembly:
+    - Software and Firmware Updates:
+      - install-and-update/software-update.md
+      - install-and-update/firmware-update.md
     - State Machines:
       - assembly/state-machine-assembly-0_5.md
       - assembly/state-machine-assembly-0_9-1_0.md
       - assembly/state-machine-assembly-2_3-2_4.md
       - assembly/state-machine-assembly-2_5.md
       - assembly/state-machine-assembly-2+.md
+    - Modules:
       - assembly/analog-input-module-assembly.md
       - assembly/analog-output-module-assembly.md
       - assembly/arduino-shield-0-5-assembly.md

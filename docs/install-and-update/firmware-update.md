@@ -6,7 +6,7 @@
     An experimental auto-updater is included with the latest Bpod software. It is not available on all platforms, and as new software it carries the risk of malfunction in your particular MATLAB + PC configuration. If you choose to try it,
 
 - To update the firmware of your state machine:
-    - Ensure the Bpod software is [installed](../user-guide/software-update.md)
+    - Ensure the Bpod software is [installed](./software-update.md)
     - Start MATLAB
     - Run the following at the MATLAB command line:
         - BpodFirmwareUpdate(MyPort)
@@ -56,10 +56,10 @@ FOR ALL: 
 Next, continue to specific instructions for the device you want to update:
 
 <!-- todo: fix links here -->
-[Modules powered by Arduino Due](/site/bpoddocumentation/firmware-update/state-machine?authuser=0) (State Machine v0.5-1.0)
+[Modules powered by Arduino Due](./arduinodue-update.md) (State Machine v0.5-1.0)
 
-[Modules powered by Teensy 3.X and 4.X](/site/bpoddocumentation/firmware-update/teensy3_x?authuser=0) (State Machine v2, 2.5 and 2+, Analog Output, Analog Input, DDS, HiFi, Ethernet, Rotary Encoder, Port Array, Valve Driver v2, Examples using Teensy Shield)
+[Modules powered by Teensy 3.X and 4.X](./teensy3x-update.md) (State Machine v2, 2.5 and 2+, Analog Output, Analog Input, DDS, HiFi, Ethernet, Rotary Encoder, Port Array, Valve Driver v2, Examples using Teensy Shield)
 
-[Modules powered by Sparkfun SAMD21 Mini](/site/bpoddocumentation/firmware-update/samd21mini?authuser=0) (ValveDriver v1, I2C, SNES)
+[Modules powered by Sparkfun SAMD21 Mini](./samkd21mini-update.md) (ValveDriver v1, I2C, SNES)
 
-[Modules powered by Arduino M0](/site/bpoddocumentation/firmware-update/arduinom0?authuser=0) (Examples using Arduino Shield)
+[Modules powered by Arduino M0](./arduinom0-update.md) (Examples using Arduino Shield)

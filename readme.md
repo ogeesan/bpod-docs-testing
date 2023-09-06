@@ -29,29 +29,19 @@ On `mkdocs serve` various warnings about absolute links will be raised -> these 
   - [Bench testing Bpod](docs/assembly/bench-testing-bpod.md) :white_check_mark:
   - Downloads and sources :x: (exists on front page)
   - [Installing  Bpod](docs/assembly/installing-bpod.md) :white_check_mark:
-  - Firmware updates
+  - Firmware updates :white_check_mark:
   - Software updates :white_check_mark:
 - User guide
   - General concepts :white_check_mark: :memo:
   - Hardware Overview :memo:
     - Refers to older state machine, belongs in general concepts?
-  - [Function reference](docs/user-guide/function-reference.md) :construction:
+  - [Function reference](docs/user-guide/function-reference.md) :white_check_mark:
   - [Modules](docs/user-guide/modules.md) :construction: :memo:
   - [Protocol development](docs/user-guide/protocol-development.md) :white_check_mark: :memo: :construction:
   - [Serial interfaces](docs/user-guide/serial-interfaces.md) :white_check_mark: :memo:
   - Using BControl
   - :bulb:[Advanced user guide](docs/user-guide/advanced-user-guide.md) :construction:
-- Module guides
-  <!-- - Ambient Module -->
-  - Analog Input Module
-  - Analog Output Module
-  - DDS Module
-  - Ethernet Module
-  - HiFi Module
-  - I2C Messenger Module
-  - [Rotary Encoder Module](docs/module-documentation/rotary-encoder-module.md) :white_check_mark: :memo:
-  - Port Array Module
-  - Valve Driver Module
+- Module functions :white_check_mark:
 
 To assist navigating long documents you can open a file outline:
 <p align="center">

@@ -24,7 +24,7 @@ On `mkdocs serve` various warnings about absolute links will be raised -> these 
 
 - Assembly
   - Items and assembly
-    - State machines
+    - State machines :white_check_mark:
     - Modules and items :white_check_mark:
   - [Bench testing Bpod](docs/assembly/bench-testing-bpod.md) :white_check_mark:
   - Downloads and sources :x: (exists on front page)

@@ -13,8 +13,13 @@ nav:
   - Modules:
     - Plugins:
       - module-documentation/analog-input-module.md
+      - module-documentation/audioplayer.md
+      - module-documentation/dds-module.md
+      - module-documentation/hifi-module.md
       - module-documentation/I2C-messenger-module.md
+      - module-documentation/pulsepal-module.md
       - module-documentation/rotary-encoder-module.md
+      - module-documentation/waveplayer.md
     - Serial Interfaces:
       - module-serial-interfaces/analogue-input-module-serial-interface.md
       - module-serial-interfaces/audioplayer-serial-interface.md

@@ -1,5 +1,6 @@
-## MATLAB Object
-**Description**
+# I2CMessenger()
+
+## Description
 
 Translates the Bpod serial interface (UART / RS-485) to the 2-wire I2C interface, using a Bpod I2C Messenger Module. 
 
@@ -11,7 +12,7 @@ Translates the Bpod serial interface (UART / RS-485) to the 2-wire I2C interface
 - The USB connection can be used to load messages (up to 16 bytes) to transmit instead of each byte that arrives.
 - Compatible with Bpod 0.7+
 
-**Syntax**
+## Syntax
 
 To initialize:
 ```matlab
@@ -79,7 +80,7 @@ To force-send a 1-16 byte message from the I2C module to its I2C slave:
 I2C.triggerMessage(messageIndex);
 ```
 
-**Example**
+## Example
 
 This code connects to the I2C module. A byte is sent to I2C slave#3, triggered by USB. Then, message#34 is set to a 13-byte message, to slave#5. The latter message is triggered from the state machine.
 

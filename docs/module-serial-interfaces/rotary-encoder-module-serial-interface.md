@@ -6,6 +6,13 @@ Requires a rotary encoder module board with firmware loaded from:
 
 The Rotary Encoder Module must be connected to a free serial port on the Bpod state machine.
 
+!!! important
+    There are two versions of the Rotary Encoder Module with non-overlapping feature sets. Both modules are controlled by the `RotaryEncoderModule` class. Functions specific to each version are indicated with:
+    
+    - Module v1 only: :one:
+    
+    - Module v2 only: :two:
+
 ## State Machine Command Interface
 - Byte **255** (reserved): Returns module info to state machine
 - '**L**' (ASCII 76):one:: **Start logging position+time data to the microSD card**. 

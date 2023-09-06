@@ -1,4 +1,4 @@
-# Analog Input Module
+# AnalogInputModule()
 ## Description
 
 The BpodAnalogIn class provides an object representing Bpod's [Analog Input Module](/site/bpoddocumentation/assembling-bpod/analog-input-module?authuser=0) (a general purpose voltage ADC with a dedicated microcontroller).

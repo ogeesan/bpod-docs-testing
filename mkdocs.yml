@@ -97,8 +97,27 @@ theme:
     - navigation.sections # use titles rather than expanding items
     # - navigation.expand # expand all items
     - navigation.indexes
+  font:
+    text: IBM Plex Sans
+    code: IBM Plex Mono
   palette:
-    scheme: slate # darkmode
+  # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: green
+      accent: light green
+      toggle:
+        icon: material/lightbulb-outline
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: green
+      accent: light green
+      toggle:
+        icon: material/lightbulb
+        name: Switch to dark mode
   logo: https://avatars.githubusercontent.com/u/17090284?v=4
   # 
   #favicon: https://avatars.githubusercontent.com/u/17090284?v=4

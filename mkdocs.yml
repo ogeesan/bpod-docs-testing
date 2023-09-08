@@ -121,9 +121,7 @@ theme:
         icon: material/lightbulb
         name: Switch to dark mode
   logo: https://avatars.githubusercontent.com/u/17090284?v=4
-  # 
-  #favicon: https://avatars.githubusercontent.com/u/17090284?v=4
-  # favicon should be different color scheme to sanworks.io favicon
+  favicon: images/favicon.png
   icon:
     repo: fontawesome/brands/github
 

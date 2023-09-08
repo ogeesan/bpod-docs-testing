@@ -22,14 +22,14 @@ nav:
       - module-documentation/rotary-encoder-module.md
       - module-documentation/waveplayer.md
     - Serial Interfaces:
-      - module-serial-interfaces/analogue-input-module-serial-interface.md
-      - module-serial-interfaces/audioplayer-serial-interface.md
-      - module-serial-interfaces/blink-module-serial-interface.md
-      - module-serial-interfaces/hifi-module-serial-interface.md
-      - module-serial-interfaces/port-array-module-serial-interface.md
-      - module-serial-interfaces/rotary-encoder-module-serial-interface.md
-      - module-serial-interfaces/valve-module-serial-interface.md
-      - module-serial-interfaces/waveplayer-serial-interface.md
+      - serial-interfacesanalogue-input-module-serial-interface.md
+      - serial-interfacesaudioplayer-serial-interface.md
+      - serial-interfacesblink-module-serial-interface.md
+      - serial-interfaceshifi-module-serial-interface.md
+      - serial-interfacesport-array-module-serial-interface.md
+      - serial-interfacesrotary-encoder-module-serial-interface.md
+      - serial-interfacesvalve-module-serial-interface.md
+      - serial-interfaceswaveplayer-serial-interface.md
   - Assembly:
     - General Guides and Installation:
       - install-and-update/installing-bpod.md

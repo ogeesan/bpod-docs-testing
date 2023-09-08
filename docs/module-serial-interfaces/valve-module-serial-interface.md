@@ -3,7 +3,7 @@
 
 ## Description
 
-Allows the state machine or PC to control 8 solenoid valves, using the [Bpod Valve Driver Module](/site/bpoddocumentation/assembling-bpod/valve-driver-module?authuser=0).
+Allows the state machine or PC to control 8 solenoid valves, using the [Bpod Valve Driver Module](../assembly/valve-driver-module-assembly.md).
 
 Requires a valve module board with firmware loaded from:
 

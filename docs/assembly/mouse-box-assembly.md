@@ -7,7 +7,7 @@ It can be constructed entirely from 3mm laser cut acrylic and 3-d printed materi
 
 ![Alt text](../images/mouse-box-top.png)
 
-The box is designed to work with [Bpod Mouse Ports](./mouse-behavior-port.md). It features a floor with an easy release mechanism, and side-walls that are sound-permeable near the ports. A clear acrylic roof slides into place on a track, for imaging of the mouse during behavior.
+The box is designed to work with [Bpod Mouse Ports](./mouse-behavior-port-assembly.md). It features a floor with an easy release mechanism, and side-walls that are sound-permeable near the ports. A clear acrylic roof slides into place on a track, for imaging of the mouse during behavior.
 
 ![Alt text](../images/mouse-box-internal.png)
 

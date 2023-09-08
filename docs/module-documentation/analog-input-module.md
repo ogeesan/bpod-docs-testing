@@ -1,7 +1,7 @@
 # AnalogInputModule()
 ## Description
 
-The BpodAnalogIn class provides an object representing Bpod's [Analog Input Module](/site/bpoddocumentation/assembling-bpod/analog-input-module?authuser=0) (a general purpose voltage ADC with a dedicated microcontroller).
+The BpodAnalogIn class provides an object representing Bpod's [Analog Input Module](../assembly/analog-input-module-assembly.md) (a general purpose voltage ADC with a dedicated microcontroller).
 
 The Analog Input Module has 8 input channels with 12 bits of resolution and configurable ranges up to +/-10V.
 

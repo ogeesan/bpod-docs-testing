@@ -13,8 +13,8 @@ UART vs USB
 
 ## State machine serial interface
 
-- Firmware v17 [State Machine Serial Interface](https://sites.google.com/site/bpoddocumentation/user-guide/serial-interfaces/statemachineserialinterface?authuser=0)
-- Firmware v18-22 [State Machine Serial Interface](https://sites.google.com/site/bpoddocumentation/user-guide/serial-interfaces/fsm_interface_v18?authuser=0)
+- Firmware v17 [State Machine Serial Interface](../module-serial-interfaces/fsm-serial-interface-v17.md)
+- Firmware v18-22 [State Machine Serial Interface](../module-serial-interfaces/fsm-serial-interface-v18.md)
 
 
 ## Module serial interfaces

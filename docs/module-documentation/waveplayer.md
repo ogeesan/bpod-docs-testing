@@ -2,7 +2,7 @@
 
 ## Description
 
-`BpodWavePlayer` plays analog waveforms on trigger, using the [Analog Output Module]() (a precision voltage DAC with a dedicated microcontroller).
+`BpodWavePlayer` plays analog waveforms on trigger, using the [Analog Output Module](../assembly/analog-output-module-assembly.md) (a precision voltage DAC with a dedicated microcontroller).
 
 The analog output module must have WavePlayer firmware loaded to use this class.
 

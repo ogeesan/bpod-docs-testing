@@ -6,7 +6,7 @@ PulsePalModule plays stimulation patterns on trigger, using the [Bpod Analog Out
 
 Pulse trains are [parametric](http://www.google.com/url?q=http%3A%2F%2Fsites.google.com%2Fsite%2Fpulsepalwiki%2Fparameter-guide&sa=D&sntz=1&usg=AOvVaw1ZWmqWtNp5a9EmGr7xA_v9). The parameters are identical to the [Beta version](https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2Fsanworks%2FPulsePal%2Ftree%2Fbeta%2FMATLAB_GEN2&sa=D&sntz=1&usg=AOvVaw1zt-fb28L_J_GRnNAyx7CW) of [Pulse Pal](http://www.google.com/url?q=http%3A%2F%2Fsites.google.com%2Fsite%2Fpulsepalwiki%2Fhome&sa=D&sntz=1&usg=AOvVaw18RXRTwRYC7wH5orxsQg3j)'s MATLAB API.
 
-To use PulsePalModule, you must [upload](/site/bpoddocumentation/firmware-update?authuser=0) PulsePalModule firmware to the output module from [here](https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2Fsanworks%2FBpod_AnalogOutput_Firmware&sa=D&sntz=1&usg=AOvVaw2mYfTij1ftDktlZRDZH-oN).
+To use PulsePalModule, you must [upload](../install-and-update/firmware-update.md) PulsePalModule firmware to the output module from [here](https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2Fsanworks%2FBpod_AnalogOutput_Firmware&sa=D&sntz=1&usg=AOvVaw2mYfTij1ftDktlZRDZH-oN).
 
 After running Bpod, a PulsePalModule object is initialized with the following syntax:
 

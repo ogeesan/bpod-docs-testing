@@ -14,7 +14,7 @@ Specs:
 - BNC output connector
 - Module can optionally derive its power supply from pocket state machine (using an on-board jumper).
 
-Note: This module loosely implements Analog Devices [Circuit Note CN0156](http://www.google.com/url?q=http%3A%2F%2Fwww.analog.com%2Fmedia%2Fen%2Freference-design-documentation%2Freference-designs%2FCN0156.pdf&sa=D&sntz=1&usg=AOvVaw2C80Ga95lsdW_ehrhdkAvk) for amplitude control. The output channel is directly driven by the DDS IC, resulting in a DC offset that varies slightly with the amplitude setting. See the amplitude adjustment section in the[MATLAB plugin documentation](/site/bpoddocumentation/user-guide/function-reference/ddsmodule?authuser=0) for more info.
+Note: This module loosely implements Analog Devices [Circuit Note CN0156](http://www.google.com/url?q=http%3A%2F%2Fwww.analog.com%2Fmedia%2Fen%2Freference-design-documentation%2Freference-designs%2FCN0156.pdf&sa=D&sntz=1&usg=AOvVaw2C80Ga95lsdW_ehrhdkAvk) for amplitude control. The output channel is directly driven by the DDS IC, resulting in a DC offset that varies slightly with the amplitude setting. See the amplitude adjustment section in the [MATLAB plugin documentation](../module-documentation/dds-module.md) for more info.
 <!-- replace plugin doc link -->
 Firmware for the DDS module is available [here](https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2Fsanworks%2FBpod_DDS_Firmware&sa=D&sntz=1&usg=AOvVaw0lWJaTWggOnfuOwEguT7ce).
 

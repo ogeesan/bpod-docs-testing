@@ -2,7 +2,7 @@
 
 ## Description
 
-Allows the state machine or PC to load and play sounds using the [](/site/bpoddocumentation/assembling-bpod/hifi-module?authuser=0) [Bpod HiFi Module](/site/bpoddocumentation/assembling-bpod/hifi-module?authuser=0).
+Allows the state machine or PC to load and play sounds using the [Bpod HiFi Module](../module-documentation/hifi-module.md).
 
 Requires a Bpod HiFi module with firmware loaded from:
 
@@ -41,7 +41,7 @@ The state machine command interface consists of bytes sent from the Bpod state m
 
 ## SerialUSB Command Interface
 
-The SerialUSB command interface allows configuration of the HiFi module from MATLAB or Python before a trial begins. The [BpodHiFi](/site/bpoddocumentation/user-guide/function-reference/bpodhifi?authuser=0) class for Bpod/MATLAB wraps this interface. The first several commands are the same as for the state machine interface, and additional commands follow.
+The SerialUSB command interface allows configuration of the HiFi module from MATLAB or Python before a trial begins. The [BpodHiFi](../module-documentation/hifi-module.md) class for Bpod/MATLAB wraps this interface. The first several commands are the same as for the state machine interface, and additional commands follow.
 
 - (ASCII 243): **Handshake**. The module replies with the following sequence of bytes:
     - handshakeReply (1 byte); Equal to 244

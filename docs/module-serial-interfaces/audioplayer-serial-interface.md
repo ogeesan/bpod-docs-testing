@@ -2,7 +2,7 @@
 
 ## Description
 
-Allows the state machine or PC to play mono or stereo sounds using Ch1 + Ch2 of the [analog output module](/site/bpoddocumentation/assembling-bpod/analog-output-module?authuser=0).
+Allows the state machine or PC to play mono or stereo sounds using Ch1 + Ch2 of the [analog output module](../assembly/analog-output-module-assembly.md).
 
 Requires a 4-channel analog output module board with BpodAudioPlayer or BpodAudioPlayerLive firmware loaded from:
 
@@ -10,7 +10,7 @@ Requires a 4-channel analog output module board with BpodAudioPlayer or BpodAudi
     - Note: The 'Live' version of BpodAudioPlayer allows sounds to be loaded while playback is in progress, but is limited to 44.1kHz sampling.
 The analog output module must be connected to a module port on the state machine.
 
-NOTE: the Analog Output Module is not a sound card! If you need high quality audio playback, use the [Bpod HiFi module](/site/bpoddocumentation/assembling-bpod/hifi-module?authuser=0).
+NOTE: the Analog Output Module is not a sound card! If you need high quality audio playback, use the [Bpod HiFi module](../assembly/hifi-module-assembly.md).
 
 ## State Machine Command Interface
 
@@ -27,7 +27,7 @@ The state machine command interface consists of bytes sent from the Bpod state m
 
 ## SerialUSB Command Interface
 
-The SerialUSB command interface allows configuration of the AudioPlayer module from MATLAB or Python before a trial begins. The [](/site/bpoddocumentation/user-guide/function-reference/audioplayer?authuser=0) [AudioPlayer](/site/bpoddocumentation/user-guide/function-reference/audioplayer?authuser=0) class for Bpod/MATLAB wraps this interface. The first two commands are the same as for the state machine interface, and additional commands follow.
+The SerialUSB command interface allows configuration of the AudioPlayer module from MATLAB or Python before a trial begins. The [AudioPlayer](../module-documentation/audioplayer.md) class for Bpod/MATLAB wraps this interface. The first two commands are the same as for the state machine interface, and additional commands follow.
 
 - (ASCII 229): **Handshake and reset**. The module replies with the following sequence of bytes:
     - handshakeReply (1 byte); Equal to 230
@@ -43,7 +43,7 @@ The SerialUSB command interface allows configuration of the AudioPlayer module f
     - The AudioPlayer module returns a byte (1) to confirm that it has finished reading the last sample.
 - '**S**' (ASCII 83): **Set sampling period** (units = microseconds, default = 22.675737; sampling rate = 44.1kHz). 'S' (byte 0) is followed by:
     - Bytes 1-4: Sampling period in microseconds (32-bit float)
-    - The [AudioPlayer class](/site/bpoddocumentation/user-guide/function-reference/audioplayer?authuser=0) (MATLAB) exposes sampling _rate_ to the user, and computes sampling period before transmitting.
+    - The [AudioPlayer class](../module-documentation/audioplayer.md) (MATLAB) exposes sampling _rate_ to the user, and computes sampling period before transmitting.
     - The AudioPlayer module returns a byte (1) to confirm that it has finished setting the sampling period.
     -*'\*'** (ASCII 42): **Push any loaded sounds to current playback buffers**.
     - Note: This op will make any sounds loaded recently current at the loaded positions, replacing any sounds at those positions.

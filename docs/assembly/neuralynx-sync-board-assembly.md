@@ -7,7 +7,7 @@ The Neuralynx sync board allows behavior and events logged by Bpod v0.5 to be se
 
 It's very simple to build. Here's how.
 
-1. Order all parts in the [Bill of Materials.](/site/bpoddocumentation/assembling-bpod/bpodneuralynx-sync-board/bill-of-materials?authuser=0)
+1. Order all parts in the Bill of Materials
     - These parts can be purchased from commercial suppliers except for the printed circuit board.
     - We have previously used SeeedStudio's [FusionPCB service](http://www.google.com/url?q=http%3A%2F%2Fwww.seeedstudio.com%2Fservice%2Findex.php%3Fr%3Dsite%2FpcbService&sa=D&sntz=1&usg=AOvVaw0rlz-RzKAXgAXaBkL6c5KN) as follows:
         - **QTY:** 10

@@ -31,7 +31,7 @@ The state machine command interface consists of bytes sent from the Bpod state m
 
 ### SerialUSB Command Interface
 
-The SerialUSB command interface allows configuration of the analog input module with MATLAB or Python before a trial begins. It also allows data return from the module's onboard microSD card. The [BpodAnalogIn](/site/bpoddocumentation/user-guide/function-reference/bpodanalogin?authuser=0) plugin for Bpod/MATLAB wraps this interface. The first two commands are the same as for the state machine interface (though an acknowledgement byte = 1 is returned in each case), and additional commands follow:
+The SerialUSB command interface allows configuration of the analog input module with MATLAB or Python before a trial begins. It also allows data return from the module's onboard microSD card. The [`AnalogInputModule()`](../module-documentation//analog-input-module.md) plugin for Bpod/MATLAB wraps this interface. The first two commands are the same as for the state machine interface (though an acknowledgement byte = 1 is returned in each case), and additional commands follow:
 
 - '**R**' (ASCII 82): **Set the input range for each channel*- (default = +/-10V). 'R' (byte 0) is followed by 1 byte for each channel (8 total):
     - Bytes 1-8: Each channel's range index. Range indexes are:
@@ -95,7 +95,7 @@ Data = A.read(nSamples , 'uint32'); % read the data
 clear A
 ```
 
-Start+Stop logging analog data from the Bpod state machine, when the subject enters+exits port 2 (Assuming the subject has run Bpod and created a [BpodAnalogIn](/site/bpoddocumentation/user-guide/function-reference/bpodanalogin?authuser=0) object called A).
+Start+Stop logging analog data from the Bpod state machine, when the subject enters+exits port 2 (Assuming the subject has run Bpod and created a [`AnalogInputModule()`](../module-documentation//analog-input-module.md) object called A).
 
 ```matlab
 LoadSerialMessages('AnalogIn1', {['L' 1], ['L' 0]});  % Set serial messages 1+2 to start+stop logging

@@ -3,8 +3,7 @@ The lickometer measures the precise time of lick events, and provides a steel tu
 
 The lickometer uses a photogate created from an infrared emitter with a narrow (10 degree) beam angle and a spectrally matched phototransistor. A white LED angled towards the subject is provided, to be used as a cue or for feedback.
 
-The lickometer interfaces with the state machine via the [port interface board]().
-<!-- todo: add link -->
+The lickometer interfaces with the state machine via the [port interface board](../assembly/port-breakout-board-assembly.md).
 
 ![](../images/lickometer.png)
 

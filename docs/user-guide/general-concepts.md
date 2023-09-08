@@ -186,7 +186,7 @@ Solenoid valves connected to each behavior port (we recommend [these](http://www
 <!-- ### Step 1. Launch the calibration manager -->
 <!-- Original wiki has no step 2 heading -->
 
-- Frommthe [Bpod console](), click "Settings" (wrench icon). You will see a settings menu: 
+- From the [Bpod console](../user-guide/general-concepts.md#bpod-console), click "Settings" (wrench icon). You will see a settings menu: 
 
 ![Alt text](../images/console-settings-menu.png)
 
@@ -215,11 +215,13 @@ Beyond solenoid valves, LEDs and TTL pulses, it's hard to anticipate what kinds 
 
 As a general expansion framework, we have exposed 3 (or more) of the [UART serial ports](https://www.google.com/url?q=https%3A%2F%2Flearn.sparkfun.com%2Ftutorials%2Fserial-communication%2Fuarts&sa=D&sntz=1&usg=AOvVaw2e5bid8ez_clYR9sdmyEtv) of the state machine's microcontroller.
 
+<!-- this is dope, more emphasis on the user-expandability of this would be good -->
+
 - The serial ports are indicated on the enclosure as RJ45 ethernet jacks labeled "Modules" 1-N.
 - The ports are configured to communicate with other microcontrollers at 1.3125Mb/s
 - The state machine sends UART serial transmissions to modules using an RS485 IC at each end of the ethernet cable. This employs differential signaling over the Ethernet cable's twisted wire pairs, to make the digital messages more robust against noise.
 
-We designed a special circuit board to interface between these ports and the UART on Arduino Leonardo: the [Bpod Arduino Shield](/site/bpoddocumentation/assembling-bpod/arduino-shield-0-5?authuser=0).
+We designed a special circuit board to interface between these ports and the UART on Arduino Leonardo: the [Bpod Arduino Shield](../assembly/arduino-shield-gen2-assembly.md).
 
 To develop your own serial device with Arduino M0 or Arduino Due and the Bpod Arduino shield, use the BlinkModule sketch as a starting point.
 - /Bpod_Gen2/Examples/Firmware/Gen2/BlinkModule/BlinkModule.ino

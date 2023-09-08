@@ -2,7 +2,7 @@
 
 ## Description
 
-BpodAudioPlayer plays audio waveforms on trigger, using Ch1+2 of the[Analog Output Module](/site/bpoddocumentation/assembling-bpod/analog-output-module?authuser=0) (a precision voltage DAC with a dedicated microcontroller). This is a convenient way to deliver sound, in applications where anti-aliasing and other standard sound card features are not critical. For high resolution audio, use the [Bpod HiFi Module](../assembly/hifi-module-assembly.md).
+BpodAudioPlayer plays audio waveforms on trigger, using Ch1+2 of the[Analog Output Module](../assembly/analog-output-module-assembly.md) (a precision voltage DAC with a dedicated microcontroller). This is a convenient way to deliver sound, in applications where anti-aliasing and other standard sound card features are not critical. For high resolution audio, use the [Bpod HiFi Module](../assembly/hifi-module-assembly.md).
 
 To use AudioPlayer, you must [upload](../install-and-update/firmware-update.md) AudioPlayer firmware to the output module from [here](https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2Fsanworks%2FBpod_AnalogOutput_Firmware&sa=D&sntz=1&usg=AOvVaw2mYfTij1ftDktlZRDZH-oN).
 

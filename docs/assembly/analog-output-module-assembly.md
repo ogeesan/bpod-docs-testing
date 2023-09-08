@@ -29,7 +29,7 @@ Specs with WavePlayer firmware (arbitrary waveform playback on trigger):
 
 Firmware for the analog output module is available [here](https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2Fsanworks%2FBpod_AnalogOutput_Firmware&sa=D&sntz=1&usg=AOvVaw2mYfTij1ftDktlZRDZH-oN).
 
-\*The analog output module is a general purpose DAC. High definition sound playback is available via the [HiFi module](../serial-interfaceshifi-module-serial-interface.md).
+\*The analog output module is a general purpose DAC. High definition sound playback is available via the [HiFi module](../serial-interfaces/hifi-module-serial-interface.md).
 ## Bill of Materials
 ### 4Ch AOM v1
 <iframe width=1000 height=300 jsname="L5Fo6c" jscontroller="usmiIb" jsaction="rcuQ6b:WYd;" class="YMEQtf L6cTce-purZT L6cTce-pSzOP KfXz0b" sandbox="allow-scripts allow-popups allow-forms allow-same-origin allow-popups-to-escape-sandbox allow-downloads allow-modals" frameborder="0" aria-label="Spreadsheet, Raspberry Pi Shim BOM" allowfullscreen="" src="https://docs.google.com/spreadsheets/d/1sg_CjjEeOa-BNOvEDrPs1JLkYYPr1-5xbWjqEkAero8/htmlembed?authuser=0"></iframe>

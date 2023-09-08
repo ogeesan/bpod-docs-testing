@@ -7,7 +7,7 @@ The Rotary encoder module interfaces a 1024-position quadrature rotary encoder (
 
 Version 1 (left, above) can stream the current position directly to the DDS or Analog Output module for low-latency closed loop sensory feedback. It can also log data to a microSD card during each experimental trial and dump it back between trials (instead of returning data via USB) if processing bandwidth is limited in your assay.
 
-Version 2 (right, above) has a 2-channel analog output interface to synchronize the current wheel position and 3.3V sync pulses directly with Ephys or microscopy systems. It also has a much more powerful processor, allowing for more complex event threshold [criteria](../serial-interfacesrotary-encoder-module-serial-interface.md).
+Version 2 (right, above) has a 2-channel analog output interface to synchronize the current wheel position and 3.3V sync pulses directly with Ephys or microscopy systems. It also has a much more powerful processor, allowing for more complex event threshold [criteria](../serial-interfaces/rotary-encoder-module-serial-interface.md).
 
 Both models are compatible with Bpod State Machine r0.7 or newer.
 

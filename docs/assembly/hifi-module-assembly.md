@@ -29,7 +29,7 @@ Key specs are:
 
 The HiFi module is controlled from MATLAB with the [BpodHiFi class](../module-documentation/hifi-module.md).
 
-Its interfaces to the Bpod State Machine and USB are documented [here](../serial-interfaceshifi-module-serial-interface.md).
+Its interfaces to the Bpod State Machine and USB are documented [here](../serial-interfaces/hifi-module-serial-interface.md).
 
 This table contrasts the HiFiBerry cards in the 'SD' and 'HD' versions of the module:
 

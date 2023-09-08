@@ -831,6 +831,7 @@ RawEvents = RunStateMachine()
 **Returns**
 
 A struct with the following fields:
+
 - States: a vector listing the integer codes of states visited, in sequential order.
     - The list of codes can be found in BpodSystem.StateMatrix.StateNames
 - Events: a vector listing the byte codes of events captured.
@@ -1274,8 +1275,8 @@ BpodParameterGUI('init', S);
 ```
 
 <p align="center">
-<img src="docs/images/../../../images/bpodparametergui-complex-example.png" 
-alt="Image of Paramter GUI window with panels, checkboxes, buttons, and dropdown" 
+<img src="../images/bpodparametergui-complex-example.png" 
+alt="Image of Parameter GUI window with panels, checkboxes, buttons, and dropdown" 
 width="400"/>
 </p>
 
@@ -1370,8 +1371,11 @@ else
 end
 ```
 
-### `PsychToolboxAudio()`
-> :construction: This file exists in Functions/Plugins/ but is not on the wiki
+<!-- ### `PsychToolboxAudio()`
+> :construction: This file exists in Functions/Plugins/ but is not on the wiki -->
+
+<!-- todo: add documentation -->
+
 ### `PsychToolboxVideoPlayer()`
 **Description**
 

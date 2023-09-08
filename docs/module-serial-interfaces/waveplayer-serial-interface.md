@@ -2,7 +2,7 @@
 
 ## Description
 
-Allows the state machine or PC to play analog waveforms using the [analog output module]().
+Allows the state machine or PC to play analog waveforms using the [analog output module](../assembly/analog-output-module-assembly.md).
 
 Requires a 4-channel analog output module board with firmware loaded from:
 - [https://github.com/sanworks/Bpod_AnalogOutput_Firmware/tree/master/AnalogOutputModule_4ch/BpodWavePlayer](https://github.com/sanworks/Bpod_AnalogOutput_Firmware/tree/master/AnalogOutputModule_4ch/BpodWavePlayer)

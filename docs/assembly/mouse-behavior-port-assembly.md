@@ -8,8 +8,7 @@ The behavior port uses a photogate created from an infrared emitter with a narro
 
 A white LED embedded in the port illuminates it, to be used as a decision cue or for feedback.
 
-The behavior port interfaces with the Bpod state machine via the [port interface board]().
-<!-- todo: add link -->
+The behavior port interfaces with the Bpod state machine via the [port interface board](../assembly/port-breakout-board-assembly.md).
 
 ![Alt text](../images/mouse-behavior-port.png)
 
@@ -76,7 +75,7 @@ Congratulations, your port is complete!
 
 ![Alt text](../images/mbp-complete.png)
 
-Next, connect it to a [port interface board]() and test it with Bpod.
+Next, connect it to a [port interface board](../assembly/port-breakout-board-assembly.md) and test it with Bpod.
 
 Note: The port design shown here has a thin layer of XT covering the sensor and emitter. However, we found that the optical clarity of the material is not always guaranteed in the print, occasionally producing a port that could not be used. The current design revision available in the Bpod repository has the sensor and emitter directly exposed, a configuration that has worked well in several labs.
 

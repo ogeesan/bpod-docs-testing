@@ -1,4 +1,4 @@
-# Rotary Encoder Module
+# Rotary Encoder Serial Interface
 ## Description
 Allows the state machine or PC to log rotary motion and detect threshold crossings using the rotary encoder module.
 Requires a rotary encoder module board with firmware loaded from:

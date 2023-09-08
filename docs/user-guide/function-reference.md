@@ -1299,7 +1299,7 @@ Plays sounds from the governing computer using an [Asus Xonar DX](http://www.goo
 
 **Syntax**
 
-```matmab
+```matlab
 % To initialize:
 PsychToolboxSoundServer('init')
 

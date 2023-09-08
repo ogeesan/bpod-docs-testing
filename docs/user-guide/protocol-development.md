@@ -20,9 +20,9 @@ A protocol is effectively two parts:
   - Protocol folders can be organised into subfolders within Protocols/
 - Other files used exclusively by your protocol can also reside in this folder. For now, you just need the one you saved.
 
-> [!NOTE]
-> When a protocol is run, Bpod will add the protocol folder into [MATLAB's Path](https://mathworks.com/help/matlab/matlab_env/what-is-the-matlab-search-path.html) where the protocol m-file is stored.
-> 
+!!! note
+    When a protocol is run, Bpod will add the protocol folder into [MATLAB's Path](https://mathworks.com/help/matlab/matlab_env/what-is-the-matlab-search-path.html) where the protocol m-file is stored.
+
 ### Protocol Setup (code that runs before the behavior session starts)
 
 - On the next line of your protocol file, add `global BpodSystem`
@@ -74,8 +74,8 @@ Initialize any plots and plugins for online visualization and peripheral device 
 BpodNotebook('init'); % Launches an interface to write notes about behavior and manually score trials
 ```
 
-> [!NOTE]
-> It is recommended to initialise figures at the end of the startup because if an error is encountered (e.g. failure to configure a module) after figures are created then you will be left with windows to close manually.
+!!! note
+    It is recommended to initialise figures at the end of the startup because if an error is encountered (e.g. failure to configure a module) after figures are created then you will be left with windows to close manually.
 <!-- This is some that could change in the future if a protocol error handling feature is introduced -->
 ### Main Loop (runs once each trial until some conditions are met, or the experimenter stops the session from the console)
 

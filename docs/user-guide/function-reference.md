@@ -280,8 +280,8 @@ BpodSystem.FlexIOConfig.nReadsPerSample = 2; % Set Flex I/O analog input to 2 av
 
 A behavior protocol demonstrating use of Flex I/O channels for analog acquisition is given in the Bpod_Gen2 repository [here](https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2Fsanworks%2FBpod_Gen2%2Fblob%2Fmaster%2FExamples%2FProtocols%2FLight%2FFlexIOAnalogLight2AFC%2FFlexIOAnalogLight2AFC.m&sa=D&sntz=1&usg=AOvVaw3Hhg52UiVwwLIqlC_2oK8a).
 
-> [!NOTE]
-> Flex I/O channels were introduced with Bpod State Machine 2+ in 2022, and may also exist on newer models.
+!!! note
+    Flex I/O channels were introduced with Bpod State Machine 2+ in 2022, and may also exist on newer models.
 
 
 ## BpodSystem functions
@@ -383,8 +383,8 @@ BpodSystem.startAnalogViewer();
 ```
 
 ## Creating a state machine
-> [!NOTE]
-> More examples of state machine creation can be found in the Examples/ folder of the repository. [Examples/State Machines/](https://github.com/sanworks/Bpod_Gen2/tree/master/Examples/State%20Machines) contains minimal (building block) examples, while [Examples/Protocols/](https://github.com/sanworks/Bpod_Gen2/tree/master/Examples/Protocols) contains complete examples of a protocol state matrix construction.
+!!! note
+    More examples of state machine creation can be found in the Examples/ folder of the repository. [Examples/State Machines/](https://github.com/sanworks/Bpod_Gen2/tree/master/Examples/State%20Machines) contains minimal (building block) examples, while [Examples/Protocols/](https://github.com/sanworks/Bpod_Gen2/tree/master/Examples/Protocols) contains complete examples of a protocol state matrix construction.
 
 ### `NewStateMachine()`
 **Description**
@@ -768,8 +768,8 @@ sma = AddState(sma, 'Name', 'Port3Light', ...
 
 ## Running a state machine
 
-> [!NOTE] 
-> The sending and running of a state matrix can be done in one of two ways. The "classic" method is to use `SendStateMachine()` and `RunStateMachine()`, where the state machine is suspended during inter-trial MATLAB updates. The "TrialManager" method is to use `BpodTrialManager()` which allows updates in parallel. Protocols based on both RunStateMachine() and BpodTrialManager() will be supported for the indefinite future.
+!!!note
+    The sending and running of a state matrix can be done in one of two ways. The "classic" method is to use `SendStateMachine()` and `RunStateMachine()`, where the state machine is suspended during inter-trial MATLAB updates. The "TrialManager" method is to use `BpodTrialManager()` which allows updates in parallel. Protocols based on both RunStateMachine() and BpodTrialManager() will be supported for the indefinite future.
 
 
 ### `SendStateMachine()`
@@ -854,8 +854,8 @@ end
 ```
 
 ### `BpodTrialManager()`
-> [!NOTE]
-> Former syntax: `TrialManagerObject()`
+!!! note
+    Former syntax: `TrialManagerObject()`
 
 **Description**
 
@@ -1283,8 +1283,8 @@ In this example the `S.GUI.ManualStimulate = 'ManualStimulate(1)` together with 
 
 
 ### `PsychToolboxSoundServer()`
-> [!NOTE]
-> PsychToolboxSoundServer will continue to be supported for legacy installations., but is not considered deprecated. For nearly all applications, the [Bpod HiFi Module] is a superior method for delivering auditory stimuli. We strongly recommend the HiFi module for new setups, and new projects on existing setups. 
+!!! note
+    PsychToolboxSoundServer will continue to be supported for legacy installations., but is not considered deprecated. For nearly all applications, the [Bpod HiFi Module](../assembly/hifi-module-assembly.md) is a superior method for delivering auditory stimuli. We strongly recommend the HiFi module for new setups, and new projects on existing setups. 
 
 **Description**
 
@@ -1858,8 +1858,8 @@ ModuleWrite('SillyModule2', [102483 297438], 'uint32');
 
 Reads values from a Bpod module, via its serial connection to the state machine. (i.e. Module --> State Machine --> MATLAB)
 
-> [!IMPORTANT]
-> The state machine must be manually configured to relay bytes from the module to the USB port, in order for `ModuleRead()` to work. Set the current relayed module with: `BpodSystem.StartModuleRelay(ModuleName)`. When you are done exchanging data with the module, you must call `BpodSystem.StopModuleRelay()` before using the state machine. If you do not call `StopModuleRelay()`, bytes relayed from the module may interfere with expected USB transmissions. Example code below shows proper usage.
+!!! important
+    The state machine must be manually configured to relay bytes from the module to the USB port, in order for `ModuleRead()` to work. Set the current relayed module with: `BpodSystem.StartModuleRelay(ModuleName)`. When you are done exchanging data with the module, you must call `BpodSystem.StopModuleRelay()` before using the state machine. If you do not call `StopModuleRelay()`, bytes relayed from the module may interfere with expected USB transmissions. Example code below shows proper usage.
 
 **Syntax**
 
@@ -1909,8 +1909,8 @@ BpodSystem.StopModuleRelay;
 
 Sends a byte code via USB to the Bpod state machine. The byte code can be handled during a trial like any other behavior event. By default, 15 bytes are reserved for soft codes (1-15). 
 
-> [!NOTE]
-> To access the MATLAB command line during a trial, you must use the `BpodTrialManager` class to run the trial's state machine.
+!!! note
+    To access the MATLAB command line during a trial, you must use the `BpodTrialManager` class to run the trial's state machine.
 
 **Syntax**
 
@@ -2005,8 +2005,8 @@ Launches a tool to load firmware to any Bpod state machine or module.
 
 Launches the Bpod software update tool. This tool will update your local copy of the [Bpod_Gen2 repository](https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2Fsanworks%2FBpod_Gen2&sa=D&sntz=1&usg=AOvVaw0hZOqBP6mI4rPtPR76Nb5k) to the latest stable release.
 
-> [!IMPORTANT]
-> If you are using a version control tool (e.g. SourceTree, Git) to keep your Bpod_Gen2 folder current, you should use the tool's "Pull" function and NOT UpdateBpodSoftware().
+!!! warning
+    If you are using a version control tool (e.g. Git) to keep your Bpod_Gen2 folder current, you should use the tool's "Pull" function and NOT UpdateBpodSoftware().
 
 As of August 2018, the software update tool is a BETA release, and works only on Win7 and Win10 with MATLAB r2014b or newer. 
 
@@ -2016,14 +2016,14 @@ The updater will overwrite any changes you may have made to your local copy of t
 
 Internet connectivity is required to launch the updater.
 
-In event of an update failure, see instructions for [manual update]. 
-<!-- TODO: add maual update information -->
+In event of an update failure, see instructions for [manual update](../install-and-update/software-update.md). 
+
 Please report any issues to support@sanworks.io.
 
 **Syntax**
 
-> [!NOTE]
-> Must be run while Bpod software is closed:
+!!! note
+    Must be run while Bpod software is closed:
 ```matlab
 UpdateBpodSoftware() 
 ```

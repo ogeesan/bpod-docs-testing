@@ -2,21 +2,25 @@
 icon: material/ethernet
 ---
 # Modules
-The state machine can interact with "modules", devices that can produce effects that the state machine itself is unable to.
+Beyond solenoid valves, LEDs and TTL pulses, it's hard to anticipate what kinds of outputs Bpod will need to control hardware in future experiments.
 
-A module usually consists an Arduino compatible board, such as a Teensy, loaded with firmware to interpret and/or interact with an external device, allowing it to work alongside the state machine and the computer.
+As a general expansion framework, we have exposed 3 (or more) of the [UART serial ports](https://www.google.com/url?q=https%3A%2F%2Flearn.sparkfun.com%2Ftutorials%2Fserial-communication%2Fuarts&sa=D&sntz=1&usg=AOvVaw2e5bid8ez_clYR9sdmyEtv) of the state machine's microcontroller.
 
-## Modules
-- I2CMessenger
-- Analog Input Module
-- Analog Output Module
-    - BpodWavePlayer
-    - BpodAudioPlayer
-    - PulsePalModule
-- DDS Module
-- Rotary Encoder Module
-- HiFi Module
-- Bpod Stepper Module
+<!-- this is dope, more emphasis on the user-expandability of this would be good -->
+
+- The serial ports are indicated on the enclosure as RJ45 ethernet jacks labeled "Modules" 1-N.
+- The ports are configured to communicate with other microcontrollers at 1.3125Mb/s
+- The state machine sends UART serial transmissions to modules using an RS485 IC at each end of the ethernet cable. This employs differential signaling over the Ethernet cable's twisted wire pairs, to make the digital messages more robust against noise.
+
+We designed a special circuit board to interface between these ports and the UART on Arduino Leonardo: the [Bpod Arduino Shield](../assembly/arduino-shield-gen2-assembly.md).
+
+To develop your own serial device with Arduino M0 or Arduino Due and the Bpod Arduino shield, use the BlinkModule sketch as a starting point.
+- /Bpod_Gen2/Examples/Firmware/Gen2/BlinkModule/BlinkModule.ino
+
+It will help to become familiar with the [Arduino language](http://www.google.com/url?q=http%3A%2F%2Farduino.cc%2Fen%2FReference%2FHomePage&sa=D&sntz=1&usg=AOvVaw1v-cPDNL0l0ua0s9yO_xvD).
+
+An excellent intro to Arduino is located [here](https://www.google.com/url?q=https%3A%2F%2Flearn.sparkfun.com%2Ftutorials%2Fwhat-is-an-arduino&sa=D&sntz=1&usg=AOvVaw1od5YgunQFQgRDuuzRaBOE).
+
 
 ## Module documentation
 Interaction with modules can be performed in three ways:

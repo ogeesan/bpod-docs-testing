@@ -11,6 +11,9 @@ nav:
     - user-guide/function-reference.md 
     - user-guide/serial-interfaces.md
     - user-guide/modules.md
+    - Additional guides:
+      - user-guide/bpod-gui.md
+      - user-guide/visual-stimulus-integration.md
   - Modules:
     - Plugins:
       - module-documentation/analog-input-module.md
@@ -124,6 +127,12 @@ theme:
   favicon: images/favicon.png
   icon:
     repo: fontawesome/brands/github
+
+# todo: ask Josh for google analytics code
+# extra:
+#   analytics:
+#     provider: google
+#     property: G-XXXXXXXXXX
 
 extra_css:
   - https://fonts.googleapis.com/css2?family=Aldrich

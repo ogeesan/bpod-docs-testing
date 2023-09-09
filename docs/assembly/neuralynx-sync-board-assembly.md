@@ -1,5 +1,4 @@
-# Bpod/Neuralynx sync board assembly
-Bpod/Neuralynx sync board
+# Bpod/Neuralynx Sync Board
 
 The Neuralynx sync board allows behavior and events logged by Bpod v0.5 to be sent to a [Neuralynx](http://www.google.com/url?q=http%3A%2F%2Fgoog_1444698261&sa=D&sntz=1&usg=AOvVaw2p8mm1NnJ2TM2HPH-y7pWR) [electrophysiology system](http://www.google.com/url?q=http%3A%2F%2Fneuralynx.com%2Fproducts%2Fdigital_data_acquisition_systems%2F&sa=D&sntz=1&usg=AOvVaw2_INAnaz2--DKA_ANjr_Zr).
 

@@ -1,4 +1,4 @@
-# Mouse Behavior Port Assembly
+# Mouse Behavior Port
 
 The mouse behavior port combines a photo-gate with a steel tube for delivering liquid reward, in a 3D-printed housing.
 

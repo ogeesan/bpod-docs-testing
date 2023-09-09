@@ -1,8 +1,8 @@
-# Bpod/OpenEphys sync board
+# Bpod/OpenEphys Sync Board
 
-The Open Ephys sync board allows behavior and events logged by Bpod to be sent to an [](http://www.google.com/url?q=http%3A%2F%2Fopen-ephys.org%2F&sa=D&sntz=1&usg=AOvVaw3oIFGmg6Jg8f-lrMlFh0q_) [Open Ephys](http://www.google.com/url?q=http%3A%2F%2Fopen-ephys.org%2F&sa=D&sntz=1&usg=AOvVaw3oIFGmg6Jg8f-lrMlFh0q_) electrophysiology system.
+The Open Ephys sync board allows behavior and events logged by Bpod to be sent to an [Open Ephys](http://www.google.com/url?q=http%3A%2F%2Fopen-ephys.org%2F&sa=D&sntz=1&usg=AOvVaw3oIFGmg6Jg8f-lrMlFh0q_) electrophysiology system.
 
-**Note: Bpod state machine 0.7+ Does not require the sync board.**
+**Note: Bpod state machine 0.7+ does not require the sync board.**
 
 It's very simple to build. Here's how.
 

@@ -1,4 +1,4 @@
-# Port interface board
+# Port Interface Board
 ![](../images/port-interface-board.png)
 Each port interface board connects one infrared photo-gate, one LED and one solenoid valve with the Bpod state machine via an Ethernet cable.
 

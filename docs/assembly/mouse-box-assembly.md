@@ -1,4 +1,4 @@
-# Mouse Box Assembly
+# Mouse Box
 Design files for a mouse behavior box have been included in the Bpod repository.
 
 The box allows two alternative forced choice (2AFC) and GO/NOGO tasks in freely moving mice.

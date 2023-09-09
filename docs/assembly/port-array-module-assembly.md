@@ -1,4 +1,4 @@
-# Port Array Module Assembly
+# Port Array Module
 ![Alt text](../images/port-array-module.png)
 The Port Array Module interfaces 4 behavior ports to a Bpod State Machine. 
 

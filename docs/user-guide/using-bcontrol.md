@@ -13,7 +13,7 @@ To use BControl with Bpod hardware, you need to apply a patch to the latest BCon
 1. Download a fresh copy of B-control, following the instructions [here](http://www.google.com/url?q=http%3A%2F%2Fbrodywiki.princeton.edu%2Fbcontrol%2Findex.php%2FInstallation_Guide%23Installation_Guide_for_Advanced_Users_.28core_code_and_behavioral_protocol_developers.29&sa=D&sntz=1&usg=AOvVaw2h1hRlM0u4aDdkXZpllmp9) (MATLAB-side instructions ONLY).
 2. Make a backup copy of your BControl download, in case something fails.
 3. If you have not already done so, install [PsychToolbox](http://www.google.com/url?q=http%3A%2F%2Fpsychtoolbox.org%2Fdownload%2F&sa=D&sntz=1&usg=AOvVaw0nKrMmbAW7F-ckOh8O3ATK).
-4. [Load](/site/bpoddocumentation/firmware-update/state-machine?authuser=0) the B-control firmware variant for your state machine (from the state machine firmware repository, [here](https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2Fsanworks%2FBpod_StateMachine_Firmware%2Ftree%2Fv22%2FPreconfigured%2FFor%2520BControl&sa=D&sntz=1&usg=AOvVaw0ITFEY6McFr4B1-TU54UA4)).
+4. [Load](../install-and-update/firmware-update.md) the B-control firmware variant for your state machine (from the state machine firmware repository, [here](https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2Fsanworks%2FBpod_StateMachine_Firmware%2Ftree%2Fv22%2FPreconfigured%2FFor%2520BControl&sa=D&sntz=1&usg=AOvVaw0ITFEY6McFr4B1-TU54UA4)).
 5. Open MATLAB, and from the command prompt run: `Bpod`;
 6. Once Bpod opens, run: `PatchBControl`;
 7. Follow the prompt to identify BControl's root directory, and confirm that you have made a backup copy

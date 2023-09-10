@@ -8,12 +8,8 @@ A rotary encoder is a device that sends information related to its angular rotat
     
     - Module v2 only: :two:
 
-## Construction
-<!-- Using the spreadsheet and then the /htmlembed? is how we can get the sheets in manually -->
-<iframe height=500 width=1000 src="https://docs.google.com/spreadsheets/d/1x7dX9o_PXsrM73ysIs31Eqibp1LFqf5qpn3Ep0Tz4T0/htmlembed?authuser=0"></iframe>
+## Description
 
-## MATLAB Object
-### Description
 `RotaryEncoderModule()` provides an object to interface with the Bpod rotary encoder module. The rotary encoder module is optimized to integrate a 1024-position quadrature rotary encoder (e.g. Yumo E6B2-CWZ3E) with Bpod.
 
 A `RotaryEncoderModule` object is initialized with the following syntax:
@@ -25,7 +21,8 @@ Where COM3 is the rotary encoder module's serial port.
 The rotary encoder module is controlled in 2 ways: 
 - Setting the `RotaryEncoderModule` object's fields
 - Calling the `RotaryEncoderModule` object's functions (its methods)
-### Object Fields
+
+## Object Fields
 - **Port**
     - ArCOM Serial port object
 - **thresholds**
@@ -59,8 +56,7 @@ The rotary encoder module is controlled in 2 ways:
     - 'on' to use thresholds programmed with the setAdvancedThresholds() method (ignores 'thresholds' property above)
     - Advanced thresholds can have timing properties, and are not made current until a 'push' command is received.
 
-
-### Object functions
+## Object functions
 - **currentPosition()**
     - Returns the current position of the encoder (in degrees)
 - **zeroPosition()**

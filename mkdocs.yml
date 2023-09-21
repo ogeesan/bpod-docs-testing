@@ -33,6 +33,8 @@ nav:
       - serial-interfaces/rotary-encoder-module-serial-interface.md
       - serial-interfaces/valve-module-serial-interface.md
       - serial-interfaces/waveplayer-serial-interface.md
+      - serial-interfaces/fsm-serial-interface-v17.md
+      - serial-interfaces/fsm-serial-interface-v18.md
   - Assembly:
     - General Guides and Installation:
       - install-and-update/installing-bpod.md
@@ -71,6 +73,14 @@ nav:
     - "Sanworks": "https://sanworks.io"
     - "Forums": "https://sanworks.io/forums"
     - "GitHub": "https://github.com/sanworks/Bpod_Gen2"
+
+not_in_nav: |
+  /install-and-update/arduinodue-update.md
+  /install-and-update/arduinom0-update.md
+  /install-and-update/samkd21mini-update.md
+  /install-and-update/teensy3x-update.md
+  /module-documentation/readme.md
+
 
 markdown_extensions:
   - admonition  # callouts/alerts

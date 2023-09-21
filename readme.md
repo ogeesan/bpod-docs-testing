@@ -1,49 +1,28 @@
-# Bpod Github Markdown Wiki Test
-The contents of this repository can be used to build a website. The docs/ folder contains the Markdown files.
+# Bpod Documentation
+The contents of this repository is used to build the Bpod documentation site at https://sanworks.github.io/docs
 
-Test site hosted here: https://ogeesan.github.io/bpod-docs-testing/
+> [!WARNING]
+> This is a development repository. All contents will eventually exist in a Sanworks repository. The test site is hosted here: https://ogeesan.github.io/bpod-docs-testing/
 
+## Installing and building
 [MkDocs](https://www.mkdocs.org/) and the [Material theme](https://squidfunk.github.io/mkdocs-material/) are used to build the site.
 
-- .vscode/settings.json : some workspace specific settings that will help in consistency (e.g. spell check settings, column ruler)
-- docs/ : the items of documentation
-- mkdocs.yml : defines the site structure
+`pip install mkdocs-material` will install all of the requirements necessary to build and view the site.
 
-In the terminal, `mkdocs gh-build` is used which **commits all existing changes and pushes to gh-pages**, building the site. This means any changes on the current branch will be included in the site, even if they weren't committed to the current branch.
+As a quick guide, mkdocs.yml contains the site structure and settings while docs/ contains all of the content used by MkDocs to generate the site.
 
-https://codebeautify.org/html-to-markdown is being used to convert the Wiki pages to Markdown, after which some manual formatting is applied (including `\n\s+\n` to `\n` regex replace).
+Each page in the documentation is a [Markdown (.md)](https://www.markdownguide.org/getting-started/) file that you can edit with a simple text editor like Notepad, a Markdown editor, or even in GitHub itself.
 
-On `mkdocs serve` various warnings about absolute links will be raised -> these must be converted once all pages exist.
+In the terminal, `mkdocs serve` creates a local live server where you can preview the site and live changes.
 
-## Wiki Items
+.github/workflows/deploy-site.yml defines a GitHub workflow that will build the site on GitHub pages whenever changes are made to `main`.
 
-> - :white_check_mark: : import from original wiki complete
-> - :memo: : additional information/improvements is planned/added
-> - :bulb: : new item
-> - :construction: : under construction
+<!-- possible use of python autodoc tool in the future -->
 
-- Assembly
-  - Items and assembly
-    - State machines :white_check_mark:
-    - Modules and items :white_check_mark:
-  - [Bench testing Bpod](docs/assembly/bench-testing-bpod.md) :white_check_mark:
-  - Downloads and sources :x: (exists on front page)
-  - [Installing  Bpod](docs/assembly/installing-bpod.md) :white_check_mark:
-  - Firmware updates :white_check_mark:
-  - Software updates :white_check_mark:
-- User guide
-  - General concepts :white_check_mark: :memo:
-  - Hardware Overview :memo:
-    - Refers to older state machine, belongs in general concepts?
-  - [Function reference](docs/user-guide/function-reference.md) :white_check_mark:
-  - [Modules](docs/user-guide/modules.md) :construction: :memo:
-  - [Protocol development](docs/user-guide/protocol-development.md) :white_check_mark: :memo: :construction:
-  - [Serial interfaces](docs/user-guide/serial-interfaces.md) :white_check_mark: :memo:
-  - Using BControl
-  - :bulb:[Advanced user guide](docs/user-guide/advanced-user-guide.md) :construction:
-- Module functions :white_check_mark:
+## Contributing
+All contributions are welcome!
 
-To assist navigating long documents you can open a file outline:
-<p align="center">
-<img src="docs/images/github-doc-outline-guide.png" alt="Alt text" width="500"/>
-</p>
+Any problems, from errors, to typos, to unclear phrasing, can be raised as an Issue or Pull Request.
+
+> [!NOTE]
+> Discussion and problems with Bpod itself should be directed to the forums at [sanworks.io/forums](https://sanworks.io/forums/). This repository, and its Issues, is for matters relating to the documentation of Bpod on the documentation site.

@@ -1961,8 +1961,8 @@ clear T
 
 Converts liquid amounts (in microliters) to time a solenoid valve should be open to deliver the desired amount (in seconds).
 
-- Uses the calibration functions generated with the liquid calibrator.
-<!-- TODO: add liquid calibrator guide link -->
+- Uses the calibration functions generated with the [Liquid Calibrator](../user-guide/bpod-gui.md#liquid-calibration).
+
 **Syntax**
 ```matlab
 ValveTimes = GetValveTimes(LiquidAmount, TargetValves)

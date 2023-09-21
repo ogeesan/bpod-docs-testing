@@ -14,6 +14,7 @@
 **Bpod_Gen2 source code**: [https://github.com/sanworks/Bpod_Gen2](https://github.com/sanworks/Bpod_Gen2)
 
 **Documentation**: [https://sites.google.com/site/bpoddocumentation/](https://sites.google.com/site/bpoddocumentation/)
+<!-- todo: change doc site link on migration completion -->
 
 **Computer Aided Design (CAD) files**: [https://github.com/sanworks/Bpod-CAD](https://github.com/sanworks/Bpod-CAD)
 
@@ -25,10 +26,16 @@ Legacy release (state machine 0.5 only): [https://github.com/sanworks/Bpod/tree/
 
     :stop_sign: This is a test version of the Bpod wiki to examine the feasibility of moving it to Github. The official wiki maintained by Sanworks is hosted [here](https://sites.google.com/site/bpoddocumentation/home?authuser=0).
     
-    :construction: This test wiki does not contain all items, and some of the items included have been modified.
+    :construction: All of the content on the existing wiki should have been moved across, and only a few new additions remain incomplete.
 
-    :bulb: Some new additions exist.
+Bpod is an open source rodent behavioral platform used in over 100 publications since 2013.
 
+The key features include:
+
+- Hardware and software open-sourced under GNU General Public License v3
+- Optimized for rodent behavior measurement and closed-loop control
+- Arduino based architecture for extendibility and easy integration into existing setups
+- Multiple modules already exist to support common behavioral approaches
 
 ## About Bpod
 Bpod is an open source system for real-time behavior measurement in tasks consisting of multiple experimental trials. Experiment software is written in MATLAB, and device firmware is written in [Arduino](https://www.arduino.cc/). Hardware can be assembled with DIY desktop manufacturing methods - hand-soldering, 3-D printing, laser cutting and hand-tapping. The system architecture is low cost, and supremely hackable - precisely what is necessary to explore a space of behavioral metrics, or to train test subjects with high throughput. This wiki contains instructions for assembly and programming.
@@ -61,7 +68,7 @@ deactivate bpod
 Note over matlab: Save data
 end
 ```
-
+<!-- todo: make this into an actual schematic that hits harder -->
 
 We love hearing about the awesome [science](https://sanworks.io/science/science.php) that is generated with Bpod! 
 

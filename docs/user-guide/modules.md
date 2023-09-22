@@ -39,7 +39,7 @@ arcom <-- Serial message via USB --> moduleserial
 moduleserial <-- Information exchange --> arduino
 ```
 
-ArCOM is a communication protocol toolset developed by Sanworks to simplify data transaction between Arduinos with other Arduinos and computers. Rather than working directly in binary, ArCOM makes it easy to send and receive bytes from a module. The rationale for its development can be found [here](https://sanworks.io/news/viewArticle?articleID=ArCOM1).
+ArCOM is a library for Arduino developed by Sanworks to simplify data transaction between Arduinos with other Arduinos and computers. Rather than working directly in binary, ArCOM makes it easy to send and receive bytes from a module. The rationale for its development can be found [here](https://sanworks.io/news/viewArticle?articleID=ArCOM1).
 
 <!-- but why use this instead of the Serial class? -->
 
@@ -51,7 +51,7 @@ To understand this sequence more closely, read the [example in-depth explanation
 
 ### UART communication description
 
-- The [UART serial ports]((https://www.google.com/url?q=https%3A%2F%2Flearn.sparkfun.com%2Ftutorials%2Fserial-communication%2Fuarts&sa=D&sntz=1&usg=AOvVaw2e5bid8ez_clYR9sdmyEtv)) are indicated on the enclosure as RJ45 ethernet jacks labeled "Modules" 1-N.
+- The [UART serial ports](https://www.google.com/url?q=https%3A%2F%2Flearn.sparkfun.com%2Ftutorials%2Fserial-communication%2Fuarts&sa=D&sntz=1&usg=AOvVaw2e5bid8ez_clYR9sdmyEtv) are indicated on the enclosure as RJ45 ethernet jacks labeled "Modules" 1-N.
 - The ports are configured to communicate with other microcontrollers at 1.3125Mb/s
 - The state machine sends UART serial transmissions to modules using an RS485 IC at each end of the ethernet cable. This employs differential signaling over the Ethernet cable's twisted wire pairs, to make the digital messages more robust against noise.
 

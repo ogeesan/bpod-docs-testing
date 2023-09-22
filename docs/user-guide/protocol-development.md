@@ -172,46 +172,6 @@ if BpodSystem.BeingUsed == 0
 end
 ```
 
-## State matrix visual example
-This is the state matrix from Bpod_Gen2/Examples/Protocols/Light/Light2AFC in diagram form.
-
-```mermaid
-stateDiagram-v2
-WaitForPoke: WaitForPoke
-	[*] --> WaitForPoke
-	WaitForPoke --> CueDelay: Port2In
-CueDelay: CueDelay
-	CueDelay --> WaitForPortOut: Tup (0.200) 
-	CueDelay --> WaitForPoke: Port2Out
-WaitForPortOut: WaitForPortOut\nPWM1 255
-	WaitForPortOut --> WaitForResponse: Port2Out
-WaitForResponse: WaitForResponse\nPWM1 255
-	WaitForResponse --> [*]: Tup (5.000) 
-	WaitForResponse --> LeftRewardDelay: Port1In
-	WaitForResponse --> Punish: Port3In
-LeftRewardDelay: LeftRewardDelay
-	LeftRewardDelay --> LeftReward: Tup (0.000) 
-	LeftRewardDelay --> CorrectEarlyWithdrawal: Port1Out
-Punish: Punish
-	Punish --> [*]: Tup (3.000) 
-LeftReward: LeftReward\nValve1 1
-	LeftReward --> Drinking: Tup (0.030) 
-CorrectEarlyWithdrawal: CorrectEarlyWithdrawal
-	CorrectEarlyWithdrawal --> [*]: Tup (0.000) 
-RightRewardDelay: RightRewardDelay
-	RightRewardDelay --> RightReward: Tup (0.000) 
-	RightRewardDelay --> CorrectEarlyWithdrawal: Port3Out
-RightReward: RightReward\nValve3 1
-	RightReward --> Drinking: Tup (0.031) 
-Drinking: Drinking
-	Drinking --> DrinkingGrace: Port1Out
-	Drinking --> DrinkingGrace: Port3Out
-DrinkingGrace: DrinkingGrace
-	DrinkingGrace --> [*]: Tup (0.500) 
-	DrinkingGrace --> Drinking: Port1In
-	DrinkingGrace --> Drinking: Port3In
-```
-
 ## Going Further
 
 - See /Bpod_Gen2/Protocols for other simple example protocols.

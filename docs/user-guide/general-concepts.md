@@ -50,7 +50,10 @@ sma = AddState(sma, 'Name', 'OffState', ... % Adds a state called "Off state".
     'OutputActions', {'PWM1', 0});
 ```
 
-## Modules
+## Bpod Console
+Information on using the Bpod Console can be found [here](../user-guide/bpod-gui.md).
+
+<!-- ## Modules
 
 ## Protocol design
-Bpod is built for trial-based behavioral studies.
+Bpod is built for trial-based behavioral studies. -->

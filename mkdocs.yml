@@ -9,7 +9,7 @@ nav:
   - User Guide:
     - user-guide/general-concepts.md
     - user-guide/function-reference.md 
-    - user-guide/serial-interfaces.md
+    #- user-guide/serial-interfaces.md
     - user-guide/modules.md
     - Additional guides:
       - user-guide/bpod-gui.md

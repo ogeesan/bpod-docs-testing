@@ -1,5 +1,5 @@
-site_name: Bpod Wiki testing
-copyright: Copyright &copy; 2016 - 2023 Sanworks LLC  # is this accurate?
+site_name: Bpod Wiki (dev)
+# copyright: Copyright &copy; 2023 Sanworks LLC  # is this accurate?
 repo_url: https://github.com/sanworks/Bpod_Gen2  # the top right's repo link
 repo_name: Sanworks/Bpod_Gen2
 edit_uri: https://github.com/ogeesan/bpod-docs-testing/tree/main/docs/  # where the features content.action.edit and content.action.view link to
@@ -8,7 +8,22 @@ nav:
   - Home: index.md
   - User Guide:
     - user-guide/general-concepts.md
-    - user-guide/function-reference.md 
+    - Function Reference:
+      - function-reference/index.md
+      - function-reference/initialization.md
+      - function-reference/bpodsystem-fields.md
+      - function-reference/bpodsystem-functions.md
+      - function-reference/state-machine-creation.md
+      - function-reference/running-statemachine.md
+      - function-reference/running-protocol.md
+      - function-reference/data-storage.md
+      - function-reference/general-plugins.md
+      - function-reference/serial-message-setup.md
+      - function-reference/module-matlab-usb.md
+      - function-reference/module-matlab-fsm.md
+      - function-reference/pc-fsm-softcodes.md
+      - function-reference/liquid-calibration.md
+      - function-reference/updating-bpod.md
     #- user-guide/serial-interfaces.md
     - user-guide/modules.md
     - Additional guides:

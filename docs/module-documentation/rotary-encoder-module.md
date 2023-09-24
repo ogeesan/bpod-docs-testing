@@ -108,9 +108,7 @@ The rotary encoder module is controlled in 2 ways:
     - The GUI is updated using a MATLAB timer, preserving access to the command line.
     - It appears as:
 
-<p align="center">
-<img src="../images/rotary-encoder-module-streamui.png" alt="Example Module Stream UI Window" width="550"/>
-</p>
+![Rotary Encoder Module streaming position UI](../images/rotary-encoder-module-streamui.png)
 
 
 ### Cleanup

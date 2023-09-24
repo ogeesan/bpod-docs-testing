@@ -192,7 +192,7 @@ The command bytes are:
         - for each event between 1 and nEvents
                 - Event code (1 byte)
         - If op-code 2,
-            - Soft code (byte 2) = the soft code to pass to the [soft code handler function](../user-guide/function-reference.md#softcodehandlerfunction).
+            - Soft code (byte 2) = the soft code to pass to the [soft code handler function](../function-reference/bpodsystem-fields.md#softcodehandlerfunction).
         **Exit state**: If event code 255 was returned, the state machine has reached an exit state. It then sends the trial's timing data as follows:
         - Trial start timestamp in milliseconds (4 bytes; 32-bit integer)
         - nTimestamps (2 bytes; 16-bit integer) - _the number of timestamps to be transmitted_

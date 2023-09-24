@@ -124,7 +124,7 @@ If the Bpod software can not connect to a Bpod device, it can be run in Emulator
 - State matrices can be sent and run, and events returned without changing protocol code.
 - The Bpod console shows the state of the device, and accepts manual inputs. Simply click port sensor, BNC and wire override buttons.
 - The computer clock is used for timers and event timestamps. Thus, timing is far less precise than for measurements obtained with the Bpod device.
-- The [PsychToolboxSoundServer plugin](../user-guide/function-reference.md#psychtoolboxsoundserver) detects when Bpod is in emulator mode, and plays sounds through the computer's default sound card.
+- The [PsychToolboxSoundServer plugin](../function-reference/general-plugins.md#psychtoolboxsoundserver) detects when Bpod is in emulator mode, and plays sounds through the computer's default sound card.
     - In emulator mode, sounds are played with the [MATLAB sound function](http://www.google.com/url?q=http%3A%2F%2Fwww.mathworks.com%2Fhelp%2Fmatlab%2Fref%2Fsound.html&sa=D&sntz=1&usg=AOvVaw2FJb4XPhRZQubFll-UohrR). Performance and availability varies by platform.
 - Emulator mode can be forced when hardware is connected, by running Bpod('EMU')
 - To exit emulator mode, ensure that the Bpod device is plugged in and restart Bpod.

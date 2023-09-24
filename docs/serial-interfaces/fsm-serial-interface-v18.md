@@ -255,7 +255,7 @@ The command bytes are:
             - if TimestampTransmissionScheme == 1 _See command 'G' above; 1 = during trial_
                 - Timestamp (4 bytes; 32-bit int) _Units = state machine cycles (default=100us)_
         - If op-code 2,
-            - Soft code (byte 2) = the soft code to pass to the [soft code handler function](../user-guide/function-reference.md#softcodehandlerfunction).
+            - Soft code (byte 2) = the soft code to pass to the [soft code handler function](../function-reference/bpodsystem-fields.md#softcodehandlerfunction).
         **Exit state**: If event code 255 was returned, the state machine has reached an exit state. It then sends the trial's timing data:
         - nCyclesCompleted (4 bytes; 32-bit integer) _\- the number of state machine cycles counted during the trial_
         - TrialEndTimestamp in microseconds (8 bytes; 64-bit unsigned integer) _- time the trial ended in microseconds_

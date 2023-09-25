@@ -1,4 +1,4 @@
-# StateMachineSerialInterface
+# State Machine Serial Interface
 
 Firmware version **17**
 

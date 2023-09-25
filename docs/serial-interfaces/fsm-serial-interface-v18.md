@@ -2,6 +2,8 @@
 
 Firmware version **18-22**
 
+Find the previous (<18) state machine interface [here](./fsm-serial-interface-v17.md).
+
 ## Description
 
 Allows software (i.e. Matlab, Python) to communicate with a Bpod state machine via its USB serial port.

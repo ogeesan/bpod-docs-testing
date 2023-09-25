@@ -48,7 +48,7 @@ nav:
       - serial-interfaces/rotary-encoder-module-serial-interface.md
       - serial-interfaces/valve-module-serial-interface.md
       - serial-interfaces/waveplayer-serial-interface.md
-      - serial-interfaces/fsm-serial-interface-v17.md
+      # - serial-interfaces/fsm-serial-interface-v17.md
       - serial-interfaces/fsm-serial-interface-v18.md
   - Assembly:
     - General Guides and Installation:
@@ -95,6 +95,7 @@ not_in_nav: |
   /install-and-update/samkd21mini-update.md
   /install-and-update/teensy3x-update.md
   /module-documentation/readme.md
+  /serial-interfaces/fsm-serial-interface-v17.md
 
 
 markdown_extensions:

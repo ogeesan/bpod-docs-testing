@@ -68,7 +68,7 @@ deactivate bpod
 Note over matlab: Save data
 end
 ```
-<!-- todo: make this into an actual schematic that hits harder -->
+<!-- todo: make this into an actual schematic -->
 
 We love hearing about the awesome [science](https://sanworks.io/science/science.php) that is generated with Bpod! 
 

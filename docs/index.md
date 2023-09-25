@@ -34,8 +34,8 @@ The key features include:
 
 - Hardware and software open-sourced under GNU General Public License v3
 - Optimized for rodent behavior measurement and closed-loop control
-- Arduino based architecture for extendibility and easy integration into existing setups
-- Multiple modules already exist to support common behavioral approaches
+- Arduino based architecture for user extendibility and easy integration into existing setups
+- Existing modules support common behavioral approaches
 
 ## About Bpod
 Bpod is an open source system for real-time behavior measurement in tasks consisting of multiple experimental trials. Experiment software is written in MATLAB, and device firmware is written in [Arduino](https://www.arduino.cc/). Hardware can be assembled with DIY desktop manufacturing methods - hand-soldering, 3-D printing, laser cutting and hand-tapping. The system architecture is low cost, and supremely hackable - precisely what is necessary to explore a space of behavioral metrics, or to train test subjects with high throughput. This wiki contains instructions for assembly and programming.

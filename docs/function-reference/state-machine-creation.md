@@ -281,7 +281,7 @@ Sets the threshold and monitored event for one of the 5 global counters.
 
 - Global counters can count instances of events, and handle when the count exceeds a threshold from any state (by triggering a state change).
 - The number of possible counters is a configurable parameter specified in the state machine firmware.
-- For more on global counters, see [Using State Matrices](../user-guide/general-concepts.md#state-matrix).
+- For more on global counters, see [Using State Matrices](../user-guide/index.md#state-matrix).
 
 **Syntax**
 

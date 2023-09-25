@@ -1,1 +1,1 @@
-This folder contains the files for documentation of individual modules. Refer to the [user guide for modules](../user-guide/modules.md) for general information on modules.
+This folder contains the files for documentation of individual modules. Refer to the [user guide for modules](../module-documentation/index.md) for general information on modules.

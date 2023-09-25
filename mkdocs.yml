@@ -7,9 +7,13 @@ edit_uri: https://github.com/ogeesan/bpod-docs-testing/tree/main/docs/  # where 
 nav:
   - Home: index.md
   - User Guide:
-    - user-guide/general-concepts.md
+    - user-guide/index.md
+    - Additional guides:
+      - user-guide/bpod-gui.md
+      - user-guide/visual-stimulus-integration.md
+  - Functions:
+    - function-reference/index.md
     - Function Reference:
-      - function-reference/index.md
       - function-reference/initialization.md
       - function-reference/bpodsystem-fields.md
       - function-reference/bpodsystem-functions.md
@@ -24,12 +28,8 @@ nav:
       - function-reference/pc-fsm-softcodes.md
       - function-reference/liquid-calibration.md
       - function-reference/updating-bpod.md
-    #- user-guide/serial-interfaces.md
-    - user-guide/modules.md
-    - Additional guides:
-      - user-guide/bpod-gui.md
-      - user-guide/visual-stimulus-integration.md
   - Modules:
+    - module-documentation/index.md
     - Plugins:
       - module-documentation/analog-input-module.md
       - module-documentation/audioplayer.md
@@ -51,11 +51,10 @@ nav:
       # - serial-interfaces/fsm-serial-interface-v17.md
       - serial-interfaces/fsm-serial-interface-v18.md
   - Assembly:
-    - General Guides and Installation:
+    - assembly/index.md
+    - Install and Update:
       - install-and-update/installing-bpod.md
-      - user-guide/general-build-guide.md
       - user-guide/bench-testing-bpod.md
-    - Software and Firmware Updates:
       - install-and-update/software-update.md
       - install-and-update/firmware-update.md
     - State Machines:

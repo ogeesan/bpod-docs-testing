@@ -1,2 +1,2 @@
 # Module <-> MATLAB (via USB)
-See [module documentation](../user-guide/modules.md).
+See [module documentation](../module-documentation/index.md).

@@ -136,7 +136,7 @@ Solenoid valves connected to each behavior port (we recommend [these](http://www
 <!-- ### Step 1. Launch the calibration manager -->
 <!-- Original wiki has no step 2 heading -->
 
-- From the [Bpod console](../user-guide/general-concepts.md#bpod-console), click "Settings" (wrench icon). You will see a settings menu: 
+- From the [Bpod console](../user-guide/index.md#bpod-console), click "Settings" (wrench icon). You will see a settings menu: 
 
 ![Alt text](../images/console-settings-menu.png)
 

@@ -1,0 +1,3036 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../data-storage/">
+      
+      
+        <link rel="next" href="../serial-message-setup/">
+      
+      
+      <link rel="icon" href="../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.1">
+    
+    
+      
+        <title>General Plugins - Bpod Wiki (dev)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.72749a73.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a5377069.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aldrich">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="light-green">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#general-plugins" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Bpod Wiki (dev)" class="md-header__button md-logo" aria-label="Bpod Wiki (dev)" data-md-component="logo">
+      
+  <img src="https://avatars.githubusercontent.com/u/17090284?v=4" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bpod Wiki (dev)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              General Plugins
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="light-green"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="light-green"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sanworks/Bpod_Gen2" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Sanworks/Bpod_Gen2
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Bpod Wiki (dev)" class="md-nav__button md-logo" aria-label="Bpod Wiki (dev)" data-md-component="logo">
+      
+  <img src="https://avatars.githubusercontent.com/u/17090284?v=4" alt="logo">
+
+    </a>
+    Bpod Wiki (dev)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sanworks/Bpod_Gen2" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Sanworks/Bpod_Gen2
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../user-guide/" class="md-nav__link ">
+              
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.27 17.05A2.991 2.991 0 0 1 4 22c-1.66 0-3-1.34-3-3s1.34-3 3-3c.18 0 .36 0 .53.05l3.07-5.36-1.74-.99 4.09-1.12 1.12 4.09-1.74-.99-3.06 5.37M20 16c-1.3 0-2.4.84-2.82 2H11v-2l-3 3 3 3v-2h6.18c.42 1.16 1.52 2 2.82 2 1.66 0 3-1.34 3-3s-1.34-3-3-3m-8-8c.18 0 .36 0 .53-.05l3.07 5.36-1.74.99 4.09 1.12 1.12-4.09-1.74.99-3.06-5.37A2.991 2.991 0 0 0 12 2c-1.66 0-3 1.34-3 3s1.34 3 3 3Z"/></svg>
+  
+  <span class="md-ellipsis">
+    User Guide
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_2">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            User Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Additional guides
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Additional guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/bpod-gui/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using the Bpod console
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/visual-stimulus-integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integrating Bpod with visual stimuli
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12.42 5.29c-1.1-.1-2.07.71-2.17 1.82L10 10h2.82v2h-3l-.44 5.07A4.001 4.001 0 0 1 2 18.83l1.5-1.5c.33 1.05 1.46 1.64 2.5 1.3.78-.24 1.33-.93 1.4-1.74L7.82 12h-3v-2H8l.27-3.07a4.01 4.01 0 0 1 4.33-3.65c1.26.11 2.4.81 3.06 1.89l-1.5 1.5c-.25-.77-.93-1.31-1.74-1.38M22 13.65l-1.41-1.41-2.83 2.83-2.83-2.83-1.43 1.41 2.85 2.85-2.85 2.81 1.43 1.41 2.83-2.83 2.83 2.83L22 19.31l-2.83-2.81L22 13.65Z"/></svg>
+  
+  <span class="md-ellipsis">
+    Functions
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_3">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Functions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Function Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Function Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../initialization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Initialization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bpodsystem-fields/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BpodSystem fields
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bpodsystem-functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BpodSystem functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../state-machine-creation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creating a state machine
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../running-statemachine/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Running a state machine
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../running-protocol/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Running a protocol
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-storage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data storage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    General Plugins
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    General Plugins
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#bpodparametergui" class="md-nav__link">
+    BpodParameterGUI()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#psychtoolboxsoundserver" class="md-nav__link">
+    PsychToolboxSoundServer()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#psychtoolboxvideoplayer" class="md-nav__link">
+    PsychToolboxVideoPlayer()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bpodnotebook" class="md-nav__link">
+    BpodNotebook
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sideoutcomeplot" class="md-nav__link">
+    SideOutcomePlot()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trialtypeoutcomeplot" class="md-nav__link">
+    TrialTypeOutcomePlot()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statetiming" class="md-nav__link">
+    StateTiming()
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serial-message-setup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Serial message setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-matlab-usb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Module <-> MATLAB (via USB)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-matlab-fsm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Module <-> MATLAB (via FSM)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pc-fsm-softcodes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    USB Soft Codes, PC --> FSM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../liquid-calibration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Liquid calibration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../updating-bpod/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Updating Bpod
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../module-documentation/" class="md-nav__link ">
+              
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 15h2v3h2v-3h2v3h2v-3h2v3h2V9h-4V6H9v3H5v9h2v-3M4.38 3h15.25A2.37 2.37 0 0 1 22 5.38v14.25A2.37 2.37 0 0 1 19.63 22H4.38A2.37 2.37 0 0 1 2 19.63V5.38C2 4.06 3.06 3 4.38 3Z"/></svg>
+  
+  <span class="md-ellipsis">
+    Modules
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_4">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Modules
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Plugins
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Plugins
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-documentation/analog-input-module/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AnalogInputModule()
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-documentation/audioplayer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BpodAudioPlayer()
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-documentation/dds-module/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DDSModule()
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-documentation/hifi-module/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BpodHiFi()
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-documentation/I2C-messenger-module/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    I2CMessenger()
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-documentation/pulsepal-module/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PulsePalModule()
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-documentation/rotary-encoder-module/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RotaryEncoderModule()
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-documentation/waveplayer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BpodWavePlayer()
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Serial Interfaces
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Serial Interfaces
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../serial-interfaces/analogue-input-module-serial-interface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analog Input Module Serial Interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../serial-interfaces/audioplayer-serial-interface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AudioPlayer Serial Interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../serial-interfaces/blink-module-serial-interface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blink Module Serial Interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../serial-interfaces/hifi-module-serial-interface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HiFi Module Serial Interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../serial-interfaces/port-array-module-serial-interface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Port Array Module Serial Interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../serial-interfaces/rotary-encoder-module-serial-interface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rotary Encoder Serial Interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../serial-interfaces/valve-module-serial-interface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Valve Module Serial Interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../serial-interfaces/waveplayer-serial-interface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    WavePlayer Serial Interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../serial-interfaces/fsm-serial-interface-v18/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    State Machine Serial Interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../assembly/" class="md-nav__link ">
+              
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 19.63 13.43 8.2l-.71-.7 1.42-1.43L12 3.89c1.2-1.19 3.09-1.19 4.27 0l3.6 3.61-1.42 1.41h2.84l.71.71-3.55 3.59-.71-.71V9.62l-1.47 1.42-.71-.71L4.13 21.76 2 19.63Z"/></svg>
+  
+  <span class="md-ellipsis">
+    Assembly
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_5">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Assembly
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Install and Update
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Install and Update
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install-and-update/installing-bpod/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installing Bpod
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/bench-testing-bpod/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bench-testing Bpod
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install-and-update/software-update/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Software update
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install-and-update/firmware-update/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Firmware update
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    State Machines
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            State Machines
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/state-machine-assembly-0_5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    State Machine 0.5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/state-machine-assembly-0_9-1_0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    State Machine 0.9 - 1.0
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/state-machine-assembly-2_3-2_4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    State Machine 2.3-2.4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/state-machine-assembly-2_5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    State Machine 2.5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/state-machine-assembly-2%2B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    State Machine 2+
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Modules
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            Modules
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/analog-input-module-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analog Input Module
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/analog-output-module-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analog Output Module
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/arduino-shield-0-5-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Arduino Shield 0.5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/arduino-shield-gen2-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Arduino Shield Gen2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/dds-module-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DDS Module
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/ethernet-module-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ethernet Module
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/hifi-module-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HiFi Module
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/lickometer-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lickometer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/mouse-behavior-port-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mouse Behavior Port
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/mouse-box-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mouse Box
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/neuralynx-sync-board-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bpod/Neuralynx Sync Board
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/open-ephys-module-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bpod/OpenEphys Sync Board
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/port-array-module-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Port Array Module
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/port-breakout-board-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Port Interface Board
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/raspberry-pi-shim-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Raspberry Pi Shim
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/rotary-encoder-module-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rotary Encoder Module
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/snes-module-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SNES Module
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/teensy-shield-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Teensy Shield
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/valve-driver-module-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Valve Driver Module
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    External links
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            External links
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://sanworks.io" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sanworks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://sanworks.io/forums" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Forums
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/sanworks/Bpod_Gen2" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#bpodparametergui" class="md-nav__link">
+    BpodParameterGUI()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#psychtoolboxsoundserver" class="md-nav__link">
+    PsychToolboxSoundServer()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#psychtoolboxvideoplayer" class="md-nav__link">
+    PsychToolboxVideoPlayer()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bpodnotebook" class="md-nav__link">
+    BpodNotebook
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sideoutcomeplot" class="md-nav__link">
+    SideOutcomePlot()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trialtypeoutcomeplot" class="md-nav__link">
+    TrialTypeOutcomePlot()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statetiming" class="md-nav__link">
+    StateTiming()
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/ogeesan/bpod-docs-testing/tree/main/docs/function-reference/general-plugins.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="general-plugins">General Plugins</h1>
+<h3 id="bpodparametergui"><code>BpodParameterGUI()</code></h3>
+<p><strong>Description</strong></p>
+<p>Displays the settings from the "GUI" subfield of a settings struct. Supports advanced GUI parameters and pushbutton call of user functions.</p>
+<ul>
+<li>The GUI subfield names (i.e. X in Settings.GUI.X) are displayed as labels on the left. Edit boxes populated with parameter values for each X are shown on the right.</li>
+<li>In the current version, only numerical parameters are valid.</li>
+<li>By default, text edit boxes are used to show parameters. Other UI types can be specified.</li>
+<li>By default, all parameters are clustered on one UI panel. Parameter groups can be specified.</li>
+<li>When synced, the GUI will display any programmed updates to the parameter values since the last sync. </li>
+<li>If the user manually edited a parameter, this becomes the new value irrespective of automated changes.</li>
+</ul>
+<p><strong>Syntax</strong></p>
+<p>On the first call (before Main Loop):
+<div class="language-matlab highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">BpodParameterGUI</span><span class="p">(</span><span class="s">&#39;init&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">SettingsStructure</span><span class="p">)</span>
+</span></code></pre></div></p>
+<p>On subsequent calls (once per trial):
+<div class="language-matlab highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">SettingsStructure</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">BpodParameterGUI</span><span class="p">(</span><span class="s">&#39;sync&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">SettingsStructure</span><span class="p">)</span>
+</span></code></pre></div></p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>Settings: A <code>struct</code> of settings and parameters with at least some numeric parameters in the subfield "GUI"</li>
+<li>Optionally, a GUIMeta field can be included in Settings<ul>
+<li>GUIMeta subfields are formatted as <code>GUIMeta.(parameterName).(attribute) = value</code></li>
+<li>GUIMeta attributes are:<ul>
+<li>Style: 'popupmenu', 'checkbox', 'pushbutton', 'text', 'edit'
+          - (See Examples for usage)</li>
+<li>String: a cell array of strings for popumenu</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optionally, a GUIPanels fiels can be included in Settings<ul>
+<li>GUIPanels subfields are formatted as <code>GUIPanels.(panelName) = {parameterNames}</code></li>
+</ul>
+</li>
+</ul>
+<p><strong>Return</strong></p>
+<ul>
+<li>A settings structure, updated with any parameter changes manually entered by the user in the GUI</li>
+</ul>
+<p><strong>Examples</strong></p>
+<p>Intializes a UI for a Bpod setting struct on protocol launch, and syncs it on each of 10 trials</p>
+<div class="language-matlab highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c">% Import settings or populate if empty</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">S</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">BpodSystem</span><span class="p">.</span><span class="n">ProtocolSettings</span><span class="p">;</span><span class="w"> </span><span class="c">% Load settings chosen in launch manager into current workspace as a struct called S</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">if</span><span class="w"> </span><span class="nb">isempty</span><span class="p">(</span><span class="nb">fieldnames</span><span class="p">(</span><span class="n">S</span><span class="p">))</span><span class="w">  </span><span class="c">% If an empty struct, populate struct with default settings</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">S</span><span class="p">.</span><span class="n">GUI</span><span class="p">.</span><span class="n">SineWaveFrequency</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">500</span><span class="p">;</span><span class="w"> </span><span class="c">% Frequency of stimulus</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="n">S</span><span class="p">.</span><span class="n">GUI</span><span class="p">.</span><span class="n">SpeakerType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c">% Type of speaker</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="k">end</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="c">% Initialize parameter GUI plugin</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="n">BpodParameterGUI</span><span class="p">(</span><span class="s">&#39;init&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="p">);</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="c">% Run 10 trials:</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="k">for</span><span class="w"> </span><span class="n">currentTrial</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="n">S</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">BpodParameterGUI</span><span class="p">(</span><span class="s">&#39;sync&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="p">);</span><span class="w"> </span><span class="c">% Sync parameters with BpodParameterGUI plugin</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="c">%...Create, send and run state matrix, </span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">    </span><span class="c">%...add and save events</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="c">%...update S with new parameters based on performance</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="k">end</span>
+</span></code></pre></div>
+<p>Initialize parameters with a more complex settings GUI. <img alt="🚧" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/1f6a7.svg" title=":construction:" /> 'text' and 'edit' Styles are undocumented.</p>
+<div class="language-matlab highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">S</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">struct</span><span class="p">;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">S</span><span class="p">.</span><span class="n">nonUIsetting</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">23</span><span class="p">;</span><span class="w"> </span><span class="c">% A setting not in S.GUI, so not included on the UI</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c">% Numeric parameters with default style</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">S</span><span class="p">.</span><span class="n">GUI</span><span class="p">.</span><span class="n">InitialDelay</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.2</span><span class="p">;</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="n">S</span><span class="p">.</span><span class="n">GUI</span><span class="p">.</span><span class="n">TimeoutDelay</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="c">% Checkbox/togglebox between value of 1 and 0</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="n">S</span><span class="p">.</span><span class="n">GUI</span><span class="p">.</span><span class="n">UseAntiBias</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="n">S</span><span class="p">.</span><span class="n">GUIMeta</span><span class="p">.</span><span class="n">UseAntiBias</span><span class="p">.</span><span class="n">Style</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;checkbox&#39;</span><span class="p">;</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="c">% Create a button that callbacks a function when pressed</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="n">S</span><span class="p">.</span><span class="n">GUI</span><span class="p">.</span><span class="n">ManualStimulate</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;ManualStimulation(1)&#39;</span><span class="p">;</span><span class="w"> </span><span class="c">% Callback function for pushbutton</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="n">S</span><span class="p">.</span><span class="n">GUIMeta</span><span class="p">.</span><span class="n">ManualStimulate</span><span class="p">.</span><span class="n">Style</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;pushbutton&#39;</span><span class="p">;</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="c">% Create dropdown/popupmenu with specific options</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="n">S</span><span class="p">.</span><span class="n">GUI</span><span class="p">.</span><span class="n">DifficultyLevel</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c">% Index of the options in .String to start with</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="n">S</span><span class="p">.</span><span class="n">GUIMeta</span><span class="p">.</span><span class="n">DifficultyLevel</span><span class="p">.</span><span class="n">Style</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;popupmenu&#39;</span><span class="p">;</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="n">S</span><span class="p">.</span><span class="n">GUIMeta</span><span class="p">.</span><span class="n">DifficultyLevel</span><span class="p">.</span><span class="n">String</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span><span class="s">&#39;Easy&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Difficult&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Impossible&#39;</span><span class="p">};</span><span class="w"> </span><span class="c">% Define options in box</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="c">% Group parameters into panels</span>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="n">S</span><span class="p">.</span><span class="n">GUIPanels</span><span class="p">.</span><span class="n">Timing</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span><span class="s">&#39;InitialDelay&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;TimeoutDelay&#39;</span><span class="p">};</span>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="n">S</span><span class="p">.</span><span class="n">GUIPanels</span><span class="p">.</span><span class="n">Shaping</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span><span class="s">&#39;UseAntiBias&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;ManualStimulate&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;DifficultyLevel&#39;</span><span class="p">};</span>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="n">BpodParameterGUI</span><span class="p">(</span><span class="s">&#39;init&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="p">);</span>
+</span></code></pre></div>
+<p><img alt="Parameter GUI Example" src="../../images/bpodparametergui-complex-example.png" /></p>
+<p>In this example the <code>S.GUI.ManualStimulate = 'ManualStimulate(1)</code> together with <code>S.GUIMeta.ManualStimuate.Style = 'pushbutton'</code> yields a button that will activate (callback) a function when pressed. </p>
+<h3 id="psychtoolboxsoundserver"><code>PsychToolboxSoundServer()</code></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>PsychToolboxSoundServer will continue to be supported for legacy installations., but is not considered deprecated. For nearly all applications, the <a href="../../assembly/hifi-module-assembly/">Bpod HiFi Module</a> is a superior method for delivering auditory stimuli. We strongly recommend the HiFi module for new setups, and new projects on existing setups. </p>
+</div>
+<p><strong>Description</strong></p>
+<p>Plays sounds from the governing computer using an <a href="http://www.google.com/url?q=http%3A%2F%2Fwww.asus.com%2Fus%2FSound_Cards_and_DigitaltoAnalog_Converters%2FXonar_DX%2F&amp;sa=D&amp;sntz=1&amp;usg=AOvVaw0NiI4fgLFg21xwrQV_RrcZ">Asus Xonar DX</a>, <a href="https://www.google.com/url?q=https%3A%2F%2Fwww.asus.com%2Fus%2FSound-Cards%2FXonar_DSX%2F&amp;sa=D&amp;sntz=1&amp;usg=AOvVaw06kg_jWAKBwmFG4dx7ITDU">DSX</a> or <a href="https://www.google.com/url?q=https%3A%2F%2Fwww.asus.com%2Fus%2FSound-Cards%2FXonar_U7%2F&amp;sa=D&amp;sntz=1&amp;usg=AOvVaw2_8s_HiNmzlw-MpJDomL3q">U7</a> sound cards. Also compatible with <a href="https://www.google.com/url?q=https%3A%2F%2Fwww.htomega.com%2Ffenix.html&amp;sa=D&amp;sntz=1&amp;usg=AOvVaw2SzKnXCAaspEvEKrssbW8A">HTOmega Fenix</a> (this card is necessary for PsychToolbox versions 3.0.14 and later).</p>
+<ul>
+<li>Low latency and jitter (7-8ms) are achievable when running Bpod on Ubuntu 14.04 with the <a href="https://www.google.com/url?q=https%3A%2F%2Flaunchpad.net%2Fubuntu%2F%2Bsource%2Flinux-lowlatency&amp;sa=D&amp;sntz=1&amp;usg=AOvVaw1KGE2Zw-FkOA9ZhLtWr1T8">low-latency kernel</a> and <a href="http://www.google.com/url?q=http%3A%2F%2Fpsychtoolbox.org%2F&amp;sa=D&amp;sntz=1&amp;usg=AOvVaw1gi7uQVIKvJzFvDqvuDUkQ">PsychToolbox</a> installed. Comparable performance is possible on a Windows 7-10 computer (Core i7, &gt;=8GB Ram) with only MATLAB running, no processing-intensive background processes, and the <a href="https://www.google.com/url?q=https%3A%2F%2Fwww.asus.com%2Fus%2FSound-Cards%2FXonar_DX%2FHelpDesk_Download%2F&amp;sa=D&amp;sntz=1&amp;usg=AOvVaw1nBQk_hITkTtzvJ0mxm8Lc">latest ASUS ASIO driver</a> installed.</li>
+<li>Sounds are sampled at 192kHz, 7 channel, with left and right speakers on channels 1 and 2 ("front/left" and "front/right").</li>
+<li>By default, channels 3-5 output a 1ms TTL pulse at the onset of each sound.  Connecting any of these channels to a BNC or wire input channel will provide a precise record of sound onset. On Linux, to ensure that the pulse can be read by Bpod, verify that you have <a href="../../install-and-update/installing-bpod/#ubuntu">configured ALSAmixer correctly</a> during installation.<ul>
+<li>Up to 32 sounds can be loaded before each trial, and are known to the sound server as sounds 1-32. The number of sounds is currently limited in software to 32, but theoretically depends on available RAM. Sounds can be quickly re-loaded between trials to change their waveform.</li>
+</ul>
+</li>
+<li>Sounds are triggered by sending a soft code back to the governing computer from a trial's state matrix, and calling PsychToolboxSoundServer from a predetermined soft code handler function.</li>
+</ul>
+<p><strong>Syntax</strong></p>
+<div class="language-matlab highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c">% To initialize:</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">PsychToolboxSoundServer</span><span class="p">(</span><span class="s">&#39;init&#39;</span><span class="p">)</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c">% To load a sound:</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">PsychToolboxSoundServer</span><span class="p">(</span><span class="s">&#39;load&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">SoundID</span><span class="p">,</span><span class="w"> </span><span class="n">Waveform</span><span class="p">)</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c">% To play a sound:</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="n">PsychToolboxSoundServer</span><span class="p">(</span><span class="s">&#39;play&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">SoundID</span><span class="p">)</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="c">% To stop playback:</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="n">PsychToolboxSoundServer</span><span class="p">(</span><span class="s">&#39;stop&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">SoundID</span><span class="p">)</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="c">% To stop all playback:</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="n">PsychToolboxSoundServer</span><span class="p">(</span><span class="s">&#39;stopall&#39;</span><span class="p">)</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="c">% To close the sound server:</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="n">PsychToolboxSoundServer</span><span class="p">(</span><span class="s">&#39;close&#39;</span><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>SoundID: A byte specifying which sound to load, play or clear (1-32).</li>
+<li>Waveform: A vector containing the waveform of the sound to load. Samples must be between -1 and 1, and the sampling rate is 192kHz.<ul>
+<li>For mono, use a 1Xn vector. Both speakers will play the sound.</li>
+<li>For stereo, use  a 2Xn vector. Row 1 is the left channel, and row 2 is right.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li>None</li>
+</ul>
+<p><strong>Example</strong></p>
+<p>This code creates a noise waveform, loads it to the sound server, plays it and then closes the server.
+<div class="language-matlab highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">SoundDuration</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="n">SamplingRate</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">192000</span><span class="p">;</span><span class="w"> </span><span class="c">% Set parameters</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">MyWaveform</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">SoundDuration</span><span class="o">*</span><span class="n">SamplingRate</span><span class="p">);</span><span class="w"> </span><span class="c">% Create waveform</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">PsychToolboxSoundServer</span><span class="p">(</span><span class="s">&#39;init&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% Initialize sound server</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">PsychToolboxSoundServer</span><span class="p">(</span><span class="s">&#39;load&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">MyWaveform</span><span class="p">);</span><span class="w"> </span><span class="c">% load the sound</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">PsychToolboxSoundServer</span><span class="p">(</span><span class="s">&#39;play&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% Play the sound</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="nb">pause</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="n">PsychToolboxSoundServer</span><span class="p">(</span><span class="s">&#39;close&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% Close sound server</span>
+</span></code></pre></div></p>
+<p>This code loads a sound, sets a soft-code handler to play it, and sets a soft code to be sent from a state matrix.
+<div class="language-matlab highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c">%%-------In main protocol file-------</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">SoundDuration</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="n">SamplingRate</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">192000</span><span class="p">;</span><span class="w"> </span><span class="c">% Set parameters</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">MyWaveform</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">SoundDuration</span><span class="o">*</span><span class="n">SamplingRate</span><span class="p">);</span><span class="w"> </span><span class="c">% Create waveform</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">PsychToolboxSoundServer</span><span class="p">(</span><span class="s">&#39;init&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% Initialize sound server</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="n">PsychToolboxSoundServer</span><span class="p">(</span><span class="s">&#39;load&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">MyWaveform</span><span class="p">);</span><span class="w"> </span><span class="c">% load the sound</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="n">sma</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">NewStateMatrix</span><span class="p">();</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="n">sma</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">AddState</span><span class="p">(</span><span class="n">sma</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Name&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;State1&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="s">&#39;Timer&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="k">...</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">    </span><span class="s">&#39;StateChangeConditions&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s">&#39;Tup&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;exit&#39;</span><span class="p">},</span><span class="k">...</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span><span class="s">&#39;OutputActions&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s">&#39;SoftCode&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">});</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="n">BpodSystem</span><span class="p">.</span><span class="n">SoftCodeHandlerFunction</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;SoftCodeHandler_PlaySound&#39;</span><span class="p">;</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="c">%%-------Soft code handler file in protocol folder (SoftCodeHandler_PlaySound.m)-------</span>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="k">function</span><span class="w"> </span><span class="nf">SoftCodeHandler_PlaySound</span><span class="p">(</span>SoundID<span class="p">)</span>
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="k">if</span><span class="w"> </span><span class="n">SoundID</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="mi">255</span>
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">    </span><span class="n">PsychToolboxSoundServer</span><span class="p">(</span><span class="s">&#39;Play&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">SoundID</span><span class="p">);</span>
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="k">else</span>
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="w">    </span><span class="n">PsychToolboxSoundServer</span><span class="p">(</span><span class="s">&#39;StopAll&#39;</span><span class="p">);</span>
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="k">end</span>
+</span></code></pre></div></p>
+<!-- ### `PsychToolboxAudio()`
+> :construction: This file exists in Functions/Plugins/ but is not on the wiki -->
+
+<!-- todo: add documentation -->
+
+<h3 id="psychtoolboxvideoplayer"><code>PsychToolboxVideoPlayer()</code></h3>
+<p><strong>Description</strong></p>
+<p>Plays video stimuli on a second video monitor attached to the Bpod computer using <a href="http://www.google.com/url?q=http%3A%2F%2Fpsychtoolbox.org%2F&amp;sa=D&amp;sntz=1&amp;usg=AOvVaw1gi7uQVIKvJzFvDqvuDUkQ">PsychToolbox</a>. </p>
+<p>A "Sync Patch" is automatically generated for each video frame. The patch is set to a high pixel intensity on the first frame, and alternates between "off" and high intensity for subsequent frames. This allows an optical sensor mounted on the corner of the screen (i.e. <a href="https://www.google.com/url?q=https%3A%2F%2Fsites.google.com%2Fsite%2Fframe2ttl%2F&amp;sa=D&amp;sntz=1&amp;usg=AOvVaw1AtIpfRHvM0GME2w1oACEC">Frame2TTL</a>) to indicate the actual onset time of each video frame to an acquisition system, providing high precision reaction time and visual evidence update measurements.</p>
+<ul>
+<li>Videos are matrices defined in MATLAB. <ul>
+<li>Each video frame is a matrix of 8-bit pixel values (0-255). </li>
+<li>Single frames may be a grayscale intensity matrix of dimensions (Y, X) or a color matrix of dimensions (Y, X, 3)</li>
+<li>The three color layers are intensity matrices for red, green and blue layers respectively.</li>
+</ul>
+</li>
+<li>Multiple frames are stacked in an additional dimension to create a video.<ul>
+<li>e.g. a color video is a 4-D matrix: Y x X x 3 x Nframes </li>
+</ul>
+</li>
+<li>Videos are loaded to the player and assigned an index (1 - 100).</li>
+<li>Videos can be played by index, allowing a byte to specify which video to start.</li>
+<li>Text strings can be loaded by index in place of videos, to display prompts to human subjects</li>
+<li>By default, playing a video blocks the MATLAB command line. <ul>
+<li>In default mode, a loop loads frames into the video buffer. Frames are presented at regular intervals.</li>
+<li>In timer mode, a MATLAB timer callback loads each frame into the video buffer. This makes the command line available during playback. </li>
+</ul>
+</li>
+</ul>
+<p><strong>Object</strong></p>
+<p>After running Bpod, a PsychToolboxVideoPlayer object is initialized with the following syntax:</p>
+<p><div class="language-matlab highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">V</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">PsychToolboxVideoPlayer</span><span class="p">(</span><span class="n">MonitorID</span><span class="p">,</span><span class="w"> </span><span class="n">ViewPortSize</span><span class="p">,</span><span class="w"> </span><span class="n">ViewPortOffset</span><span class="p">,</span><span class="w"> </span><span class="n">SyncPatchSize</span><span class="p">,</span><span class="w"> </span><span class="n">SyncPatchYOffset</span><span class="p">)</span>
+</span></code></pre></div>
+- MonitorID = The index of the second monitor attached to the PC. This is usually 2.
+- ViewPortSize = [X, Y] of the video to display (in pixels). The video width must leave enough room for the sync patch.
+- ViewPortOffset = [X, Y] offset of the viewport from left screen edge, and bottom screen edge respectively. (units = pixels)
+- SyncPatchSize = [X, Y] dimensions of the sync patch (units = pixels)
+- SyncPatchYOffset = distance of sync patch from bottom of the window (in pixels)</p>
+<p>The PsychToolboxVideoPlayer is controlled in 2 ways: 
+- Setting the PsychToolboxVideoPlayer object's fields
+- Calling the PsychToolboxVideoPlayer object's functions</p>
+<p><strong>Object Fields</strong></p>
+<ul>
+<li><strong>Window</strong><ul>
+<li>PsychToolbox Window object (for advanced usage, see documentation)</li>
+</ul>
+</li>
+<li><strong>DetectedFrameRate</strong><ul>
+<li>Detected frame rate of the target display in Hz</li>
+</ul>
+</li>
+<li><strong>Videos</strong><ul>
+<li>Cell array containing videos loaded with obj.loadVideo()</li>
+</ul>
+</li>
+<li><strong>TextStrings</strong><ul>
+<li>Cell array containing text strings loaded with obj.loadText()</li>
+</ul>
+</li>
+<li><strong>TimerMode</strong><ul>
+<li>TimerMode can be one of the following:<ul>
+<li>0 (video buffer fed by loop, blocking the MATLAB command line)</li>
+<li>1 (video buffer fed by MATLAB timer object, non-blocking playback)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>ShowViewportBorder</strong><ul>
+<li>ShowViewportBorder can be one of:<ul>
+<li>0 (no border)</li>
+<li>1 - a thin gray border is drawn around the viewport (video portion of the window).
+          - This is useful for initial layout, and should be disabled during stimulus presentation</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>ViewPortDimensions</strong><ul>
+<li>X,Y Dimensions of videos that can be loaded (specified on startup)</li>
+</ul>
+</li>
+<li><strong>SyncPatchIntensity</strong><ul>
+<li>Intensity of the sync patch pixels. Range = [0, 255]. Default = 128.</li>
+</ul>
+</li>
+<li><strong>SyncPatchActiveArea</strong><ul>
+<li>Fraction of the sync patch dimensions set to white when drawing a white patch. Range = [0, 1].</li>
+<li>Permanently dark pixels surrounding the optical sensor can help to hide the sync patch from the test subject and improve tolerance for sensor misalignment</li>
+</ul>
+</li>
+</ul>
+<p><strong>Object Functions</strong></p>
+<ul>
+<li><strong>loadVideo</strong>(videoIndex, video)<ul>
+<li>Loads a video to the PsychToolboxVideoPlayer, formatted for playback with correct offset and sync patch</li>
+<li>videoIndex= index of the video (1-100)</li>
+<li>video = a Y x X x N MATLAB array of pixel intensities (0-255)<ul>
+<li>Y is the height of the video. It must match height of viewport. The height is given in ViewPortDimensions(2)</li>
+<li>X is the width of the video. It must match width of viewport. The width is given in ViewPortDimensions(1)</li>
+<li>N is the number of frames in the video</li>
+</ul>
+</li>
+<li>Color videos may be loaded as Y x X x 3 x N, where the third dimension are red, green and blue color layers respectively</li>
+</ul>
+</li>
+<li><strong>loadText</strong>(textIndex, textString, [textStringLine2], [fontSize], [leftOffset])<ul>
+<li>Loads 1 or 2 lines of text to display on a single video frame (for online human subject instructions)</li>
+<li>textIndex = index of the text string (1-100). A video on the player cannot have the same index.</li>
+<li>textString = a character array of text to display</li>
+<li>textStringLine2 (optional) - a character array to display on line 2</li>
+<li>fontSize = font size of text to display</li>
+</ul>
+</li>
+<li><strong>play</strong>(stimulusIndex)<ul>
+<li>Plays video or text frame at the specified index, loaded previously with loadVideo() or loadText().</li>
+<li>If obj.TimerMode is set to 0, this function will block the MATLAB command line until video playback is complete.</li>
+</ul>
+</li>
+<li><strong>stop</strong>()<ul>
+<li>Stops ongoing video playback if obj.TimerMode is set to 1 (non-blocking playback)</li>
+</ul>
+</li>
+</ul>
+<p><strong>Cleanup</strong></p>
+<ul>
+<li>Clear the PsychToolboxVideoPlayer object with clear:
+<div class="language-matlab highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">V</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">PsychToolboxVideoPlayer</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="c">% ... Use the video player</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="nb">clear</span><span class="w"> </span><span class="n">V</span>
+</span></code></pre></div></li>
+<li>Clearing the object closes the PsychToolbox window.</li>
+<li>If a PsychToolboxVideoPlayer object is created as a local variable inside a MATLAB function, the object is cleared automatically when the function returns.</li>
+</ul>
+<p><strong>Example</strong></p>
+<p>This code creates a noise video, loads it to the video player, plays it and then closes the player. 
+<div class="language-matlab highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">MyVideo</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="nb">rand</span><span class="p">(</span><span class="mi">480</span><span class="p">,</span><span class="mi">640</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">)</span><span class="o">*</span><span class="mi">255</span><span class="p">);</span><span class="w"> </span><span class="c">% Create noise video</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="c">% Initialize video player for a 640 x 480 video, with a 30 x 10 sync patch</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">V</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">PsychToolboxVideoPlayer</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">640</span><span class="w"> </span><span class="mi">480</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">30</span><span class="w"> </span><span class="mi">10</span><span class="p">],</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"> </span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c">% Load noise video into player at index 1</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="n">V</span><span class="p">.</span><span class="n">loadVideo</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">myVideo</span><span class="p">);</span><span class="w"> </span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="c">% play the video</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="n">V</span><span class="p">.</span><span class="n">play</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="c">% close the video player</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="nb">clear</span><span class="w"> </span><span class="n">V</span><span class="w"> </span>
+</span></code></pre></div></p>
+<p>An example behavior protocol using PsychToolboxVideoServer is given in the Bpod_Gen2 repository, <a href="https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2Fsanworks%2FBpod_Gen2%2Ftree%2Fmaster%2FExamples%2FProtocols%2FVideo%2FVideo2AFC&amp;sa=D&amp;sntz=1&amp;usg=AOvVaw3tJGftyhjip0cjSPR0-bR7">here</a>.</p>
+<h3 id="bpodnotebook"><code>BpodNotebook</code></h3>
+<p><strong>Description</strong></p>
+<p>Displays a notebook, for taking notes on individual trials, or marking them digitally for classification based on manual criteria.</p>
+<ul>
+<li>The written notes are saved in the BpodSystem.Data struct as a cell array of strings, with one cell per trial.</li>
+<li>The digital marks are saved in the data struct as a vector named "TrialMarkerCodes".</li>
+</ul>
+<p><img alt="Alt text" src="../../images/bpodnotebook-window.png" /></p>
+<ul>
+<li>The "Editing Trial#" window shows the trial whose notes and markers are currently being edited.</li>
+<li>The single arrow buttons &lt;, &gt; select the next or previous trial to edit respectively.</li>
+<li>The double arrow buttons &lt;&lt;, &gt;&gt; select the first or current trial to edit respectively.</li>
+<li>Each time the function is called, the notes in the data are overwritten with the GUI data (i.e. previous trials can be selected and edited)</li>
+</ul>
+<p><strong>Syntax</strong></p>
+<p>On first call (before main loop):
+<div class="language-matlab highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">BpodNotebook</span><span class="p">(</span><span class="s">&#39;init&#39;</span><span class="p">)</span>
+</span></code></pre></div></p>
+<p>On subsequent calls (once per trial):
+<div class="language-matlab highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">NewData</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">BpodNotebook</span><span class="p">(</span><span class="s">&#39;sync&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">Data</span><span class="p">)</span>
+</span></code></pre></div></p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>Data: A struct of session data (typically BpodSystem.Data)</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li>NewData: A struct with the current notebook data added.</li>
+</ul>
+<p><strong>Example</strong></p>
+<p>This code launches the notebook GUI, and adds its entire set of notes to the data on each trial.
+<div class="language-matlab highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">BpodNotebook</span><span class="p">(</span><span class="s">&#39;init&#39;</span><span class="p">);</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="k">for</span><span class="w"> </span><span class="n">currentTrial</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="mi">1000</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="c">% ...Create, send and run state matrix, add and save events.</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="n">BpodSystem</span><span class="p">.</span><span class="n">Data</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">BpodNotebook</span><span class="p">(</span><span class="s">&#39;sync&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">BpodSystem</span><span class="p">.</span><span class="n">Data</span><span class="p">);</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="k">end</span>
+</span></code></pre></div></p>
+<h3 id="sideoutcomeplot"><code>SideOutcomePlot()</code></h3>
+<p><strong>Description</strong></p>
+<p>Plots correct sides and trial outcomes for a two-sided decision task. </p>
+<ul>
+<li>Future trials are indicated with filled blue circles.</li>
+<li>The current trial is indicated with a black cross.</li>
+<li>Correct trials are indicated in green. Filled circles indicate rewarded trials, unfilled circles indicate unrewarded trials.. </li>
+<li>Error trials are indicated in red. Filled circles indicate punished trials, unfilled circles indicate unpunished trials.</li>
+<li>Trials with no decision response are indicated as unfilled blue circles.</li>
+</ul>
+<p>The plot is shown here for an example session:</p>
+<p><img alt="Alt text" src="../../images/outcomeplot-example.png" /></p>
+<p><strong>Syntax</strong></p>
+<p>On first call (before first trial):
+<div class="language-matlab highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">SideOutcomePlot</span><span class="p">(</span><span class="n">AxisHandle</span><span class="p">,</span><span class="s">&#39;init&#39;</span><span class="p">,</span><span class="n">TrialSides</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p>On subsequent calls (once per trial):
+<div class="language-matlab highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">SideOutcomePlot</span><span class="p">(</span><span class="n">AxisHandle</span><span class="p">,</span><span class="s">&#39;update&#39;</span><span class="p">,</span><span class="n">CurrentTrial</span><span class="p">,</span><span class="n">TrialSides</span><span class="p">,</span><span class="n">Outcomes</span><span class="p">)</span>
+</span></code></pre></div></p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>AxisHandle: The handle of the axes where you intend display the plot</li>
+<li>TrialSides: A vector listing the correct response side for all trials in the session. For each trial in the vector, right = 0, left = 1.</li>
+<li>CurrentTrial: The current trial number (will be marked with a cross)</li>
+<li>Outcomes: A vector for each completed trial, listing outcomes: <ul>
+<li>-1 = error, unpunished (unfilled red circle)</li>
+<li>0 = error, punished (filled red circle)</li>
+<li>1 = correct, rewarded (filled green circle)</li>
+<li>2 = correct, unrewarded (unfilled green circle)</li>
+<li>3 = no response (unfilled black circle)</li>
+</ul>
+</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li>None</li>
+</ul>
+<p><strong>Example</strong></p>
+<p>This code initializes the outcome plot in its own window, and updates it on each trial. All correct trials are rewarded, and all error trials are punished. </p>
+<div class="language-matlab highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">TrialTypes</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">ceil</span><span class="p">(</span><span class="nb">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5000</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c">% Trial types randomly interleaved, type 1 or 2.</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">                                   </span><span class="c">% type 1 = rewarded left. type 2 = rewarded right.</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="c">%% Initialize plots</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="c">% Create a figure for the outcome plot</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="n">BpodSystem</span><span class="p">.</span><span class="n">ProtocolFigures</span><span class="p">.</span><span class="n">OutcomePlotFig</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">figure</span><span class="p">(</span><span class="s">&#39;Position&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">200</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="mi">1000</span><span class="w"> </span><span class="mi">200</span><span class="p">],</span><span class="s">&#39;name&#39;</span><span class="p">,</span><span class="s">&#39;Outcome plot&#39;</span><span class="p">,</span><span class="k">...</span><span class="c"> &#39;numbertitle&#39;,&#39;off&#39;, &#39;MenuBar&#39;, &#39;none&#39;, &#39;Resize&#39;, &#39;off&#39;); </span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="c">% Create axes for the outcome plot</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="n">BpodSystem</span><span class="p">.</span><span class="n">GUIHandles</span><span class="p">.</span><span class="n">OutcomePlot</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">axes</span><span class="p">(</span><span class="s">&#39;Position&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mf">.075</span><span class="w"> </span><span class="mf">.3</span><span class="w"> </span><span class="mf">.89</span><span class="w"> </span><span class="mf">.6</span><span class="p">]);</span><span class="w"> </span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="n">SideOutcomePlot</span><span class="p">(</span><span class="n">BpodSystem</span><span class="p">.</span><span class="n">GUIHandles</span><span class="p">.</span><span class="n">OutcomePlot</span><span class="p">,</span><span class="s">&#39;init&#39;</span><span class="p">,</span><span class="mi">2</span><span class="o">-</span><span class="n">TrialTypes</span><span class="p">);</span>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="c">% Run 1000 trials:</span>
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="k">for</span><span class="w"> </span><span class="n">currentTrial</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="mi">1000</span>
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="w">    </span><span class="c">% ...Create, send and run state machine with a state called &quot;Reward&quot; </span>
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="w">    </span><span class="c">% and a state called &quot;Punish&quot;, add and save events...</span>
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="w">    </span><span class="n">Outcomes</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">BpodSystem</span><span class="p">.</span><span class="n">Data</span><span class="p">.</span><span class="n">nTrials</span><span class="p">);</span>
+</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="n">BpodSystem</span><span class="p">.</span><span class="n">Data</span><span class="p">.</span><span class="n">nTrials</span>
+</span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">~</span><span class="nb">isnan</span><span class="p">(</span><span class="n">BpodSystem</span><span class="p">.</span><span class="n">Data</span><span class="p">.</span><span class="n">RawEvents</span><span class="p">.</span><span class="n">Trial</span><span class="p">{</span><span class="n">x</span><span class="p">}.</span><span class="n">States</span><span class="p">.</span><span class="n">Reward</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</span><span id="__span-15-19"><a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="w">            </span><span class="n">Outcomes</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-15-20"><a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a><span class="w">        </span><span class="k">elseif</span><span class="w"> </span><span class="o">~</span><span class="nb">isnan</span><span class="p">(</span><span class="n">BpodSystem</span><span class="p">.</span><span class="n">Data</span><span class="p">.</span><span class="n">RawEvents</span><span class="p">.</span><span class="n">Trial</span><span class="p">{</span><span class="n">x</span><span class="p">}.</span><span class="n">States</span><span class="p">.</span><span class="n">Punish</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</span><span id="__span-15-21"><a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a><span class="w">            </span><span class="n">Outcomes</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-15-22"><a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a><span class="w">        </span><span class="k">else</span>
+</span><span id="__span-15-23"><a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a><span class="w">            </span><span class="n">Outcomes</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+</span><span id="__span-15-24"><a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a><span class="w">        </span><span class="k">end</span>
+</span><span id="__span-15-25"><a id="__codelineno-15-25" name="__codelineno-15-25" href="#__codelineno-15-25"></a><span class="w">    </span><span class="k">end</span>
+</span><span id="__span-15-26"><a id="__codelineno-15-26" name="__codelineno-15-26" href="#__codelineno-15-26"></a><span class="n">SideOutcomePlot</span><span class="p">(</span><span class="n">BpodSystem</span><span class="p">.</span><span class="n">GUIHandles</span><span class="p">.</span><span class="n">OutcomePlot</span><span class="p">,</span><span class="s">&#39;update&#39;</span><span class="p">,</span><span class="n">BpodSystem</span><span class="p">.</span><span class="n">Data</span><span class="p">.</span><span class="n">nTrials</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">-</span><span class="n">TrialTypes</span><span class="p">,</span><span class="n">Outcomes</span><span class="p">)</span>
+</span><span id="__span-15-27"><a id="__codelineno-15-27" name="__codelineno-15-27" href="#__codelineno-15-27"></a><span class="k">end</span>
+</span></code></pre></div>
+<h3 id="trialtypeoutcomeplot"><code>TrialTypeOutcomePlot()</code></h3>
+<p><strong>Description</strong></p>
+<p>Plots trial types and trial outcomes for a customizable window of trials surrounding the current trial.</p>
+<ul>
+<li>Future trials are indicated with filled blue circles.</li>
+<li>The current trial is indicated with a black cross.</li>
+<li>Correct trials are indicated in green. Filled circles indicate rewarded trials, unfilled circles indicate unrewarded trials.. </li>
+<li>Error trials are indicated in red. Filled circles indicate punished trials, unfilled circles indicate unpunished trials.</li>
+<li>Trials with no decision response are indicated as unfilled blue circles.</li>
+</ul>
+<p>The plot is shown here for an example session. The current trial shown is trial #24, trial type 2:</p>
+<p><img alt="Alt text" src="../../images/trialtype-outcomeplot-example.png" /></p>
+<p><strong>Syntax</strong></p>
+<p>On first call (before first trial):
+<div class="language-matlab highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">TrialTypeOutcomePlot</span><span class="p">(</span><span class="n">AxisHandle</span><span class="p">,</span><span class="s">&#39;init&#39;</span><span class="p">,</span><span class="n">TrialTypes</span><span class="p">);</span>
+</span></code></pre></div>
+On subsequent calls (once per trial):
+<div class="language-matlab highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">TrialTypeOutcomePlot</span><span class="p">(</span><span class="n">AxisHandle</span><span class="p">,</span><span class="s">&#39;update&#39;</span><span class="p">,</span><span class="n">CurrentTrial</span><span class="p">,</span><span class="n">TrialTypes</span><span class="p">,</span><span class="n">Outcomes</span><span class="p">)</span>
+</span></code></pre></div></p>
+<p><strong>Parameters</strong>
+- AxisHandle: The <a href="http://www.google.com/url?q=http%3A%2F%2Fen.wikibooks.org%2Fwiki%2FMATLAB_Programming%2FHandle_Graphics%23Figure_handles&amp;sa=D&amp;sntz=1&amp;usg=AOvVaw1hjJOCg2pVgWA66THJYoDC">handle</a> of the axes where you intend display the plot</p>
+<!-- link for handle reference could be improved -->
+<ul>
+<li>TrialTypes: A vector listing the trial types for all trials in the session. Each trial type must be a positive integer.</li>
+<li>CurrentTrial: The current trial number (will be marked with a cross)</li>
+<li>Outcomes: A vector for each completed trial, listing outcomes: <ul>
+<li>-1 = error, unpunished (unfilled red circle)</li>
+<li>0 = error, punished (filled red circle)</li>
+<li>1 = correct, rewarded (filled green circle)</li>
+<li>2 = correct, unrewarded (unfilled green circle)</li>
+<li>3 = no response (unfilled black circle)</li>
+</ul>
+</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li>None</li>
+</ul>
+<p><strong>Example</strong></p>
+<p>This code initializes the trial type outcome plot in its own window, and updates it on each trial. All correct trials are rewarded, and all error trials are punished with time-out. </p>
+<div class="language-matlab highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">TrialTypes</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">ceil</span><span class="p">(</span><span class="nb">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5000</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c">% Trial types randomly interleaved, type 1 or 2</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="c">% Initialize plots</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="n">BpodSystem</span><span class="p">.</span><span class="n">ProtocolFigures</span><span class="p">.</span><span class="n">OutcomePlotFig</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">figure</span><span class="p">(</span><span class="s">&#39;Position&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">200</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="mi">1000</span><span class="w"> </span><span class="mi">200</span><span class="p">],</span><span class="s">&#39;name&#39;</span><span class="p">,</span><span class="s">&#39;Trial type outcome plot&#39;</span><span class="p">,</span><span class="k">...</span><span class="c"> &#39;numbertitle&#39;,&#39;off&#39;, &#39;MenuBar&#39;, &#39;none&#39;, &#39;Resize&#39;, &#39;off&#39;); % Create a figure for the outcome plot</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="n">BpodSystem</span><span class="p">.</span><span class="n">GUIHandles</span><span class="p">.</span><span class="n">OutcomePlot</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">axes</span><span class="p">(</span><span class="s">&#39;Position&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mf">.075</span><span class="w"> </span><span class="mf">.3</span><span class="w"> </span><span class="mf">.89</span><span class="w"> </span><span class="mf">.6</span><span class="p">]);</span><span class="w"> </span><span class="c">% Create axes for the trial type outcome plot</span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="n">TrialTypeOutcomePlot</span><span class="p">(</span><span class="n">BpodSystem</span><span class="p">.</span><span class="n">GUIHandles</span><span class="p">.</span><span class="n">OutcomePlot</span><span class="p">,</span><span class="s">&#39;init&#39;</span><span class="p">,</span><span class="n">TrialTypes</span><span class="p">);</span>
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="c">% Run 1000 trials:</span>
+</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="k">for</span><span class="w"> </span><span class="n">currentTrial</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="mi">1000</span>
+</span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="w">    </span><span class="c">%...Create, send and run state matrix with a state called &quot;Reward&quot; </span>
+</span><span id="__span-18-13"><a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="w">    </span><span class="c">%   and a state called &quot;Punish&quot;, add and save events...</span>
+</span><span id="__span-18-14"><a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a><span class="w">    </span><span class="n">Outcomes</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">BpodSystem</span><span class="p">.</span><span class="n">Data</span><span class="p">.</span><span class="n">nTrials</span><span class="p">);</span>
+</span><span id="__span-18-15"><a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="n">BpodSystem</span><span class="p">.</span><span class="n">Data</span><span class="p">.</span><span class="n">nTrials</span>
+</span><span id="__span-18-16"><a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">~</span><span class="nb">isnan</span><span class="p">(</span><span class="n">BpodSystem</span><span class="p">.</span><span class="n">Data</span><span class="p">.</span><span class="n">RawEvents</span><span class="p">.</span><span class="n">Trial</span><span class="p">{</span><span class="n">x</span><span class="p">}.</span><span class="n">States</span><span class="p">.</span><span class="n">Reward</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</span><span id="__span-18-17"><a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a><span class="w">            </span><span class="n">Outcomes</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-18-18"><a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a><span class="w">        </span><span class="k">elseif</span><span class="w"> </span><span class="o">~</span><span class="nb">isnan</span><span class="p">(</span><span class="n">BpodSystem</span><span class="p">.</span><span class="n">Data</span><span class="p">.</span><span class="n">RawEvents</span><span class="p">.</span><span class="n">Trial</span><span class="p">{</span><span class="n">x</span><span class="p">}.</span><span class="n">States</span><span class="p">.</span><span class="n">Punish</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</span><span id="__span-18-19"><a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a><span class="w">            </span><span class="n">Outcomes</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-18-20"><a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a><span class="w">        </span><span class="k">else</span>
+</span><span id="__span-18-21"><a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a><span class="w">            </span><span class="n">Outcomes</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+</span><span id="__span-18-22"><a id="__codelineno-18-22" name="__codelineno-18-22" href="#__codelineno-18-22"></a><span class="w">        </span><span class="k">end</span>
+</span><span id="__span-18-23"><a id="__codelineno-18-23" name="__codelineno-18-23" href="#__codelineno-18-23"></a><span class="w">    </span><span class="k">end</span>
+</span><span id="__span-18-24"><a id="__codelineno-18-24" name="__codelineno-18-24" href="#__codelineno-18-24"></a><span class="w">    </span><span class="n">TrialTypeOutcomePlot</span><span class="p">(</span><span class="n">BpodSystem</span><span class="p">.</span><span class="n">GUIHandles</span><span class="p">.</span><span class="n">OutcomePlot</span><span class="p">,</span><span class="s">&#39;update&#39;</span><span class="p">,</span><span class="n">BpodSystem</span><span class="p">.</span><span class="n">Data</span><span class="p">.</span><span class="n">nTrials</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">TrialTypes</span><span class="p">,</span><span class="n">Outcomes</span><span class="p">)</span>
+</span><span id="__span-18-25"><a id="__codelineno-18-25" name="__codelineno-18-25" href="#__codelineno-18-25"></a><span class="k">end</span>
+</span></code></pre></div>
+<h3 id="statetiming"><code>StateTiming()</code></h3>
+<p><strong>Description</strong></p>
+<p>The StateTiming plot shows the time course of states in the previous trial. </p>
+<p>StateTiming was contributed by Florian Rau in Poulet Lab at MDC Berlin.</p>
+<p><img alt="Alt text" src="../../images/statetime-example-window.png" /></p>
+<p><strong>Syntax</strong>
+<div class="language-matlab highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">StateTiming</span><span class="p">();</span>
+</span></code></pre></div></p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>None</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li>None</li>
+</ul>
+<p><strong>Example</strong></p>
+<p>In the protocol's main loop, this code must follow each trial's call to <code>AddTrialEvents()</code>.</p>
+<div class="language-matlab highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="k">for</span><span class="w"> </span><span class="n">currentTrial</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="n">maxTrials</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">    </span><span class="c">%...</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">    </span><span class="n">RawEvents</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">RunStateMachine</span><span class="p">;</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">    </span><span class="n">BpodSystem</span><span class="p">.</span><span class="n">Data</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">AddTrialEvents</span><span class="p">(</span><span class="n">BpodSystem</span><span class="p">.</span><span class="n">Data</span><span class="p">,</span><span class="w"> </span><span class="n">RawEvents</span><span class="p">);</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">    </span><span class="n">StateTiming</span><span class="p">();</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="w">    </span><span class="c">%...</span>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="k">end</span>
+</span></code></pre></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.indexes", "content.action.edit"], "search": "../../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
+      
+    
+  </body>
+</html>

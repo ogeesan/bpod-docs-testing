@@ -1,0 +1,2636 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../valve-module-serial-interface/">
+      
+      
+        <link rel="next" href="../fsm-serial-interface-v18/">
+      
+      
+      <link rel="icon" href="../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.1">
+    
+    
+      
+        <title>WavePlayer Serial Interface - Bpod Wiki (dev)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.72749a73.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a5377069.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aldrich">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="light-green">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#waveplayer-serial-interface" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Bpod Wiki (dev)" class="md-header__button md-logo" aria-label="Bpod Wiki (dev)" data-md-component="logo">
+      
+  <img src="https://avatars.githubusercontent.com/u/17090284?v=4" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bpod Wiki (dev)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              WavePlayer Serial Interface
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="light-green"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="light-green"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sanworks/Bpod_Gen2" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Sanworks/Bpod_Gen2
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Bpod Wiki (dev)" class="md-nav__button md-logo" aria-label="Bpod Wiki (dev)" data-md-component="logo">
+      
+  <img src="https://avatars.githubusercontent.com/u/17090284?v=4" alt="logo">
+
+    </a>
+    Bpod Wiki (dev)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sanworks/Bpod_Gen2" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Sanworks/Bpod_Gen2
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../user-guide/" class="md-nav__link ">
+              
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.27 17.05A2.991 2.991 0 0 1 4 22c-1.66 0-3-1.34-3-3s1.34-3 3-3c.18 0 .36 0 .53.05l3.07-5.36-1.74-.99 4.09-1.12 1.12 4.09-1.74-.99-3.06 5.37M20 16c-1.3 0-2.4.84-2.82 2H11v-2l-3 3 3 3v-2h6.18c.42 1.16 1.52 2 2.82 2 1.66 0 3-1.34 3-3s-1.34-3-3-3m-8-8c.18 0 .36 0 .53-.05l3.07 5.36-1.74.99 4.09 1.12 1.12-4.09-1.74.99-3.06-5.37A2.991 2.991 0 0 0 12 2c-1.66 0-3 1.34-3 3s1.34 3 3 3Z"/></svg>
+  
+  <span class="md-ellipsis">
+    User Guide
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_2">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            User Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Additional guides
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Additional guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/bpod-gui/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using the Bpod console
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/visual-stimulus-integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integrating Bpod with visual stimuli
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../function-reference/" class="md-nav__link ">
+              
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12.42 5.29c-1.1-.1-2.07.71-2.17 1.82L10 10h2.82v2h-3l-.44 5.07A4.001 4.001 0 0 1 2 18.83l1.5-1.5c.33 1.05 1.46 1.64 2.5 1.3.78-.24 1.33-.93 1.4-1.74L7.82 12h-3v-2H8l.27-3.07a4.01 4.01 0 0 1 4.33-3.65c1.26.11 2.4.81 3.06 1.89l-1.5 1.5c-.25-.77-.93-1.31-1.74-1.38M22 13.65l-1.41-1.41-2.83 2.83-2.83-2.83-1.43 1.41 2.85 2.85-2.85 2.81 1.43 1.41 2.83-2.83 2.83 2.83L22 19.31l-2.83-2.81L22 13.65Z"/></svg>
+  
+  <span class="md-ellipsis">
+    Functions
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_3">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Functions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Function Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Function Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../function-reference/initialization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Initialization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../function-reference/bpodsystem-fields/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BpodSystem fields
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../function-reference/bpodsystem-functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BpodSystem functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../function-reference/state-machine-creation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creating a state machine
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../function-reference/running-statemachine/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Running a state machine
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../function-reference/running-protocol/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Running a protocol
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../function-reference/data-storage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data storage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../function-reference/general-plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    General Plugins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../function-reference/serial-message-setup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Serial message setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../function-reference/module-matlab-usb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Module <-> MATLAB (via USB)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../function-reference/module-matlab-fsm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Module <-> MATLAB (via FSM)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../function-reference/pc-fsm-softcodes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    USB Soft Codes, PC --> FSM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../function-reference/liquid-calibration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Liquid calibration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../function-reference/updating-bpod/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Updating Bpod
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../module-documentation/" class="md-nav__link ">
+              
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 15h2v3h2v-3h2v3h2v-3h2v3h2V9h-4V6H9v3H5v9h2v-3M4.38 3h15.25A2.37 2.37 0 0 1 22 5.38v14.25A2.37 2.37 0 0 1 19.63 22H4.38A2.37 2.37 0 0 1 2 19.63V5.38C2 4.06 3.06 3 4.38 3Z"/></svg>
+  
+  <span class="md-ellipsis">
+    Modules
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_4">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Modules
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Plugins
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Plugins
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-documentation/analog-input-module/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AnalogInputModule()
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-documentation/audioplayer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BpodAudioPlayer()
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-documentation/dds-module/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DDSModule()
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-documentation/hifi-module/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BpodHiFi()
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-documentation/I2C-messenger-module/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    I2CMessenger()
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-documentation/pulsepal-module/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PulsePalModule()
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-documentation/rotary-encoder-module/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RotaryEncoderModule()
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-documentation/waveplayer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BpodWavePlayer()
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" checked>
+        
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Serial Interfaces
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Serial Interfaces
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analogue-input-module-serial-interface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analog Input Module Serial Interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../audioplayer-serial-interface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AudioPlayer Serial Interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blink-module-serial-interface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blink Module Serial Interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hifi-module-serial-interface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HiFi Module Serial Interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../port-array-module-serial-interface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Port Array Module Serial Interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rotary-encoder-module-serial-interface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rotary Encoder Serial Interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../valve-module-serial-interface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Valve Module Serial Interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    WavePlayer Serial Interface
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    WavePlayer Serial Interface
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#state-machine-command-interface" class="md-nav__link">
+    State Machine Command Interface
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serialusb-command-interface" class="md-nav__link">
+    SerialUSB Command Interface
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fsm-serial-interface-v18/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    State Machine Serial Interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../assembly/" class="md-nav__link ">
+              
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 19.63 13.43 8.2l-.71-.7 1.42-1.43L12 3.89c1.2-1.19 3.09-1.19 4.27 0l3.6 3.61-1.42 1.41h2.84l.71.71-3.55 3.59-.71-.71V9.62l-1.47 1.42-.71-.71L4.13 21.76 2 19.63Z"/></svg>
+  
+  <span class="md-ellipsis">
+    Assembly
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_5">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Assembly
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Install and Update
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Install and Update
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install-and-update/installing-bpod/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installing Bpod
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/bench-testing-bpod/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bench-testing Bpod
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install-and-update/software-update/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Software update
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install-and-update/firmware-update/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Firmware update
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    State Machines
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            State Machines
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/state-machine-assembly-0_5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    State Machine 0.5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/state-machine-assembly-0_9-1_0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    State Machine 0.9 - 1.0
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/state-machine-assembly-2_3-2_4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    State Machine 2.3-2.4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/state-machine-assembly-2_5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    State Machine 2.5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/state-machine-assembly-2%2B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    State Machine 2+
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Modules
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            Modules
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/analog-input-module-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analog Input Module
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/analog-output-module-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analog Output Module
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/arduino-shield-0-5-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Arduino Shield 0.5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/arduino-shield-gen2-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Arduino Shield Gen2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/dds-module-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DDS Module
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/ethernet-module-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ethernet Module
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/hifi-module-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HiFi Module
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/lickometer-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lickometer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/mouse-behavior-port-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mouse Behavior Port
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/mouse-box-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mouse Box
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/neuralynx-sync-board-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bpod/Neuralynx Sync Board
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/open-ephys-module-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bpod/OpenEphys Sync Board
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/port-array-module-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Port Array Module
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/port-breakout-board-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Port Interface Board
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/raspberry-pi-shim-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Raspberry Pi Shim
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/rotary-encoder-module-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rotary Encoder Module
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/snes-module-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SNES Module
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/teensy-shield-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Teensy Shield
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assembly/valve-driver-module-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Valve Driver Module
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    External links
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            External links
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://sanworks.io" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sanworks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://sanworks.io/forums" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Forums
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/sanworks/Bpod_Gen2" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#state-machine-command-interface" class="md-nav__link">
+    State Machine Command Interface
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serialusb-command-interface" class="md-nav__link">
+    SerialUSB Command Interface
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/ogeesan/bpod-docs-testing/tree/main/docs/serial-interfaces/waveplayer-serial-interface.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="waveplayer-serial-interface">WavePlayer Serial Interface</h1>
+<h2 id="description">Description</h2>
+<p>Allows the state machine or PC to play analog waveforms using the <a href="../../assembly/analog-output-module-assembly/">analog output module</a>.</p>
+<p>Requires a 4-channel analog output module board with firmware loaded from:
+- <a href="https://github.com/sanworks/Bpod_AnalogOutput_Firmware/tree/master/AnalogOutputModule_4ch/BpodWavePlayer">https://github.com/sanworks/Bpod_AnalogOutput_Firmware/tree/master/AnalogOutputModule_4ch/BpodWavePlayer</a></p>
+<p>OR, an 8-channel analog output module board with firmware loaded from:
+- <a href="https://github.com/sanworks/Bpod_AnalogOutput_Firmware/tree/master/AnalogOutputModule_8ch/BpodWavePlayer">https://github.com/sanworks/Bpod_AnalogOutput_Firmware/tree/master/AnalogOutputModule_8ch/BpodWavePlayer</a></p>
+<p>The analog output module must be connected to a serial port on the state machine module.</p>
+<h2 id="state-machine-command-interface">State Machine Command Interface</h2>
+<p>The state machine command interface consists of bytes sent from the Bpod state machine to the WavePlayer module to start and stop playback.</p>
+<ul>
+<li>Byte <strong>255</strong> (reserved): <strong>Returns module info to state machine</strong></li>
+<li>'<strong>P</strong>' (ASCII 80): <strong>Plays a waveform</strong>.<ul>
+<li>In standard trigger mode (default), 'P' (byte 0) must be followed by two bytes:<ul>
+<li>Byte 1: A byte whose bits indicate which channels to trigger (i.e. byte 5 = bits: 101 = channels 1 and 3).</li>
+<li>Byte 2: A byte indicating the waveform to play on the channels specified by Byte 1. NOTE: This byte uses 0-indexing.</li>
+</ul>
+</li>
+<li>In trigger profile mode, 'P' (byte 0) must be followed by 1 byte:<ul>
+<li>Byte 1: The trigger profile to play (1-64)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>'<strong>&gt;</strong>' (ASCII 62): <strong>Plays a list of waveforms specified for each channel</strong><ul>
+<li>REQUIRES FIRMWARE v5 OR NEWER</li>
+<li>'&gt;' (byte 0) must be followed by one byte for each output channel on the device.<ul>
+<li>Byte 1: A byte indicating the waveform to trigger on channel 1. Use 255 for no waveform.</li>
+<li>...</li>
+<li>Byte 4: A byte indicating the waveform to trigger on channel 4.</li>
+<li>NOTE: The waveform bytes use 0-indexing, so if you loaded a waveform to the device in MATLAB with W.loadWaveform(Wave, 1), the wave is known to WavePlayer's Arduino firmware as wave 0.</li>
+</ul>
+</li>
+<li>A byte must be specified for every physical output channel. Use 255 for 'no waveform'.</li>
+<li>On State Machine r2 or newer with firmware v23, the '&gt;' op can be output from a single state for the 4-channel module as 5 bytes are available per serial message. Earlier machines, or state machine r2 with earlier firmware have only 3 bytes per serial message, so the 5 bytes for the '&gt;' op must be broken across states. Consider using Trigger Profile mode in this case to save 100µs of latency.</li>
+</ul>
+</li>
+<li>'<strong>!</strong>' (ASCII 33): <strong>Sets a fixed voltage on a subset of channels</strong>.<ul>
+<li>REQUIRES FIRMWARE v5 OR NEWER</li>
+<li>'!' (Byte 0) must be followed by:<ul>
+<li>Byte 1: Bits of channels to set (e.g. 3 = 00000011, to set channels 1 and 2)</li>
+<li>Bytes 2-3: 16-bit value encoding the voltage.</li>
+<li>If sent from the PC, the module returns an acknowledgement byte (1)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>'<strong>X</strong>' (ASCII 88): <strong>Stop all playback</strong></li>
+</ul>
+<h2 id="serialusb-command-interface">SerialUSB Command Interface</h2>
+<p>The SerialUSB command interface allows configuration of the WavePlayer module from MATLAB or Python before a trial begins. The <a href="../../module-documentation/waveplayer/">WavePlayer</a> plugin for Bpod/MATLAB wraps this interface. The first two commands are the same as for the state machine interface, and additional commands follow.</p>
+<ul>
+<li>'<strong>P</strong>' (ASCII 80): <strong>Plays a waveform</strong>.<ul>
+<li>In standard trigger mode (default), 'P' (byte 0) must be followed by two bytes:<ul>
+<li>Byte 1: A byte whose bits indicate which channels to trigger (i.e. byte 5 = bits: 101 = channels 1 and 3).</li>
+<li>Byte 2: A byte indicating the waveform to play on the channels specified by Byte 1 (zero-indexed).</li>
+</ul>
+</li>
+<li>In trigger profile mode, 'P' (byte 0) must be followed by 1 byte:<ul>
+<li>Byte 1: The trigger profile to play (1-64)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>'<strong>X</strong>' (ASCII 88): <strong>Stop all playback</strong>.</li>
+<li>'<strong>L</strong>' (ASCII 76): <strong>Load a waveform</strong>. 'L' (byte 0) is followed by:<ul>
+<li>Byte 1: The waveform to load (0-63). Note: In the WavePlayer plugin, these are corrected for MATLAB's indexing (1-64).</li>
+<li>Bytes 2 - 5: The number of samples in the waveform expressed as a 32-bit integer (1-1,000,000).</li>
+<li>Bytes 6 - (6+(2*nSamples)): The waveform. Each byte is a 16-bit integer coding for a voltage in the currently selected output range.</li>
+<li>The WavePlayer module returns a byte (1) to confirm that it has finished reading the last sample.</li>
+</ul>
+</li>
+<li>'<strong>R</strong>' (ASCII 82): <strong>Set the output range</strong> (default = +/-5V). 'R' (byte 0) is followed by:<ul>
+<li>Byte 1: The range index. Range indexes are:<ul>
+<li>0: 0V to +5V</li>
+<li>1: 0V to +10V</li>
+<li>2: 0V to +12V</li>
+<li>3: -5V to +5V</li>
+<li>4: -10V to +10V</li>
+<li>5: -12V to +12V</li>
+</ul>
+</li>
+<li>The WavePlayer module returns a byte (1) to confirm that it has finished setting the range.</li>
+<li>NOTE: The waveforms are stored on the device in bits. The bits are computed for the current range. When you change the output range of the device, the waveforms already loaded will be compressed or expanded in amplitude. The <a href="../../module-documentation/waveplayer/">WavePlayer</a> plugin (MATLAB) re-loads every waveform on the device, following a range update, to enforce accurate playback of the waveform voltages.</li>
+</ul>
+</li>
+<li>'<strong>S</strong>' (ASCII 83): <strong>Set the sampling period</strong> (units = microseconds, default = 100; sampling rate = 10kHz). 'S' (byte 0) is followed by:<ul>
+<li>Bytes 1-4: Sampling period in microseconds (32-bit integer)</li>
+<li>The <a href="../../module-documentation/waveplayer/">WavePlayer</a> plugin (MATLAB) exposes sampling rate to the user, and computes sampling period before transmitting.</li>
+<li>If Loop mode is active, loop durations will be scaled with the sampling period as they are expressed in samples internally. They will need to be re-computed and re-transmitted (see next op, 'O')</li>
+</ul>
+</li>
+<li>'<strong>O</strong>' (ASCII 79): <strong>Set loop mode and loop duration</strong>. 'O' (byte 0) is followed by:<ul>
+<li>Bytes 1-4 (or 1-8 for 8-channel module): Loop mode bytes. Each byte represents a channel: 1 if using loop mode, 0 if not.</li>
+<li>Bytes 5-21 (or 9-41): Duration of looped playback on trigger for each channel (expressed in samples) as a 32-bit integer.<ul>
+<li>Note: Because loop duration is expressed in samples, it must be re-loaded following sampling rate changes (see op above, 'S')</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>'<strong>V</strong>' (ASCII 86): <strong>Set Bpod state machine event reporting</strong>. 'V' (byte 0) is followed by:<ul>
+<li>Bytes 1-4 (or 1-8 for 8-channel module): Each byte represents a channel. 1 to report the channel's events, 0 if not.</li>
+<li>Events are returned as bits to indicate each channel's playback start OR stop:<ul>
+<li>If channel 1 started (or stopped) playback on the current cycle, a byte (1) is returned to the state machine.</li>
+<li>If channels 1 and 3 started (or stopped) playback simultaneously, (5) is returned since channels 1 and 3 in binary = 1 0 1 = 5.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>'<strong>T</strong>' (ASCII 84): <strong>Set trigger mode</strong>. 'T' (byte 0) is followed by:<ul>
+<li>Byte 1: The trigger mode index:<ul>
+<li>0 = Standard mode ('P' command is followed by channel bits and waveform ID)</li>
+<li>1 = Trigger profile mode ('P' command is followed by a profile index uploaded previously with 'F' command (below)).</li>
+<li>A trigger profile specifies which waveforms to play on which channels.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>'<strong>F</strong>' (ASCII 70): <strong>Load trigger profile</strong>. 'F' (byte 0) is followed by:<ul>
+<li>Bytes 1-64: The waveform (1-64) OR 255 (no waveform) to play on channel 1 for each of 64 trigger profiles.</li>
+<li>Bytes 65:(65+(64*nChannels)): The waveform to play for each profile on channels 2:nChannels</li>
+</ul>
+</li>
+<li>'<strong>N</strong>' (ASCII 78): <strong>Retrieve current parameters</strong>. Nothing follows byte 'N'. The module replies with the following sequence of bytes:<ul>
+<li>nChannels (1 byte); number of output channels</li>
+<li>maxWaves (2 bytes; 16-bit int); maximum number of waveforms supported</li>
+<li>triggerMode (1 byte); current trigger mode (see 'T' above)</li>
+<li>triggerProfileEnable (1 byte); 0 = standard trigger mode, 1 = trigger profile mode</li>
+<li>maxTriggerProfiles (1 byte); maximum number of trigger profiles supported</li>
+<li>rangeIndex (1 byte); index of the currently selected range (see 'R' above)</li>
+<li>timerPeriod (4 bytes; 32-bit int); sampling period (in microseconds)</li>
+<li>sendBpodEvents (1 byte per channel); 0 = off, 1 = bpod event reporting (see 'V' above)</li>
+<li>loopMode (1 byte per channel) 0 = off, 1 = on (see 'O' above)</li>
+<li>loop duration (4 bytes per channel; 32-bit ints) duration of loop playback in samples (see 'O' above)</li>
+</ul>
+</li>
+<li>'<strong>H</strong>' (ASCII 72): <strong>Load hardware information</strong>. REQUIRES FIRMWARE v5 OR NEWER. 'H' (byte 0) is followed by:<ul>
+<li>hardwareVersion (1 byte); The major hardware version number</li>
+<li>circuitVersion (1 byte): The circuit board revision number</li>
+</ul>
+</li>
+</ul>
+<h2 id="examples">Examples</h2>
+<p>Play waveform# 4 on output channel 1 from an <a href="http://sites.google.com/site/sanworksdocs/arcom">ArCOM</a> serial object in MATLAB:</p>
+<div class="language-matlab highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">D</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ArCOMObject</span><span class="p">(</span><span class="s">&#39;COM43&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">115200</span><span class="p">);</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">D</span><span class="p">.</span><span class="n">write</span><span class="p">([</span><span class="s">&#39;P&#39;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="s">&#39;uint8&#39;</span><span class="p">);</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">clear</span><span class="w"> </span><span class="s">D</span>
+</span></code></pre></div>
+<p>Play waveform# 4 on output channel 1 from the Bpod state machine:</p>
+<div class="language-matlab highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">LoadSerialMessages</span><span class="p">(</span><span class="s">&#39;WavePlayer1&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{[</span><span class="s">&#39;P&#39;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">3</span><span class="p">]});</span><span class="w">  </span><span class="c">% Set serial message 1</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">sma</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">NewStateMachine</span><span class="p">();</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">sma</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">AddState</span><span class="p">(</span><span class="n">sma</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Name&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;PlaySound&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="s">&#39;Timer&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="k">...</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="s">&#39;StateChangeConditions&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s">&#39;Tup&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;exit&#39;</span><span class="p">},</span><span class="k">...</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="s">&#39;OutputActions&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s">&#39;WavePlayer1&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">});</span><span class="w"> </span><span class="c">% Sends serial message 1</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">SendStateMachine</span><span class="p">(</span><span class="n">sma</span><span class="p">);</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">RawEvents</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">RunStateMachine</span><span class="p">;</span>
+</span></code></pre></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.indexes", "content.action.edit"], "search": "../../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
+      
+    
+  </body>
+</html>
